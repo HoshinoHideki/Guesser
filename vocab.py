@@ -65,3 +65,21 @@ alphabet = {"Ա": "Capital A",
             "ֆ": "Small f",
             "և": "ew",
             }
+
+words = {"պարկ":"park",
+         "մասսաժ":"massage",
+         "անուն":"name",
+         "ազգանուն":"surname",
+         "ունենալ":"to have",
+         "դու":"you (singular)",
+         "բարի":"kind",
+         "երկու":"two",
+         "կին":"woman",
+         "մարդ":"man",
+         "դու":"you",
+         }
+
+pronouns = { "I":"Ես",
+             "You":"դու",
+
+}
