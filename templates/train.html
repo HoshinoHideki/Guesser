@@ -1,16 +1,9 @@
-<html>
-    <head>
-        <title>Language Guesser</title>
-        <script type="text/javascript">
-          function showAnswer(){
-            document.getElementById("answer").innerHTML = "The answer is \"{{back}}\""
-          }
-        </script>
-    </head>
-    <body>
-    <div id>
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
         <p>App works like this:</p>
-        <p>Guestion {{counter+1}} of {{batch|length}}</p>
+        <p>Guestion {{counter+1}} of {{data|length}}</p>
         <p>What is {{front}}?</p>
     </div>
      <form id="answer">
@@ -19,5 +12,10 @@
     <br>
     <a href="/train/next">Next.</a>
     <a href="/">Go back.</a>
-    </body>
-</html>
+
+     <script type="text/javascript">
+          function showAnswer(){
+            document.getElementById("answer").innerHTML = "The answer is \"{{back}}\""
+          }
+     </script>
+  {% endblock %}

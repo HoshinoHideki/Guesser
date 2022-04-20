@@ -1,11 +1,6 @@
-<html>
-    <head>
-        <title>Language Guesser</title>
-    <style>
+{% extends "base.html" %}
 
-    </style>
-    </head>
-    <body>
+{% block content %}
         <p>A table with armenian and english letters from database:</p>
          <a href="/">Go back.</a>
         <table border=1 style="height:500px;">
@@ -22,6 +17,4 @@
             </tr>
             {%endfor%}
         </table>
-
-    </body>
-</html>
+{% endblock %}
