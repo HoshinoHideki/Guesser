@@ -2,11 +2,17 @@
 
 <head>
     <title> Language Guesser App </title>
+    {% block style %}
     <style></style>
-
+    {% endblock %}
+    {% block script %}
+    {% endblock %}
 </head>
 
 <body>
+<a href="/train">Train.</a>
+<a href="/browse">Browse.</a>
+<hr>
     {% block content %}
     {% endblock%}
 
