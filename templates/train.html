@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 
+{% block script%}
+<script type="text/javascript">
+          function showAnswer(){
+            document.getElementById("answer").innerHTML = "The answer is \"{{back}}\""
+          }
+     </script>
+{% endblock %}
+
+
 {% block content %}
     <div>
-        <p>App works like this:</p>
+        <p>Training session.</p>
         <p>Guestion {{counter+1}} of {{data|length}}</p>
         <p>What is {{front}}?</p>
     </div>
@@ -11,6 +20,7 @@
       </form>
     <br>
     <a href="/train/next">Next.</a>
+    <br>
     <a href="/">Go back.</a>
 
      <script type="text/javascript">
@@ -18,4 +28,4 @@
             document.getElementById("answer").innerHTML = "The answer is \"{{back}}\""
           }
      </script>
-  {% endblock %}
+{% endblock %}
