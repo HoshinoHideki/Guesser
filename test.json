@@ -1,0 +1,52 @@
+{
+    "letters": [
+        {
+            "armenian": "Ծ",
+            "english": "Capital C"
+        },
+        {
+            "armenian": "ծ",
+            "english": "Small c"
+        },
+        {
+            "armenian": "Պ",
+            "english": "Capital P"
+        },
+        {
+            "armenian": "պ",
+            "english": "Small p"
+        },
+        {
+            "armenian": "Ջ",
+            "english": "Capital ǰ"
+        },
+        {
+            "armenian": "ջ",
+            "english": "Small ǰ"
+        },
+        {
+            "armenian": "Ռ",
+            "english": "Capital ṙ (RR)"
+        },
+        {
+            "armenian": "ռ",
+            "english": "Small ṙ (rr)"
+        },
+        {
+            "armenian": "Ս",
+            "english": "Capital S"
+        },
+        {
+            "armenian": "ս",
+            "english": "Small S"
+        },
+        {
+            "armenian": "Վ",
+            "english": "Capital V"
+        },
+        {
+            "armenian": "վ",
+            "english": "Small v"
+        }
+    ]
+}
