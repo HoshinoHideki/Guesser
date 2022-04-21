@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{%block content%}
+
+<form action = "/test/" method = post>
+
+{{form.armenian.label}}{{form.armenian}}
+<br>
+{{form.english.label}}{{form.english}}
+<br>
+{{form.submit}}
+</form>
+{%endblock%}
