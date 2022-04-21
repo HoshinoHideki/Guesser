@@ -5,12 +5,14 @@
          <a href="/">Go back.</a>
         <table border=1 style="height:500px;">
             <tr>
+                <td><b>Number</b></td>
                 <td><b>Armenian</b></td>
                 <td><b>English</b></td>
                 <td><b>Action</b></td>
             </tr>
             {%for item in data%}
             <tr>
+                <td><b>{{loop.index}}</b></td>
                 <td>{{item["armenian"]}}</td>
                 <td>{{item["english"]}}</td>
                 <td>Edit</td>
