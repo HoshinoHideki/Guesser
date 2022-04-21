@@ -45,6 +45,7 @@ def generate_batch(source, number, front, back):
 
 # Routing. Move to different module?
 @app.route("/")
+@app.route("/index")
 def index():
     return render_template("index.html")
 
@@ -71,7 +72,7 @@ def train_next():
     global counter, data
     counter += 1
     if counter >= (len(data)):
-        return "You are done"  # TODO: Add a whole page.
+        return render_template("/done.html")
     else:
         return render_template("train.html",
                                front=data[counter].front,
