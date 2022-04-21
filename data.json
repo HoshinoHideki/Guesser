@@ -1,0 +1,268 @@
+{
+ "alphabet": [
+  {
+   "armenian": "Ա",
+   "english": "Capital A"
+  },
+  {
+   "armenian": "Բ",
+   "english": "Capital B"
+  },
+  {
+   "armenian": "Գ",
+   "english": "Capital G"
+  },
+  {
+   "armenian": "Դ",
+   "english": "Capital D"
+  },
+  {
+   "armenian": "Ե",
+   "english": "Capital Ye"
+  },
+  {
+   "armenian": "Զ",
+   "english": "Capital Z"
+  },
+  {
+   "armenian": "Է",
+   "english": "Capital E"
+  },
+  {
+   "armenian": "Ը",
+   "english": "Capital ə"
+  },
+  {
+   "armenian": "Թ",
+   "english": "Capital T'"
+  },
+  {
+   "armenian": "Ժ",
+   "english": "Capital ž"
+  },
+  {
+   "armenian": "Ի",
+   "english": "Capital I"
+  },
+  {
+   "armenian": "Լ",
+   "english": "Capital L"
+  },
+  {
+   "armenian": "Խ",
+   "english": "Capital X"
+  },
+  {
+   "armenian": "Կ",
+   "english": "Capital K"
+  },
+  {
+   "armenian": "Հ",
+   "english": "Capital H"
+  },
+  {
+   "armenian": "Ձ",
+   "english": "Capital Dz"
+  },
+  {
+   "armenian": "Ղ",
+   "english": "Capital G'"
+  },
+  {
+   "armenian": "Ճ",
+   "english": "Capital č"
+  },
+  {
+   "armenian": "Մ",
+   "english": "Capital M"
+  },
+  {
+   "armenian": "Յ",
+   "english": "Capital Y"
+  },
+  {
+   "armenian": "Ն",
+   "english": "Capital N"
+  },
+  {
+   "armenian": "Շ",
+   "english": "Capital š"
+  },
+  {
+   "armenian": "Ո",
+   "english": "Capital Vo"
+  },
+  {
+   "armenian": "Ու",
+   "english": "Capital U"
+  },
+  {
+   "armenian": "Չ",
+   "english": "Capital čʿ"
+  },
+  {
+   "armenian": "Տ",
+   "english": "Capital T"
+  },
+  {
+   "armenian": "Ր",
+   "english": "Capital R"
+  },
+  {
+   "armenian": "Ց",
+   "english": "Capital cʿ"
+  },
+  {
+   "armenian": "Ւ",
+   "english": "Capital W"
+  },
+  {
+   "armenian": "Փ",
+   "english": "Capital P'"
+  },
+  {
+   "armenian": "Ք",
+   "english": "Capital K;"
+  },
+  {
+   "armenian": "Օ",
+   "english": "Capital O"
+  },
+  {
+   "armenian": "Ֆ",
+   "english": "Capital F"
+  },
+  {
+   "armenian": "ա",
+   "english": "Small a"
+  },
+  {
+   "armenian": "բ",
+   "english": "Small b"
+  },
+  {
+   "armenian": "գ",
+   "english": "Small g"
+  },
+  {
+   "armenian": "դ",
+   "english": "Small d"
+  },
+  {
+   "armenian": "ե",
+   "english": "Small ye"
+  },
+  {
+   "armenian": "զ",
+   "english": "Small z"
+  },
+  {
+   "armenian": "է",
+   "english": "Small e"
+  },
+  {
+   "armenian": "ը",
+   "english": "Small ə"
+  },
+  {
+   "armenian": "թ",
+   "english": "Small t'"
+  },
+  {
+   "armenian": "ժ",
+   "english": "Small ž"
+  },
+  {
+   "armenian": "ի",
+   "english": "Small i"
+  },
+  {
+   "armenian": "լ",
+   "english": "Small l"
+  },
+  {
+   "armenian": "խ",
+   "english": "Small x"
+  },
+  {
+   "armenian": "կ",
+   "english": "Small k"
+  },
+  {
+   "armenian": "հ",
+   "english": "Small h"
+  },
+  {
+   "armenian": "ձ",
+   "english": "Small dz"
+  },
+  {
+   "armenian": "ղ",
+   "english": "Small g'"
+  },
+  {
+   "armenian": "ճ",
+   "english": "Small č"
+  },
+  {
+   "armenian": "մ",
+   "english": "Small m"
+  },
+  {
+   "armenian": "յ",
+   "english": "Small y"
+  },
+  {
+   "armenian": "ն",
+   "english": "Small n"
+  },
+  {
+   "armenian": "շ",
+   "english": "Small š"
+  },
+  {
+   "armenian": "ու",
+   "english": "Small u"
+  },
+  {
+   "armenian": "չ",
+   "english": "Small čʿ"
+  },
+  {
+   "armenian": "տ",
+   "english": "Small t"
+  },
+  {
+   "armenian": "ր",
+   "english": "Small r"
+  },
+  {
+   "armenian": "ց",
+   "english": "Small cʿ"
+  },
+  {
+   "armenian": "ւ",
+   "english": "Small w"
+  },
+  {
+   "armenian": "փ",
+   "english": "Small p'"
+  },
+  {
+   "armenian": "ք",
+   "english": "Small k'"
+  },
+  {
+   "armenian": "օ",
+   "english": "Small o"
+  },
+  {
+   "armenian": "ֆ",
+   "english": "Small f"
+  },
+  {
+   "armenian": "և",
+   "english": "yev"
+  }
+ ]
+}

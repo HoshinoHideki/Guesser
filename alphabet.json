@@ -8,6 +8,22 @@
    "armenian": "ա",
    "english": "Small a"
   },
+   {
+   "armenian": "Բ",
+   "english": "Capital B"
+  },
+   {
+   "armenian": "բ",
+   "english": "Small b"
+  },
+   {
+   "armenian": "Գ",
+   "english": "Capital G"
+  },
+   {
+   "armenian": "ղ",
+   "english": "Small g'"
+  },
   {
    "armenian": "Օ",
    "english": "Capital O"
@@ -73,10 +89,6 @@
    "english": "Capital G'"
   },
   {
-   "armenian": "ղ",
-   "english": "Small g'"
-  },
-  {
    "armenian": "Թ",
    "english": "Capital T'"
   },
@@ -107,18 +119,6 @@
   {
    "armenian": "ձ",
    "english": "Small dz"
-  },
-  {
-   "armenian": "Բ",
-   "english": "Capital B"
-  },
-  {
-   "armenian": "բ",
-   "english": "Small b"
-  },
-  {
-   "armenian": "Գ",
-   "english": "Capital G"
   },
   {
    "armenian": "գ",
