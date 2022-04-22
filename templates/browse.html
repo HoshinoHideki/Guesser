@@ -3,7 +3,7 @@
 {% block content %}
         <p>Viewing deck {{deck}}:</p>
          <a href="/">Go back.</a>
-        <table border=0 style="height:500px;">
+        <table border=0 align="center" style="height:500px;">
             <tr>
                 <td><b>ID</b></td>
                 <td><b>Armenian</b></td>
@@ -15,7 +15,7 @@
                 <td>{{item["id"]}}</td>
                 <td>{{item["armenian"]}}</td>
                 <td>{{item["english"]}}</td>
-                <td><a href="/edit/{{deck}}/{{id}}">(Edit)</a></td>
+                <td><a href="/edit/{{deck}}/{{item.id}}">(Edit)</a></td>
             </tr>
             {%endfor%}
         </table>

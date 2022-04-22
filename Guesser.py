@@ -54,7 +54,7 @@ def browse_deck(deck):
 @app.route("/edit/<deck>/<int:card_id>")
 def edit_item(deck, card_id):
     for item in database[deck]:
-        if item["card_id"] == card_id:
+        if item["id"] == card_id:
             return render_template("edit.html", item=item)
 
 
