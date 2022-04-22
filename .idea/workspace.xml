@@ -13,6 +13,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -82,15 +89,16 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;G:/Мой диск/coding/Guesser&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "G:/Мой диск/coding/Guesser",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\work\coding\Guesser" />
@@ -99,7 +107,7 @@
       <recent name="D:\work\coding\Guesser\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.jsonsort">
+  <component name="RunManager" selected="Python.Guesser (1)">
     <configuration name="Guesser (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Guesser" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -184,6 +192,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="configtest" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest in Guesser.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Guesser" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -209,8 +231,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.jsonsort" />
         <item itemvalue="Python.Guesser (1)" />
+        <item itemvalue="Python.jsonsort" />
         <item itemvalue="Python tests.pytest in Guesser.py" />
         <item itemvalue="Python.demo" />
         <item itemvalue="Python.jsonny" />
