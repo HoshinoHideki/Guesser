@@ -66,20 +66,19 @@ alphabet = {"Ա": "Capital A",
             "և": "ew",
             }
 
-words = {"պարկ":"park",
-         "մասսաժ":"massage",
-         "անուն":"name",
-         "ազգանուն":"surname",
-         "ունենալ":"to have",
-         "դու":"you (singular)",
-         "բարի":"kind",
-         "երկու":"two",
-         "կին":"woman",
-         "մարդ":"man",
-         "դու":"you",
+words = {"պարկ": "park",
+         "մասսաժ": "massage",
+         "անուն": "name",
+         "ազգանուն": "surname",
+         "ունենալ": "to have",
+         "բարի": "kind",
+         "երկու": "two",
+         "կին": "woman",
+         "մարդ": "man",
+         "դու": "you",
          }
 
-pronouns = { "I":"Ես",
-             "You":"դու",
+pronouns = {"I": "Ես",
+            "You": "դու",
 
-}
+            }

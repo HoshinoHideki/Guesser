@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-        <p>A table with armenian and english letters from database:</p>
+        <p>Viewing deck {{deck}}:</p>
          <a href="/">Go back.</a>
-        <table border=1 style="height:500px;">
+        <table border=0 style="height:500px;">
             <tr>
-                <td><b>Number</b></td>
+                <td><b>ID</b></td>
                 <td><b>Armenian</b></td>
                 <td><b>English</b></td>
                 <td><b>Action</b></td>
             </tr>
             {%for item in data%}
             <tr>
-                <td><b>{{loop.index}}</b></td>
+                <td>{{item["id"]}}</td>
                 <td>{{item["armenian"]}}</td>
                 <td>{{item["english"]}}</td>
-                <td>Edit</td>
+                <td><a href="/edit/{{deck}}/{{id}}">(Edit)</a></td>
             </tr>
             {%endfor%}
         </table>

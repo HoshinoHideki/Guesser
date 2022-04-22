@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block style %}
+#id {text-align:right}
+table, td {
+        border:1px solid;,
+        }
+table {border-collapse:collapse;}
+{% endblock %}
+
+
+{%block content%}
+
+<table>
+    <colgroup>
+        <col span="1" id="id">
+    </colgroup>
+    <tr>
+
+        <td><b>ID</b></td>
+        <td>{{item["id"]}}</td>
+    </tr>
+    <tr>
+        <td><b>Armenian</b></td>
+        <td>{{item["armenian"]}}</td>
+    </tr>
+    <tr>
+        <td><b>English</b></td>
+        <td>{{item["english"]}}</td>
+    </tr>
+</table>
+{% endblock %}

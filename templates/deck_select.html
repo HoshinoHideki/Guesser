@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+Select deck:
+{%for item in decks%}
+
+<a href="browse/{{item}}">{{item}}</a>
+{%endfor%}
+{% endblock %}
