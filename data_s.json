@@ -1,0 +1,479 @@
+{
+    "alphabet": [
+        {
+            "key_armenian": "Ա",
+            "key_english": "Capital A",
+            "id": "0",
+            "data": {}
+        },
+        {
+            "key_armenian": "Բ",
+            "key_english": "Capital B",
+            "id": "1",
+            "data": {}
+        },
+        {
+            "key_armenian": "Գ",
+            "key_english": "Capital G",
+            "id": "2",
+            "data": {}
+        },
+        {
+            "key_armenian": "Դ",
+            "key_english": "Capital D",
+            "id": "3",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ե",
+            "key_english": "Capital Ye",
+            "id": "4",
+            "data": {}
+        },
+        {
+            "key_armenian": "Զ",
+            "key_english": "Capital Z",
+            "id": "5",
+            "data": {}
+        },
+        {
+            "key_armenian": "Է",
+            "key_english": "Capital E",
+            "id": "6",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ը",
+            "key_english": "Capital Ə",
+            "id": "7",
+            "data": {}
+        },
+        {
+            "key_armenian": "Թ",
+            "key_english": "Capital T'",
+            "id": "8",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ժ",
+            "key_english": "Capital ž",
+            "id": "9",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ի",
+            "key_english": "Capital I",
+            "id": "10",
+            "data": {}
+        },
+        {
+            "key_armenian": "Լ",
+            "key_english": "Capital L",
+            "id": "11",
+            "data": {}
+        },
+        {
+            "key_armenian": "Խ",
+            "key_english": "Capital X",
+            "id": "12",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ծ",
+            "key_english": "Capital C",
+            "id": "13",
+            "data": {}
+        },
+        {
+            "key_armenian": "Կ",
+            "key_english": "Capital K",
+            "id": "14",
+            "data": {}
+        },
+        {
+            "key_armenian": "Հ",
+            "key_english": "Capital H",
+            "id": "15",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ձ",
+            "key_english": "Capital Dz",
+            "id": "16",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ղ",
+            "key_english": "Capital G'",
+            "id": "17",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ճ",
+            "key_english": "Capital č",
+            "id": "18",
+            "data": {}
+        },
+        {
+            "key_armenian": "Մ",
+            "key_english": "Capital M",
+            "id": "19",
+            "data": {}
+        },
+        {
+            "key_armenian": "Յ",
+            "key_english": "Capital Y",
+            "id": "20",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ն",
+            "key_english": "Capital N",
+            "id": "21",
+            "data": {}
+        },
+        {
+            "key_armenian": "Շ",
+            "key_english": "Capital š",
+            "id": "22",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ո",
+            "key_english": "Capital Vo",
+            "id": "23",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ու",
+            "key_english": "Capital U",
+            "id": "24",
+            "data": {}
+        },
+        {
+            "key_armenian": "Չ",
+            "key_english": "Capital čʿ",
+            "id": "25",
+            "data": {}
+        },
+        {
+            "key_armenian": "Պ",
+            "key_english": "Capital P",
+            "id": "26",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ջ",
+            "key_english": "Capital ǰ",
+            "id": "27",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ռ",
+            "key_english": "Capital ṙ (RR)",
+            "id": "28",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ս",
+            "key_english": "Capital S",
+            "id": "29",
+            "data": {}
+        },
+        {
+            "key_armenian": "Վ",
+            "key_english": "Capital V",
+            "id": "30",
+            "data": {}
+        },
+        {
+            "key_armenian": "Տ",
+            "key_english": "Capital T",
+            "id": "31",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ր",
+            "key_english": "Capital R",
+            "id": "32",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ց",
+            "key_english": "Capital cʿ",
+            "id": "33",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ւ",
+            "key_english": "Capital W",
+            "id": "34",
+            "data": {}
+        },
+        {
+            "key_armenian": "Փ",
+            "key_english": "Capital P'",
+            "id": "35",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ք",
+            "key_english": "Capital K;",
+            "id": "36",
+            "data": {}
+        },
+        {
+            "key_armenian": "Օ",
+            "key_english": "Capital O",
+            "id": "37",
+            "data": {}
+        },
+        {
+            "key_armenian": "Ֆ",
+            "key_english": "Capital F",
+            "id": "38",
+            "data": {}
+        },
+        {
+            "key_armenian": "ա",
+            "key_english": "Small a",
+            "id": "39",
+            "data": {}
+        },
+        {
+            "key_armenian": "բ",
+            "key_english": "Small b",
+            "id": "40",
+            "data": {}
+        },
+        {
+            "key_armenian": "գ",
+            "key_english": "Small g",
+            "id": "41",
+            "data": {}
+        },
+        {
+            "key_armenian": "դ",
+            "key_english": "Small d",
+            "id": "42",
+            "data": {}
+        },
+        {
+            "key_armenian": "ե",
+            "key_english": "Small ye",
+            "id": "43",
+            "data": {}
+        },
+        {
+            "key_armenian": "զ",
+            "key_english": "Small z",
+            "id": "44",
+            "data": {}
+        },
+        {
+            "key_armenian": "է",
+            "key_english": "Small e",
+            "id": "45",
+            "data": {}
+        },
+        {
+            "key_armenian": "ը",
+            "key_english": "Small ə",
+            "id": "46",
+            "data": {}
+        },
+        {
+            "key_armenian": "թ",
+            "key_english": "Small t'",
+            "id": "47",
+            "data": {}
+        },
+        {
+            "key_armenian": "ժ",
+            "key_english": "Small ž",
+            "id": "48",
+            "data": {}
+        },
+        {
+            "key_armenian": "ի",
+            "key_english": "Small i",
+            "id": "49",
+            "data": {}
+        },
+        {
+            "key_armenian": "լ",
+            "key_english": "Small l",
+            "id": "50",
+            "data": {}
+        },
+        {
+            "key_armenian": "խ",
+            "key_english": "Small x",
+            "id": "51",
+            "data": {}
+        },
+        {
+            "key_armenian": "ծ",
+            "key_english": "Small c",
+            "id": "52",
+            "data": {}
+        },
+        {
+            "key_armenian": "կ",
+            "key_english": "Small k",
+            "id": "53",
+            "data": {}
+        },
+        {
+            "key_armenian": "հ",
+            "key_english": "Small h",
+            "id": "54",
+            "data": {}
+        },
+        {
+            "key_armenian": "ձ",
+            "key_english": "Small dz",
+            "id": "55",
+            "data": {}
+        },
+        {
+            "key_armenian": "ղ",
+            "key_english": "Small g'",
+            "id": "56",
+            "data": {}
+        },
+        {
+            "key_armenian": "ճ",
+            "key_english": "Small č",
+            "id": "57",
+            "data": {}
+        },
+        {
+            "key_armenian": "մ",
+            "key_english": "Small m",
+            "id": "58",
+            "data": {}
+        },
+        {
+            "key_armenian": "յ",
+            "key_english": "Small y",
+            "id": "59",
+            "data": {}
+        },
+        {
+            "key_armenian": "ն",
+            "key_english": "Small n",
+            "id": "60",
+            "data": {}
+        },
+        {
+            "key_armenian": "շ",
+            "key_english": "Small š",
+            "id": "61",
+            "data": {}
+        },
+        {
+            "key_armenian": "ո",
+            "key_english": "Small vo",
+            "id": "62",
+            "data": {}
+        },
+        {
+            "key_armenian": "ու",
+            "key_english": "Small u",
+            "id": "63",
+            "data": {}
+        },
+        {
+            "key_armenian": "չ",
+            "key_english": "Small čʿ",
+            "id": "64",
+            "data": {}
+        },
+        {
+            "key_armenian": "պ",
+            "key_english": "Small p",
+            "id": "65",
+            "data": {}
+        },
+        {
+            "key_armenian": "ջ",
+            "key_english": "Small ǰ",
+            "id": "66",
+            "data": {}
+        },
+        {
+            "key_armenian": "ռ",
+            "key_english": "Small ṙ (rr)",
+            "id": "67",
+            "data": {}
+        },
+        {
+            "key_armenian": "ս",
+            "key_english": "Small S",
+            "id": "68",
+            "data": {}
+        },
+        {
+            "key_armenian": "վ",
+            "key_english": "Small v",
+            "id": "69",
+            "data": {}
+        },
+        {
+            "key_armenian": "տ",
+            "key_english": "Small t",
+            "id": "70",
+            "data": {}
+        },
+        {
+            "key_armenian": "ր",
+            "key_english": "Small r",
+            "id": "71",
+            "data": {}
+        },
+        {
+            "key_armenian": "ց",
+            "key_english": "Small cʿ",
+            "id": "72",
+            "data": {}
+        },
+        {
+            "key_armenian": "ւ",
+            "key_english": "Small w",
+            "id": "73",
+            "data": {}
+        },
+        {
+            "key_armenian": "փ",
+            "key_english": "Small p'",
+            "id": "74",
+            "data": {}
+        },
+        {
+            "key_armenian": "ք",
+            "key_english": "Small k'",
+            "id": "75",
+            "data": {}
+        },
+        {
+            "key_armenian": "օ",
+            "key_english": "Small o",
+            "id": "76",
+            "data": {}
+        },
+        {
+            "key_armenian": "ֆ",
+            "key_english": "Small f",
+            "id": "77",
+            "data": {}
+        },
+        {
+            "key_armenian": "և",
+            "key_english": "yev",
+            "id": "78",
+            "data": {}
+        }
+    ],
+    "vocabulary": {}
+}

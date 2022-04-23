@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+Select language:
+<br>
+{%for lang in langs%}
+<a href="/train/{{deck}}/{{lang}}">{{lang}}</a>
+<br>
+{%endfor%}
+{% endblock %}

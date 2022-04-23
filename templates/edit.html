@@ -10,23 +10,30 @@ table {border-collapse:collapse;}
 
 
 {%block content%}
-
+<form action="" method="post">
 <table>
     <colgroup>
         <col span="1" id="id">
     </colgroup>
+    {%for field in fields%}
     <tr>
-
-        <td><b>ID</b></td>
-        <td>{{item["id"]}}</td>
+        <td><b>
+            <label>{{field}}:</label>
+        </b></td>
+        <td>
+            {% if field == 'id' %}
+            <input type="number" name="{{field}}" value="{{item[field]}}" readonly>
+            {%else%}
+            <input type="text" name="{{field}}" value="{{item[field]}}">
+            {%endif%}
+        </td>
     </tr>
+    {%endfor%}
     <tr>
-        <td><b>Armenian</b></td>
-        <td>{{item["armenian"]}}</td>
+        <td colspan="2">
+        <input type="submit" value="Edit">
+        </td>
     </tr>
-    <tr>
-        <td><b>English</b></td>
-        <td>{{item["english"]}}</td>
-    </tr>
-</table>
+   </table>
+       </form>
 {% endblock %}
