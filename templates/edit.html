@@ -10,7 +10,7 @@ table {border-collapse:collapse;}
 
 
 {%block content%}
-<form action="" method="post">
+<form action="" method="POST">
 <table>
     <colgroup>
         <col span="1" id="id">
@@ -22,9 +22,9 @@ table {border-collapse:collapse;}
         </b></td>
         <td>
             {% if field == 'id' %}
-            <input type="number" name="{{field}}" value="{{item[field]}}" readonly>
+            <input type="number" name="{{field}}" value="{{card[field]}}" readonly>
             {%else%}
-            <input type="text" name="{{field}}" value="{{item[field]}}">
+            <input type="text" name="{{field}}" value="{{card[field]}}">
             {%endif%}
         </td>
     </tr>
