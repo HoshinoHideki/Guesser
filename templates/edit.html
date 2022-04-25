@@ -6,29 +6,45 @@ table, td {
         border:1px solid;,
         }
 table {border-collapse:collapse;}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 {% endblock %}
 
 
 {%block content%}
 <form action="" method="POST">
-<table>
+<table class="center">
     <colgroup>
         <col span="1" id="id">
     </colgroup>
-    {%for field in fields%}
     <tr>
         <td><b>
-            <label>{{field}}:</label>
+            <label>{{fields.0}}:</label>
         </b></td>
         <td>
-            {% if field == 'id' %}
-            <input type="number" name="{{field}}" value="{{card[field]}}" readonly>
-            {%else%}
-            <input type="text" name="{{field}}" value="{{card[field]}}">
-            {%endif%}
+            <input type="text" name="card_id" value="{{card.card_id}}" readonly>
         </td>
     </tr>
-    {%endfor%}
+    <tr>
+        <td><b>
+            <label>{{fields.1}}:</label>
+        </b></td>
+        <td>
+            <input type="text" name="key_0" value="{{card.key_0}}">
+        </td>
+    </tr>
+    <tr>
+        <td><b>
+            <label>{{fields.2}}:</label>
+        </b></td>
+        <td>
+            <input type="text" name="key_1" value="{{card.key_1}}">
+        </td>
+    </tr>
     <tr>
         <td colspan="2">
         <input type="submit" value="Edit">

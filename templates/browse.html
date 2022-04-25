@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-        <p>Viewing deck {{deckname}}:</p>
+        <p>Viewing deck {{deck}}:</p>
          <a href="/">Go back.</a>
         <table border=0 align="center" style="height:500px;">
             <tr>
-                {%for field in fields%}
-                <td><b>{{field}}</b></td>
-                {%endfor%}
+                <td><b>ID</b></td>
+                <td><b>{{fields.1}}</b></td>
+                <td><b>{{fields.2}}</b></td>
                 <td><b>Action</b></td>
             </tr>
-            {%for item in deck%}
+            {%for item in cards%}
             <tr>
-                {%for field in fields%}
-                <td>{{item[field]}}</td>
-                {%endfor%}
-                <td><a href="/edit/{{deck}}/{{item.id}}">(Edit)</a></td>
+                <td>{{item.card_id}}</td>
+                <td>{{item.key_0}}</td>
+                <td>{{item.key_1}}</td>
+                <td><a href="/browse/{{deck}}/{{item.card_id}}">(Edit)</a></td>
             </tr>
             {%endfor%}
         </table>

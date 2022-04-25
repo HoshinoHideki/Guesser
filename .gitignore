@@ -4,3 +4,4 @@ __pycache__
 .idea/configtest.iml
 .idea/modules.xml
 .idea/workspace.xml
+*.xml
