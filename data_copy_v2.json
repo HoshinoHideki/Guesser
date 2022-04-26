@@ -172,7 +172,7 @@
         },
         {
             "key_0": "Ի",
-            "key_1": "Capital I",
+            "key_1": "I",
             "card_id": "10",
             "lang_data": [
                 "armenian",
@@ -189,7 +189,7 @@
         },
         {
             "key_0": "Լ",
-            "key_1": "Capital L",
+            "key_1": "L",
             "card_id": "11",
             "lang_data": [
                 "armenian",
@@ -206,7 +206,7 @@
         },
         {
             "key_0": "Խ",
-            "key_1": "Capital X",
+            "key_1": "X",
             "card_id": "12",
             "lang_data": [
                 "armenian",
@@ -223,7 +223,7 @@
         },
         {
             "key_0": "Ծ",
-            "key_1": "Capital C",
+            "key_1": "C",
             "card_id": "13",
             "lang_data": [
                 "armenian",
@@ -240,7 +240,7 @@
         },
         {
             "key_0": "Կ",
-            "key_1": "Capital K",
+            "key_1": "K",
             "card_id": "14",
             "lang_data": [
                 "armenian",
@@ -257,7 +257,7 @@
         },
         {
             "key_0": "Հ",
-            "key_1": "Capital H",
+            "key_1": "H",
             "card_id": "15",
             "lang_data": [
                 "armenian",
@@ -274,7 +274,7 @@
         },
         {
             "key_0": "Ձ",
-            "key_1": "Capital Dz",
+            "key_1": "Dz",
             "card_id": "16",
             "lang_data": [
                 "armenian",
@@ -325,7 +325,7 @@
         },
         {
             "key_0": "Մ",
-            "key_1": "Capital M",
+            "key_1": "M",
             "card_id": "19",
             "lang_data": [
                 "armenian",
@@ -342,7 +342,7 @@
         },
         {
             "key_0": "Յ",
-            "key_1": "Capital Y",
+            "key_1": "Y",
             "card_id": "20",
             "lang_data": [
                 "armenian",
@@ -359,7 +359,7 @@
         },
         {
             "key_0": "Ն",
-            "key_1": "Capital N",
+            "key_1": "N",
             "card_id": "21",
             "lang_data": [
                 "armenian",
@@ -393,7 +393,7 @@
         },
         {
             "key_0": "Ո",
-            "key_1": "Capital Vo",
+            "key_1": "Vo",
             "card_id": "23",
             "lang_data": [
                 "armenian",
@@ -410,7 +410,7 @@
         },
         {
             "key_0": "Ու",
-            "key_1": "Capital U",
+            "key_1": "U",
             "card_id": "24",
             "lang_data": [
                 "armenian",
@@ -444,7 +444,7 @@
         },
         {
             "key_0": "Պ",
-            "key_1": "Capital P",
+            "key_1": "P",
             "card_id": "26",
             "lang_data": [
                 "armenian",
@@ -495,7 +495,7 @@
         },
         {
             "key_0": "Ս",
-            "key_1": "Capital S",
+            "key_1": "S",
             "card_id": "29",
             "lang_data": [
                 "armenian",
@@ -512,7 +512,7 @@
         },
         {
             "key_0": "Վ",
-            "key_1": "Capital V",
+            "key_1": "V",
             "card_id": "30",
             "lang_data": [
                 "armenian",
@@ -529,7 +529,7 @@
         },
         {
             "key_0": "Տ",
-            "key_1": "Capital T",
+            "key_1": "T",
             "card_id": "31",
             "lang_data": [
                 "armenian",
@@ -546,7 +546,7 @@
         },
         {
             "key_0": "Ր",
-            "key_1": "Capital R",
+            "key_1": "R",
             "card_id": "32",
             "lang_data": [
                 "armenian",
@@ -563,7 +563,7 @@
         },
         {
             "key_0": "Ց",
-            "key_1": "Capital Cʿ",
+            "key_1": "Cʿ",
             "card_id": "33",
             "lang_data": [
                 "armenian",
@@ -580,7 +580,7 @@
         },
         {
             "key_0": "Ւ",
-            "key_1": "Capital W",
+            "key_1": "W",
             "card_id": "34",
             "lang_data": [
                 "armenian",
@@ -597,7 +597,7 @@
         },
         {
             "key_0": "Փ",
-            "key_1": "Capital Pʿ",
+            "key_1": "Pʿ",
             "card_id": "35",
             "lang_data": [
                 "armenian",
@@ -631,7 +631,7 @@
         },
         {
             "key_0": "Օ",
-            "key_1": "Capital O",
+            "key_1": "O",
             "card_id": "37",
             "lang_data": [
                 "armenian",
@@ -648,7 +648,7 @@
         },
         {
             "key_0": "Ֆ",
-            "key_1": "Capital F",
+            "key_1": "F",
             "card_id": "38",
             "lang_data": [
                 "armenian",
@@ -665,7 +665,7 @@
         },
         {
             "key_0": "ա",
-            "key_1": "Small a",
+            "key_1": "a",
             "card_id": "39",
             "lang_data": [
                 "armenian",
@@ -682,7 +682,7 @@
         },
         {
             "key_0": "բ",
-            "key_1": "Small b",
+            "key_1": "b",
             "card_id": "40",
             "lang_data": [
                 "armenian",
@@ -699,7 +699,7 @@
         },
         {
             "key_0": "գ",
-            "key_1": "Small g",
+            "key_1": "g",
             "card_id": "41",
             "lang_data": [
                 "armenian",
@@ -716,7 +716,7 @@
         },
         {
             "key_0": "դ",
-            "key_1": "Small d",
+            "key_1": "d",
             "card_id": "42",
             "lang_data": [
                 "armenian",
@@ -1344,5 +1344,40 @@
             }
         }
     ],
-    "vocabulary": {}
+    "vocabulary": [
+        {
+            "key_0": "Ես",
+            "key_1": "I",
+            "card_id": "0",
+            "lang_data": [
+                "armenian",
+                "english"
+            ],
+            "key_0_data": {
+                "last_date": "",
+                "next_date": ""
+            },
+            "key_1_data": {
+                "last_date": "",
+                "next_date": ""
+            }
+        },
+        {
+            "key_0": "You",
+            "key_1": "դու",
+            "card_id": "1",
+            "lang_data": [
+                "armenian",
+                "english"
+            ],
+            "key_0_data": {
+                "last_date": "",
+                "next_date": ""
+            },
+            "key_1_data": {
+                "last_date": "",
+                "next_date": ""
+            }
+        }
+    ]
 }

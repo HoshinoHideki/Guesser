@@ -3,9 +3,9 @@
 {% block content %}
 Select deck:
 <br>
-{%for item in decks%}
+{%for deck in decks%}
 
-<a href="/browse/{{item}}">{{item}}</a>
+<a href="/browse/{{deck}}">{{deck}}</a>
 <br>
 {%endfor%}
 {% endblock %}

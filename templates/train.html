@@ -5,29 +5,31 @@
 {% endblock %}
 
 {% block script%}
-<script type="text/javascript">
-function showAnswer() {
-    "use strict";
-    var x = document.getElementById("answer"),
-        y = document.getElementById("nextbutton");
-    x.innerHTML = 'The answer is \"{{back}}\"';
-    y.style.display = "block";
-    }
-     </script>
-{% endblock %}
+<script>
+$(document).ready(function(){
+  $("#check").click(function(){
+    $("#check").hide();
+    $("#answer").show();
+  });
+});
+</script>
 
+{% endblock %}
 
 {% block content %}
     <div>
         <p>Training session.</p>
-        <p>What is {{front}}?</p>
+        <p>What is:</p>
+        <div>
+            <h1>{{front}}</h1>
+                </div>
     </div>
-     <form id="answer">
-         <input type = "button" onclick = "showAnswer()" value = "Check">
-      </form>
-    <br>
-    <div id="nextbutton">
-        <a href="/train/{{deckname}}/{{lang}}">Next.</a>
+    <button id="check">Check the answer</button>
+    <div id="answer" hidden>
+        The answer is:
+        <h1>{{back}}</h1>
+        <br>
+        <a href="/train/{{deckname}}/{{lang}}">Next</a>
     </div>
     <br>
 {% endblock %}

@@ -31,7 +31,7 @@ def browse_deck(deck):
     deckname = a string with the name of deck."""
     cards = load_deck(deck)
     fields = get_fields(deck)
-    return render_template("browse.html",
+    return render_template("browse_deck.html",
                            deck=deck,
                            cards=cards,
                            fields=fields)
@@ -51,10 +51,12 @@ def edit_item(deckname, card_id):
     if request.method == "GET":
         fields = get_fields(deckname)
         card = find_item(card_id, deckname)
-        return render_template("edit.html", card=card, fields=fields)
+        return render_template("browse_deck_item.html",
+                               card=card,
+                               fields=fields)
     if request.method == "POST":
         update_item(deckname, request.form["card_id"], request.form)
-        return "done"
+        return "Item edited."
 
 
 @app.route("/train/<deck>/front_select/")
@@ -93,6 +95,13 @@ def train_deck(deckname, front):
                            back=card.back,
                            deckname=deckname,
                            lang=front)
+
+
+@app.route("/test/", methods=["GET", "POST"])
+def test_page():
+    if request.method == "GET":
+        return render_template("testbutton.html")
+    pass
 
 
 # Start frontend
