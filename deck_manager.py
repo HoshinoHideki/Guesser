@@ -38,6 +38,14 @@ def find_item(item_id, deck):
 
 
 def update_item(deck, item_id, data):
+    """
+    Gets access to the database, finds an item with corresponding id and
+    updates values.
+    :param deck: string containing name of the deck
+    :param item_id: id string to compare with.
+    :param data: data dict fetched from the form.
+    :return: Doesn't return anything.
+    """
     database = load_database()
     deck = database[deck]
     for item in deck:
@@ -55,17 +63,23 @@ def update_item(deck, item_id, data):
 
 
 def list_langs(field_list):
-    """takes a list of fields, filters them out"""
+    """takes a list of fields, filters "id" out"""
     return field_list[1:]
 
 
 def load_deck(deck):
+    """
+    Shortcut function for loading a specific deck from database.
+    :param deck: name of the deck.
+    :return: returns a deck: list of dicts.
+    """
     database = load_database()
     deck = database[deck]
     return deck
 
 
 def list_decks():
+    """Returns a list containing strings of deck names."""
     database = load_database()
     decks = []
     for key in database.keys():
@@ -75,6 +89,7 @@ def list_decks():
 
 
 def load_database():
+    """This gets called every time some changes are made in the database."""
     with open(DATABASE, "r", encoding="utf-8") as file:
         database = json.load(file)
     return database
