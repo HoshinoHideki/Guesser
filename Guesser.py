@@ -23,18 +23,28 @@ def browse():
     return render_template("deck_select.html", decks=decks)
 
 
-@app.route("/browse/<deck>/")
+@app.route("/browse/<deck>/", methods=["POST", "GET"])
 def browse_deck(deck):
     """Displays a table of all entries in a select deck.
     deck = a list of dictionaries. Used for building table.
     fields = a list of column names.
     deckname = a string with the name of deck."""
-    cards = load_deck(deck)
-    fields = get_fields(deck)
-    return render_template("browse_deck.html",
-                           deck=deck,
-                           cards=cards,
-                           fields=fields)
+    if request.method == "GET":
+        cards = load_deck(deck)
+        fields = get_fields(deck)
+        return render_template("browse_deck.html",
+                               deck=deck,
+                               cards=cards,
+                               fields=fields)
+
+    if request.method == "POST":
+        update_item(deck, request.form["card_id"], request.form)
+        cards = load_deck(deck)
+        fields = get_fields(deck)
+        return render_template("browse_deck.html",
+                               deck=deck,
+                               cards=cards,
+                               fields=fields)
 
 
 @app.route("/browse/<deckname>/<card_id>/", methods=["POST", "GET"])
@@ -54,6 +64,7 @@ def edit_item(deckname, card_id):
         return render_template("browse_deck_item.html",
                                card=card,
                                fields=fields)
+
     if request.method == "POST":
         update_item(deckname, request.form["card_id"], request.form)
         return "Item edited."
@@ -66,7 +77,7 @@ def deck_lang_select(deck):
     langs: list object containing sorted language pair."""
 
     langs = list_langs(get_fields(deck))
-    return render_template("train_select_lang.html", deck=deck, langs=langs)
+    return render_template("train_deck_front.html", deck=deck, langs=langs)
 
 
 @app.route("/train/")
@@ -76,7 +87,7 @@ def train():
     decks: list object containing string names of available decks.
     """
     decks = list_decks()
-    return render_template("train_select_deck.html", decks=decks)
+    return render_template("train_deck.html", decks=decks)
 
 
 @app.route("/train/<deckname>/<front>")
