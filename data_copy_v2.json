@@ -512,7 +512,7 @@
         },
         {
             "key_0": "Վ",
-            "key_1": "V",
+            "key_1": "VV",
             "card_id": "30",
             "lang_data": [
                 "armenian",
@@ -733,7 +733,7 @@
         },
         {
             "key_0": "ե",
-            "key_1": "Small ye",
+            "key_1": "ye",
             "card_id": "43",
             "lang_data": [
                 "armenian",
@@ -750,7 +750,7 @@
         },
         {
             "key_0": "զ",
-            "key_1": "Small z",
+            "key_1": "z",
             "card_id": "44",
             "lang_data": [
                 "armenian",
@@ -767,7 +767,7 @@
         },
         {
             "key_0": "է",
-            "key_1": "Small e",
+            "key_1": "e",
             "card_id": "45",
             "lang_data": [
                 "armenian",
@@ -784,7 +784,7 @@
         },
         {
             "key_0": "ը",
-            "key_1": "Small ə",
+            "key_1": "ə",
             "card_id": "46",
             "lang_data": [
                 "armenian",
@@ -801,7 +801,7 @@
         },
         {
             "key_0": "թ",
-            "key_1": "Small tʿ",
+            "key_1": "tʿ",
             "card_id": "47",
             "lang_data": [
                 "armenian",
@@ -818,7 +818,7 @@
         },
         {
             "key_0": "ժ",
-            "key_1": "Small ž",
+            "key_1": "ž",
             "card_id": "48",
             "lang_data": [
                 "armenian",
@@ -835,7 +835,7 @@
         },
         {
             "key_0": "ի",
-            "key_1": "Small i",
+            "key_1": "i",
             "card_id": "49",
             "lang_data": [
                 "armenian",
@@ -852,7 +852,7 @@
         },
         {
             "key_0": "լ",
-            "key_1": "Small l",
+            "key_1": "l",
             "card_id": "50",
             "lang_data": [
                 "armenian",
