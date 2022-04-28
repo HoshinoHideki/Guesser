@@ -1,0 +1,58 @@
+.topnav {
+    background-color:   AliceBlue;
+    }
+
+.topnav a {
+    text-align:         center;
+    padding:            1px 4px;
+    font-size:          17px;
+    text-decoration:    none;
+    border:             2px solid black;
+    border-radius:      5px;
+    color:              black;
+    }
+
+.topnav a:hover {
+    background-color:   Aquamarine;
+    color:              black;
+    }
+
+.table-container {
+    height:             300px;
+    overflow:           auto;
+    width:              30%;
+    margin-left:        auto;
+    margin-right:       auto;
+
+    }
+
+.table {
+    position:           sticky;
+    width:              100%;
+    }
+
+.table form {
+    height:             10px;
+    }
+
+#button {
+    justify-content:    center;
+    align-items:        center;
+    }
+
+tbody>tr>:nth-child(1) {
+    font-weight: bold;
+    }
+
+body {
+    text-align:         center;
+    background-color:   AliceBlue;
+    }
+
+table, th, td {
+    border:             1px solid;
+    border-collapse:    collapse;
+    font-size:          12;
+    margin-left:        auto;
+    margin-right:       auto;
+    }

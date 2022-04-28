@@ -2,44 +2,30 @@
 
 <head>
     <title> Language Guesser App </title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
-        .topnav{
-            background-color: AliceBlue;
-            }
+    <link href="/static/css/style.css" rel="stylesheet">
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script>
 
-        {% block style %}
-        {% endblock %}
+    {%block script%}
+    {%endblock%}
 
-        .topnav a {
-            text-align: center;
-            padding: 1px 4px;
-            font-size: 17px;
-            text-decoration: none;
-            border: 2px solid black;
-            border-radius: 5px;
-            color:black;
-            }
-
-        .topnav a:hover {
-            background-color: Aquamarine;
-            color: black;
-            }
-
-    </style>
-    {% block script %}
+    {% block style %}
     {% endblock %}
+
 </head>
 
-<body style="text-align:center; background-color:AliceBlue">
-    <div class="topnav" style="text-align:center">
-         <a href="/index">Home</a>
+<body>
+    <div class="topnav">
+        <a href="{{url_for('index')}}">Home</a>
         <a href="/train">Train</a>
         <a href="/browse">Browse</a>
-</div>
+    </div>
     <hr>
+
     {% block content %}
     {% endblock%}
+
 </body>
 
 </html>

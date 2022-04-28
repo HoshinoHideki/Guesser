@@ -1,9 +1,24 @@
 {% extends "base.html" %}
 
+{% block script %}
+<script>
+$(document).ready(function(){
+  $(".item").submit(function(a){
+    var link = $(this).closest(".item").attr("action");
+    a.preventDefault();
+    $(edit_item_container).load(link);
+  });
+});
+
+</script>
+{% endblock %}
+
+
+
 {% block content %}
         <p>Viewing deck {{deck}}:</p>
-         <a href="/">Go back.</a>
-        <table border=0 align="center" style="height:500px;">
+        <div class="table-container">
+        <table class="table">
             <tr>
                 <th>ID</th>
                 <th>{{fields.1}}</th>
@@ -15,8 +30,19 @@
                 <td>{{item.card_id}}</td>
                 <td>{{item.key_0}}</td>
                 <td>{{item.key_1}}</td>
-                <td><a href="/browse/{{deck}}/{{item.card_id}}">(Edit)</a></td>
+                <td>
+                    <form
+                        class = "item" 
+                        action="/browse/{{deck}}/{{item.card_id}}"
+                        method="get">
+                        <input type="submit" value="Edit">
+                    </form>
+                </td>
             </tr>
             {%endfor%}
         </table>
+        </div>
+        <div id="edit_item_container">
+
+        </div>    
 {% endblock %}
