@@ -21,7 +21,7 @@ def browse():
     decks = list of deck name strings."""
 
     decks = list_decks()
-    return render_template("deck_select.html", decks=decks)
+    return render_template("browse/deck_select.html", decks=decks)
 
 
 @app.route("/browse/<deck>/", methods=["POST", "GET"])
@@ -33,7 +33,7 @@ def browse_deck(deck):
     if request.method == "GET":
         cards = load_deck(deck)
         fields = get_fields(deck)
-        return render_template("browse_deck.html",
+        return render_template("browse/deck.html",
                                deck=deck,
                                cards=cards,
                                fields=fields)
@@ -62,7 +62,7 @@ def edit_item(deckname, card_id):
     if request.method == "GET":
         fields = get_fields(deckname)
         card = find_item(card_id, deckname)
-        return render_template("browse_deck_item.html",
+        return render_template("browse/item.html",
                                card=card,
                                fields=fields)
 
@@ -78,7 +78,7 @@ def deck_lang_select(deck):
     langs: list object containing sorted language pair."""
 
     langs = list_langs(get_fields(deck))
-    return render_template("train_deck_front.html", deck=deck, langs=langs)
+    return render_template("train/choose_front.html", deck=deck, langs=langs)
 
 
 @app.route("/train/")
@@ -88,7 +88,7 @@ def train():
     decks: list object containing string names of available decks.
     """
     decks = list_decks()
-    return render_template("train_deck.html", decks=decks)
+    return render_template("train/choose_deck.html", decks=decks)
 
 
 @app.route("/train/<deckname>/<front>")
