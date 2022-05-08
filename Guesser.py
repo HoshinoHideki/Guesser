@@ -37,15 +37,10 @@ def browse_deck(deck):
                                deck=deck,
                                cards=cards,
                                fields=fields)
-
     if request.method == "POST":
-        update_item(deck, request.form["card_id"], request.form)
-        cards = load_deck(deck)
-        fields = get_fields(deck)
-        return render_template("browse_deck.html",
-                               deck=deck,
-                               cards=cards,
-                               fields=fields)
+        # update_item(deck, request.form["card_id"], request.form)
+        # return redirect(url_for("browse_deck", deck=deck))
+        return request.form
 
 
 @app.route("/browse/<deckname>/<card_id>/", methods=["POST", "GET"])
