@@ -109,11 +109,17 @@ def train_deck(deckname, front):
         return request.form
 
 
-@app.route("/test/", methods=["GET", "POST"])
-def test_page():
+@app.route("/add/<deckname>/", methods=["POST", "GET"])
+def add_item(deckname):
     if request.method == "GET":
-        return render_template("testbutton.html")
-    pass
+        return render_template("browse/add_item.html", 
+                                fields=get_fields(deckname), 
+                                deckname=deckname)
+    if request.method == "POST":
+        add_card(deckname, request.form)
+        return redirect(url_for("browse_deck", deck=deckname))
+        
+
 
 
 # Start frontend
