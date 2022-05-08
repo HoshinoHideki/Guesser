@@ -100,9 +100,10 @@ def pick_card(deck, front):
     """
     database = load_database()
     deck = database[deck]
-    entry = random.choice(deck)  # picks up a dict
-    card = Card("", "")
-    if front == entry["lang_data"][0]:
+    cards = deck["cards"]
+    entry = random.choice(cards)  # picks up a dict
+    card = Card("", "", "")
+    if front == deck["languages"][0]:
         card.front = entry["key_0"]
         card.back = entry["key_1"]
     elif front == entry["lang_data"][1]:
