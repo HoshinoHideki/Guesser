@@ -85,10 +85,7 @@ def load_deck(deck):
 def list_decks():
     """Returns a list containing strings of deck names."""
     database = load_database()
-    decks = []
-    for key in database.keys():
-        decks.append(key)
-    decks.sort()
+    decks = sorted(database.keys())
     return decks
 
 
