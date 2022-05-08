@@ -24,11 +24,7 @@ def get_fields(deck):
     """
     database = load_database()
     deck = database[deck]
-    fields = ["id", ]
-    for dictionary in deck:
-        for field in dictionary["lang_data"]:
-            if field not in fields:
-                fields.append(field)
+    fields = ["id"] + deck["languages"]
     return fields
 
 
