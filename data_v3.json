@@ -1,0 +1,1110 @@
+{
+    "alphabet": {
+        "languages": [
+            "armenian",
+            "english"
+        ],
+        "cards": [
+            {
+                "key_0": "Ա",
+                "key_1": "A",
+                "card_id": "0",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Բ",
+                "key_1": "B",
+                "card_id": "1",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Գ",
+                "key_1": "G",
+                "card_id": "2",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Դ",
+                "key_1": "D",
+                "card_id": "3",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ե",
+                "key_1": "Ye",
+                "card_id": "4",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Զ",
+                "key_1": "Z",
+                "card_id": "5",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Է",
+                "key_1": "E",
+                "card_id": "6",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ը",
+                "key_1": "Ə",
+                "card_id": "7",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Թ",
+                "key_1": "Tʿ",
+                "card_id": "8",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ժ",
+                "key_1": "Ž ",
+                "card_id": "9",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ի",
+                "key_1": "I",
+                "card_id": "10",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Լ",
+                "key_1": "L",
+                "card_id": "11",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Խ",
+                "key_1": "X",
+                "card_id": "12",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ծ",
+                "key_1": "C",
+                "card_id": "13",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Կ",
+                "key_1": "K",
+                "card_id": "14",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Հ",
+                "key_1": "H",
+                "card_id": "15",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ձ",
+                "key_1": "Dz",
+                "card_id": "16",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ղ",
+                "key_1": "Ġ",
+                "card_id": "17",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ճ",
+                "key_1": "Č",
+                "card_id": "18",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Մ",
+                "key_1": "M",
+                "card_id": "19",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Յ",
+                "key_1": "Y",
+                "card_id": "20",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ն",
+                "key_1": "N",
+                "card_id": "21",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Շ",
+                "key_1": "Š",
+                "card_id": "22",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ո",
+                "key_1": "Vo",
+                "card_id": "23",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ու",
+                "key_1": "U",
+                "card_id": "24",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Չ",
+                "key_1": "Čʿ",
+                "card_id": "25",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Պ",
+                "key_1": "P",
+                "card_id": "26",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ջ",
+                "key_1": "J̌",
+                "card_id": "27",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ռ",
+                "key_1": "Ṙ",
+                "card_id": "28",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ս",
+                "key_1": "S",
+                "card_id": "29",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Վ",
+                "key_1": "VV",
+                "card_id": "30",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Տ",
+                "key_1": "T",
+                "card_id": "31",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ր",
+                "key_1": "R",
+                "card_id": "32",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ց",
+                "key_1": "Cʿ",
+                "card_id": "33",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ւ",
+                "key_1": "W",
+                "card_id": "34",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Փ",
+                "key_1": "Pʿ",
+                "card_id": "35",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ք",
+                "key_1": "Kʿ",
+                "card_id": "36",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Օ",
+                "key_1": "O",
+                "card_id": "37",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "Ֆ",
+                "key_1": "F",
+                "card_id": "38",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ա",
+                "key_1": "a",
+                "card_id": "39",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "բ",
+                "key_1": "b",
+                "card_id": "40",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "գ",
+                "key_1": "g",
+                "card_id": "41",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "դ",
+                "key_1": "d",
+                "card_id": "42",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ե",
+                "key_1": "ye",
+                "card_id": "43",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "զ",
+                "key_1": "z",
+                "card_id": "44",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "է",
+                "key_1": "e",
+                "card_id": "45",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ը",
+                "key_1": "ə",
+                "card_id": "46",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "թ",
+                "key_1": "tʿ",
+                "card_id": "47",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ժ",
+                "key_1": "ž",
+                "card_id": "48",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ի",
+                "key_1": "i",
+                "card_id": "49",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "լ",
+                "key_1": "l",
+                "card_id": "50",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "խ",
+                "key_1": "x",
+                "card_id": "51",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ծ",
+                "key_1": "c",
+                "card_id": "52",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "կ",
+                "key_1": "Small k",
+                "card_id": "53",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "հ",
+                "key_1": "Small h",
+                "card_id": "54",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ձ",
+                "key_1": "Small dz",
+                "card_id": "55",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ղ",
+                "key_1": "ġ",
+                "card_id": "56",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ճ",
+                "key_1": "č",
+                "card_id": "57",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "մ",
+                "key_1": "Small m",
+                "card_id": "58",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "յ",
+                "key_1": "Small y",
+                "card_id": "59",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ն",
+                "key_1": "Small n",
+                "card_id": "60",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "շ",
+                "key_1": "Small š",
+                "card_id": "61",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ո",
+                "key_1": "Small vo",
+                "card_id": "62",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ու",
+                "key_1": "Small u",
+                "card_id": "63",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "չ",
+                "key_1": "Small čʿ",
+                "card_id": "64",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "պ",
+                "key_1": "Small p",
+                "card_id": "65",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ջ",
+                "key_1": "Small ǰ",
+                "card_id": "66",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ռ",
+                "key_1": "Small ṙ (rr)",
+                "card_id": "67",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ս",
+                "key_1": "Small S",
+                "card_id": "68",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "վ",
+                "key_1": "Small v",
+                "card_id": "69",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "տ",
+                "key_1": "Small t",
+                "card_id": "70",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ր",
+                "key_1": "Small r",
+                "card_id": "71",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ց",
+                "key_1": "Small cʿ",
+                "card_id": "72",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ւ",
+                "key_1": "Small w",
+                "card_id": "73",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "փ",
+                "key_1": "Small pʿ",
+                "card_id": "74",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ք",
+                "key_1": "Small kʿ",
+                "card_id": "75",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "օ",
+                "key_1": "Small o",
+                "card_id": "76",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ֆ",
+                "key_1": "Small f",
+                "card_id": "77",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "և",
+                "key_1": "yev",
+                "card_id": "78",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            }
+        ]
+    },
+    "vocabulary": {
+        "languages": [
+            "armenian",
+            "english"
+        ],
+        "cards": [
+            {
+                "key_0": "Ես",
+                "key_1": "I",
+                "card_id": "0",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "դու",
+                "key_1": "you(singular)",
+                "card_id": "1",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "նա",
+                "key_1": "He\\She",
+                "card_id": "2",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "կին",
+                "key_1": "woman",
+                "card_id": "3",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "test",
+                "key_1": "test",
+                "card_id": "4",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            }
+        ]
+    }
+}
