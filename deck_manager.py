@@ -89,13 +89,6 @@ def list_decks():
     return decks
 
 
-def load_database():
-    """This gets called every time some changes are made in the database."""
-    with open(DATABASE, "r", encoding="utf-8") as file:
-        database = json.load(file)
-    return database
-
-
 def pick_card(deck, front):
     """
     This makes a Card object from the deck.
