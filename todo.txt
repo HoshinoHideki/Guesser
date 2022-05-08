@@ -1,0 +1,12 @@
+TODO:
+
+
+- Deck\card structure object?
+- Item adder.
+- Stats tracker
+
+Stats tracker:
+ - Make a test button that sends id\data to server?
+ - Make a test response that does things.
+ - Make a test function that adds date to json?
+ - Combine.

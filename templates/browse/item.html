@@ -1,0 +1,37 @@
+<script>
+    $(document).ready(function(){
+      $("#item-editor").submit(function(b){
+        $("#item-editor").submit();
+    });
+    });
+</script>
+
+{%block content%}
+<form
+ class="table-container" 
+ id="item-editor" 
+ action="{{url_for('edit_item', deckname=deckname, card_id=card_id)}}"
+ method="POST">
+    <table>
+        <tr>
+            <td><label>{{fields.0}}:</label></td>
+            <td><input 
+                type="text" 
+                name="card_id" 
+                value="{{card.card_id}}" 
+                readonly></td>
+        </tr>
+        <tr>
+            <td><label>{{fields.1}}:</label></td>
+            <td><input type="text" name="key_0" value="{{card.key_0}}"></td>
+        </tr>
+        <tr>
+            <td><label>{{fields.2}}:</label></td>
+            <td><input type="text" name="key_1" value="{{card.key_1}}"></td>   
+        </tr>
+    </table>
+    <div id="button">
+        <button type="submit" value="Edit">edit</button>
+    </div>
+</form>
+{% endblock %}

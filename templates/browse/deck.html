@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+          $(".item").submit(function(a){
+            var link = $(this).closest(".item").attr("action");
+            a.preventDefault();
+            $(edit_item_container).load(link);
+          });
+          $(".add").submit(function(b){
+            var link = $(this).closest(".add").attr("action");
+            b.preventDefault();
+            $(edit_item_container).load(link);
+          });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <p>Viewing deck {{deck}}:</p>
+    <div class="table-container">
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>{{fields.1}}</th>
+                <th>{{fields.2}}</th>
+                <th>Action</th>
+            </tr>
+
+            {%for item in cards%}
+                <tr>
+                    <td>{{item.card_id}}</td>
+                    <td>{{item.key_0}}</td>
+                    <td>{{item.key_1}}</td>
+                    <td>
+                        <form
+                            class  = "item" 
+                            action = "{{url_for(
+                                'edit_item', 
+                                deckname=deck, 
+                                card_id=item.card_id)}}"
+                            method = "get">
+                            <input
+                                type =   "submit" 
+                                value =  "Edit">
+                        </form>
+                    </td>
+                </tr>
+            {%endfor%}
+        </table>
+        <form action="{{url_for('add_item', deckname=deck)}}"
+            method="get"
+            class="add">
+                <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <div id="edit_item_container"></div>    
+{% endblock %}

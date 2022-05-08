@@ -31,6 +31,9 @@ $(document).ready(function(){
         The answer is:
         <h1>{{back}}</h1>
         <br>
+        <form action="/train/{{deckname}}/{{lang}}" method="POST">
+        <button name="id" value="{{card_id}}">Next</button>
+        </form>
         <a href="/train/{{deckname}}/{{lang}}">Next</a>
     </div>
     <br>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{%block content%}
+<form
+ action="{{url_for('add_item', deckname=deckname)}}"
+ class="table-container" 
+ id="item-adder"
+ method="POST">
+    <table>
+        <tr>
+            <td><label>{{fields.1}}</label></td>
+            <td><input type="text" name="key_0" placeholder="value"></td>
+        </tr>
+        <tr>
+            <td><label>{{fields.2}}</label></td>
+            <td><input type="text" name="key_1" placeholder="value"></td>
+        </tr>
+    </table>
+    <div id="button">
+        <input type="submit" value="Add">
+    </div>
+</form>
+{% endblock %}
