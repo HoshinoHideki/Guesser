@@ -65,8 +65,7 @@ def edit_item(deckname, card_id):
                                card_id=card_id)
     if request.method == "POST":
         update_item(deckname, request.form["card_id"], request.form)
-        return "Item edited."
-
+        return redirect(url_for("browse_deck", deck=deckname))
 
 @app.route("/train/<deck>/front_select/")
 def deck_lang_select(deck):
