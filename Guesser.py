@@ -60,8 +60,9 @@ def edit_item(deckname, card_id):
         card = find_item(card_id, deckname)
         return render_template("browse/item.html",
                                card=card,
-                               fields=fields)
-
+                               fields=fields,
+                               deckname=deckname,
+                               card_id=card_id)
     if request.method == "POST":
         update_item(deckname, request.form["card_id"], request.form)
         return "Item edited."
