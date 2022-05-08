@@ -33,7 +33,6 @@ def find_item(item_id, deck):
     Return empty dict if failed.
     """
     database = load_database()
-    deck = database[deck]
     deck = database[deck]["cards"]
     out_item = {}
     for item in deck:
@@ -52,7 +51,7 @@ def update_item(deck, item_id, data):
     :return: Doesn't return anything.
     """
     database = load_database()
-    deck = database[deck]
+    deck = database[deck]["cards"]
     for item in deck:
         if item["card_id"] == item_id:
             for key in data:
@@ -79,7 +78,7 @@ def load_deck(deck):
     :return: returns a deck: list of dicts.
     """
     database = load_database()
-    deck = database[deck]
+    deck = database[deck]["cards"]
     return deck
 
 
