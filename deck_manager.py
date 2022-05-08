@@ -6,9 +6,17 @@ from config import *
 class Card:
     """A simple object, has "front" and "back" attributes.
     """
-    def __init__(self, front, back):
+    def __init__(self, front, back, id):
         self.front = front
         self.back = back
+        self.id = id
+
+
+def load_database():
+    """This gets called every time some changes are made in the database."""
+    with open(DATABASE, "r", encoding="utf-8") as file:
+        database = json.load(file)
+    return database
 
 
 def get_fields(deck):
