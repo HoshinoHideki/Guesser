@@ -87,7 +87,7 @@ def train():
     return render_template("train/choose_deck.html", decks=decks)
 
 
-@app.route("/train/<deckname>/<front>")
+@app.route("/train/<deckname>/<front>", methods=["GET", "POST"])
 def train_deck(deckname, front):
     """Actual training interface. It shows you the front card, you need to
     remember the end card. That's about it.
