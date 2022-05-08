@@ -29,11 +29,12 @@ def get_fields(deck):
 
 
 def find_item(item_id, deck):
-    """Find a dictionary with the matching id key value. 
+    """Find a dictionary with the matching id key value.
     Return empty dict if failed.
     """
     database = load_database()
     deck = database[deck]
+    deck = database[deck]["cards"]
     out_item = {}
     for item in deck:
         if item["card_id"] == item_id:
