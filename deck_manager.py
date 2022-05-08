@@ -106,9 +106,43 @@ def pick_card(deck, front):
     if front == deck["languages"][0]:
         card.front = entry["key_0"]
         card.back = entry["key_1"]
-    elif front == entry["lang_data"][1]:
+    elif front == deck["languages"][1]:
         card.front = entry["key_1"]
         card.back = entry["key_0"]
     else:
-        card = Card(0, 0)
+        pass
+    card.id = entry["card_id"]
     return card
+
+
+def add_card(deck, data):
+    database = load_database()
+    deck = database[deck]
+    cards = deck["cards"]
+    new_item = {"key_0": "",
+                "key_1": "",
+                "card_id": "",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": "",
+                    },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": "",
+                    }
+                }
+    new_id = 0
+    for card in cards:
+        if int(card["card_id"]) >= new_id:
+            new_id += 1
+    new_item["card_id"] = str(new_id)
+    new_item["key_0"] = data["key_0"]
+    new_item["key_1"] = data["key_1"]
+    cards.append(new_item)
+    with open(DATABASE, "w", encoding="utf-8") as database_file:
+        json.dump(
+            database,
+            database_file,
+            ensure_ascii=False,
+            indent=4)
+    return f"Added entry number {new_id} to deck {deck['languages'][0]}"
