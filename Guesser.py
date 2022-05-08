@@ -45,7 +45,8 @@ def browse_deck(deck):
 
 @app.route("/browse/<deckname>/<card_id>/", methods=["POST", "GET"])
 def edit_item(deckname, card_id):
-    """GET: Opens an editing interface for a card selected by ID.
+    """
+    GET: Opens an editing interface for a card selected by ID.
     Currently it only lets you edit the key value pairs.
     POST: Finds card selected by ID in the database,
     replaces the key values entered by user via the form.
