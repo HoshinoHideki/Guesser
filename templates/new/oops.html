@@ -1,0 +1,7 @@
+{%extends "base.html"%}
+{%block content%}
+<p>
+   Oops! Looks like there are no new cards in your deck. Consider adding more.
+</p>
+<a href="{{url_for('train_deck', deck_name=deck_name, front=front)}}">Go back.</a>
+{% endblock %}

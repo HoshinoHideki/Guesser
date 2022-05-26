@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+Select deck:
+<br>
+<div class="deck_selector">
+    {%for deck_name in deck_names%}
+        <a href="/{{select_mode}}/{{deck_name}}/">{{deck_name}}</a>
+        {% if select_mode == "train"  %}
+            ({{due_numbers[deck_name]}} cards due)
+        {% endif %}
+        <br>
+    {% endfor %}
+</div>
+
+{% endblock %}

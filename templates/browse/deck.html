@@ -18,17 +18,17 @@
 {% endblock %}
 
 {% block content %}
-    <p>Viewing deck {{deck}}:</p>
+    <p>Viewing deck "{{deck_name}}":</p>
     <div class="table-container">
         <table class="table">
             <tr>
                 <th>ID</th>
-                <th>{{fields.1}}</th>
-                <th>{{fields.2}}</th>
+                <th>{{deck.languages.0}}</th>
+                <th>{{deck.languages.1}}</th>
                 <th>Action</th>
             </tr>
 
-            {%for item in cards%}
+            {%for item in deck.cards%}
                 <tr>
                     <td>{{item.card_id}}</td>
                     <td>{{item.key_0}}</td>
@@ -38,9 +38,9 @@
                             class  = "item" 
                             action = "{{url_for(
                                 'edit_item', 
-                                deckname=deck, 
+                                deck_name=deck_name, 
                                 card_id=item.card_id)}}"
-                            method = "get">
+                            method = "GET">
                             <input
                                 type =   "submit" 
                                 value =  "Edit">
@@ -49,8 +49,8 @@
                 </tr>
             {%endfor%}
         </table>
-        <form action="{{url_for('add_item', deckname=deck)}}"
-            method="get"
+        <form action="{{url_for('add_item', deck_name=deck_name)}}"
+            method="GET"
             class="add">
                 <button type="submit">Add</button>
         </form>

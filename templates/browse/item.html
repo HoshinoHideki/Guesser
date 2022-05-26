@@ -1,20 +1,21 @@
-<script>
-    $(document).ready(function(){
-      $("#item-editor").submit(function(b){
-        $("#item-editor").submit();
-    });
-    });
-</script>
+{% if card == {} %}
+    <h1>
+        Oops!
+        </h1>
+        <p>There is no card with such an id.</p>
+{% else %}
 
-{%block content%}
 <form
  class="table-container" 
  id="item-editor" 
- action="{{url_for('edit_item', deckname=deckname, card_id=card_id)}}"
+ action="{{url_for(
+     'edit_item', 
+     deck_name=deck_name, 
+     card_id=card.card_id)}}"
  method="POST">
     <table>
         <tr>
-            <td><label>{{fields.0}}:</label></td>
+            <td><label>ID</label></td>
             <td><input 
                 type="text" 
                 name="card_id" 
@@ -22,11 +23,11 @@
                 readonly></td>
         </tr>
         <tr>
-            <td><label>{{fields.1}}:</label></td>
+            <td><label>{{languages.0}}:</label></td>
             <td><input type="text" name="key_0" value="{{card.key_0}}"></td>
         </tr>
         <tr>
-            <td><label>{{fields.2}}:</label></td>
+            <td><label>{{languages.1}}:</label></td>
             <td><input type="text" name="key_1" value="{{card.key_1}}"></td>   
         </tr>
     </table>
@@ -34,4 +35,5 @@
         <button type="submit" value="Edit">edit</button>
     </div>
 </form>
-{% endblock %}
+
+{% endif %}

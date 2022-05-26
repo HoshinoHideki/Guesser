@@ -1,0 +1,11 @@
+{%extends "base.html"%}
+{%block content%}
+<div>
+    Your deck {{deck_name}}, front {{front}} has no pending cards for now.
+<br>
+You can learn a new card from the deck.
+<form action="" method="POST">
+    <button name="new card" value="yes">Learn a new card</button>
+</form>
+</div>
+{% endblock %}

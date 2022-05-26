@@ -12,6 +12,12 @@
     color:              black;
     }
 
+.deck_selector {
+    text-align:         left;
+    width:              30%;
+    margin:             auto;
+}
+
 .topnav a:hover {
     background-color:   Aquamarine;
     color:              black;

@@ -3,8 +3,8 @@
 {% block content %}
 Select language:
 <br>
-{%for lang in langs%}
-<a href="/train/{{deck}}/{{lang}}">{{lang}}</a>
+{%for language in languages%}
+<a href="/train/{{deck_name}}/{{language}}">{{language}}</a>
 <br>
-{%endfor%}
+{% endfor %}
 {% endblock %}

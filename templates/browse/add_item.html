@@ -1,18 +1,15 @@
-{% extends "base.html" %}
-
-{%block content%}
 <form
- action="{{url_for('add_item', deckname=deckname)}}"
+ action="{{url_for('add_item', deck_name=deck_name)}}"
  class="table-container" 
  id="item-adder"
  method="POST">
     <table>
         <tr>
-            <td><label>{{fields.1}}</label></td>
+            <td><label>{{languages.0}}</label></td>
             <td><input type="text" name="key_0" placeholder="value"></td>
         </tr>
         <tr>
-            <td><label>{{fields.2}}</label></td>
+            <td><label>{{languages.1}}</label></td>
             <td><input type="text" name="key_1" placeholder="value"></td>
         </tr>
     </table>
@@ -20,4 +17,3 @@
         <input type="submit" value="Add">
     </div>
 </form>
-{% endblock %}

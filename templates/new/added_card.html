@@ -1,0 +1,8 @@
+{%extends "base.html"%}
+{%block content%}
+<p>
+    You've added a card! Go back to training to learn it.
+    (Actually I just haven't made an interface for this yet.) 
+</p>
+<a href="{{url_for('train_deck', deck_name=deck_name, front=front)}}">Go back.</a>
+{% endblock %}

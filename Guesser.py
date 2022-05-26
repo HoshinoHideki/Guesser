@@ -18,108 +18,214 @@ def index():
 @app.route("/browse/")
 def browse():
     """Displays a list of decks in the app.
-    decks = list of deck name strings."""
 
-    decks = list_decks()
-    return render_template("browse/deck_select.html", decks=decks)
-
-
-@app.route("/browse/<deck>/", methods=["POST", "GET"])
-def browse_deck(deck):
-    """Displays a table of all entries in a select deck.
-    deck = a list of dictionaries. Used for building table.
-    fields = a list of column names.
-    deckname = a string with the name of deck."""
-    if request.method == "GET":
-        cards = load_deck(deck)
-        fields = get_fields(deck)
-        return render_template("browse/deck.html",
-                               deck=deck,
-                               cards=cards,
-                               fields=fields)
-    if request.method == "POST":
-        # update_item(deck, request.form["card_id"], request.form)
-        # return redirect(url_for("browse_deck", deck=deck))
-        return request.form
-
-
-@app.route("/browse/<deckname>/<card_id>/", methods=["POST", "GET"])
-def edit_item(deckname, card_id):
+    Context Args:
+        deck_names (list): List of deck name strings.
     """
+    return render_template(
+        "select_deck.html", 
+        select_mode = "browse",
+        deck_names = list_decks(),
+        )
+
+
+@app.route("/browse/<deck_name>/")
+def browse_deck(deck_name: str):
+    """Displays a table of all entries in a selected deck.
+
+    Takes only GET requests so far.
+
+    Args:
+        deck_name (str): Name of deck.
+    
+    Context Args:
+        deck (dict): Dictionary containing deck data and information.
+    """
+    return render_template("browse/deck.html", 
+                            deck_name=deck_name,
+                            deck=load_database()[deck_name])
+
+
+@app.route("/browse/<deck_name>/<card_id>/", methods=["GET", "POST"])
+def edit_item(deck_name: str, card_id: str):
+    """
+    View a single entry in deck.
+    ┌=========================┐
+    |PLEASE REWRITE THIS LATER|
+    └=========================┘
+    Right now it's not a separate view but a sub-view tied to the browse_deck
+    function.
+
     GET: Opens an editing interface for a card selected by ID.
+    Loads language data and card data from deck.
     Currently it only lets you edit the key value pairs.
-    POST: Finds card selected by ID in the database,
-    replaces the key values entered by user via the form.
-    deckname: string containing deck's name.
-    card_id: id key value.
-    card: dictionary object representing the card.
-    fields: list of strings representing the key values"""
+
+    POST: Updates a value.
+    
+    Args:
+        deck_name (str): Name of deck.
+        card_id (str): The id of a card.
+    
+    Context Args:
+        languages (list): List of strings representing the data keys.
+        card (dict): Card data to fill all the cells.
+        deck_name (str): Name of deck.
+    """
 
     if request.method == "GET":
-        fields = get_fields(deckname)
-        card = find_item(card_id, deckname)
-        return render_template("browse/item.html",
-                               card=card,
-                               fields=fields,
-                               deckname=deckname,
-                               card_id=card_id)
+        return render_template(
+            "browse/item.html",
+            deck_name=deck_name,
+            languages=get_languages(deck_name),
+            card=get_card(card_id, deck_name),
+            )
+    
+    # maybe make it another function?
     if request.method == "POST":
-        update_item(deckname, request.form["card_id"], request.form)
-        return redirect(url_for("browse_deck", deck=deckname))
+        update_card(deck_name, request.form)
+        return redirect(url_for("browse_deck", deck_name=deck_name))
 
-@app.route("/train/<deck>/front_select/")
-def deck_lang_select(deck):
-    """Lets user choose the front-card and the end-card of the language pair.
-    deck: string with the deck name.
-    langs: list object containing sorted language pair."""
 
-    langs = list_langs(get_fields(deck))
-    return render_template("train/choose_front.html", deck=deck, langs=langs)
+@app.route("/add/<deck_name>/", methods=["POST", "GET"])
+def add_item(deck_name: str):
+    """ Brings up the interface to add a new item to the selected deck.
+
+        Args:
+            deck_name (str): deck name string.
+        Context Args:
+            languages (str): languages for headers.
+    """
+
+    if request.method == "GET":
+        return render_template("browse/add_item.html", 
+                                languages=get_languages(deck_name), 
+                                deck_name=deck_name)
+    if request.method == "POST":
+        add_card(deck_name, request.form)
+        return redirect(url_for("browse_deck", deck_name=deck_name))
 
 
 @app.route("/train/")
-@app.route("/train/select/")
 def train():
-    """Lists user decks available for training. 
-    decks: list object containing string names of available decks.
+    """Lists user decks available for training.
+
+    Args:
+        deck_names (list): List with string names of all available decks.
     """
-    decks = list_decks()
-    return render_template("train/choose_deck.html", decks=decks)
+    due_dict = {}
+    for deck_name in list_decks():
+        due_dict[deck_name] = count_due(deck_name)
+    return render_template(
+        "select_deck.html", 
+        select_mode = "train",
+        deck_names = list_decks(),
+        due_numbers = due_dict,
+        )
 
 
-@app.route("/train/<deckname>/<front>", methods=["GET", "POST"])
-def train_deck(deckname, front):
-    """Actual training interface. It shows you the front card, you need to
-    remember the end card. That's about it.
-    Possible modifications: Okay/Again button like in anki or
-    multiple choice buttons. Or entry field, though I'm not sure.
-    deck: string object representing deck name
-    front: string object indicating which value pair is front card.
+@app.route("/train/<deck_name>/")
+def deck_lang_select(deck_name: str):
+    """Language selection interface.
+
+    Asks user to choose which language is represented on front cards.
+
+    Args:
+    deck_name (str): Name of the deck.
+
+    Context Args: 
+    languages (list): List of language names for the fields.  
+    """
+
+    return render_template(
+        "train/choose_front.html", 
+        deck_name=deck_name, 
+        languages=get_languages(deck_name),
+        )
+
+
+@app.route("/train/<deck_name>/<front>", methods=["GET", "POST"])
+def train_deck(deck_name: str, front: str):
+    """Actual training interface. 
+    
+    Course of actions:
+        1. Get the due cards. If no due cards are up: redirects to new card
+        adding interface.
+        2. Pick one card from the due deck and generate the training page.
+        ^ subject to change.
+        3. The training page shows you the front card, you need to
+        remember the end card. That's about it.
+        Then it shows you the right answer, and based on your response
+        (button pressed), resets the card's timer values or increments it.
+
+    Possible modifications: multiple choice buttons. 
+    Or entry field, though I'm not sure.
+
+    Args:
+        deck_name (str): deck name string.
+        front (str): front card language.
+    Context Args:
+        Maybe rewrite that?
     card: card object with front and back attributes, generated by fn.
     """    
     if request.method == "GET":
-        card = pick_card(deckname, front=front)
-        return render_template("train/train.html",
-                            front=card.front,
-                            back=card.back,
-                            deckname=deckname,
-                            lang=front,
-                            card_id = card.id)
+        due_deck = get_due(deck_name, front)
+        if due_deck["cards"] == []:
+            return redirect(url_for(
+                "new_cards", 
+                deck_name=deck_name, 
+                front=front))
+        else:
+            card = pick_card(due_deck, front=front)
+            return render_template(
+                "train/train.html",
+                card=card,
+                deck_name=deck_name,
+                front=front,
+                )
     if request.method == "POST":
-        return request.form
+        update_date(deck_name=deck_name, 
+                    card_id=request.form["card_id"],
+                    front=front,
+                    method=request.form["action"])
+        return redirect(url_for(
+            "train_deck", 
+            deck_name=deck_name, 
+            front=front
+            ))
 
 
-@app.route("/add/<deckname>/", methods=["POST", "GET"])
-def add_item(deckname):
+@app.route("/new/<deck_name>/<front>", methods=["POST", "GET"])
+def new_cards(deck_name: str, front: str):
+    """An interface for adding new due cards to the deck.
+    
+    Subject for rewriting. 
+
+    Args:
+        deck_name (str): Deck name.
+        front (str): Front language.
+
+    Context args:
+        result (str): Either "Done" or "Empty".
+    """
+    # rewrite this too?
     if request.method == "GET":
-        return render_template("browse/add_item.html", 
-                                fields=get_fields(deckname), 
-                                deckname=deckname)
+        return render_template(
+            "new/cards.html", 
+            deck_name=deck_name, 
+            front=front
+            )
     if request.method == "POST":
-        add_card(deckname, request.form)
-        return redirect(url_for("browse_deck", deck=deckname))
-        
-
+        if request.form["new card"] == "yes":
+            # add a number of new cards parameter
+            result = create_due(deck_name, front, 5)
+            # do the logic with jinja
+            if result == "Done":
+                return render_template(
+                    "new/added_card.html", 
+                    deck_name=deck_name, 
+                    front=front)
+            elif result == "Empty":
+                return render_template("new/oops.html")
 
 
 # Start frontend

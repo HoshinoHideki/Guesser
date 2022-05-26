@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 Select deck:
 <br>
-{%for deck in decks%}
 
-<a href="/browse/{{deck}}">{{deck}}</a>
+{%for deck_name in deck_names%}
+
+<a href="{{url_for('browse_deck', deck_name=deck_name)}}">{{deck_name}}</a>
 <br>
+
 {%endfor%}
+
 {% endblock %}

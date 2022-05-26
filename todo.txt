@@ -1,12 +1,29 @@
 TODO:
 
+deck_manager:
+    [] make a decorator?
+    [] make a func for key_string
+    [] sorting due deck
+    [] regular expressions editor?
 
-- Deck\card structure object?
-- Item adder.
-- Stats tracker
+guesser.py:
+    [] rewrite the item editor so it doesn't access database again.
+    [] display the number of pending cards per deck?
 
-Stats tracker:
- - Make a test button that sends id\data to server?
- - Make a test response that does things.
- - Make a test function that adds date to json?
- - Combine.
+complex:
+    [] displaying new cards
+    [] object coder-decoder?
+        [] code a deck class
+            [] "deck_name" key in json file (recoding?)
+    [] Deck\card structure object?
+    [] deleting cards from deck
+    [] ijson?
+    [] fancy deck descriptions
+    [] wtforms?
+    []rewrite database as a collection of decks
+
+html:
+    [] show stats in deck view.
+    [] js confirmation alerts
+    [] next time preview!
+    [] sortable tables (js)
