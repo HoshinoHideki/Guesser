@@ -1,8 +1,8 @@
 {
     "alphabet": {
         "languages": [
-            "armenian",
-            "english"
+            "Armenian",
+            "English"
         ],
         "cards": [
             {
@@ -10,12 +10,12 @@
                 "key_1": "A",
                 "card_id": "0",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 05:36:52",
+                    "next_date": "2022-06-03 16:47:24"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:45:30",
+                    "next_date": "2022-05-30 07:26:43"
                 }
             },
             {
@@ -23,12 +23,12 @@
                 "key_1": "B",
                 "card_id": "1",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 21:14:16",
+                    "next_date": "2022-06-07 06:34:09"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-17 20:20:39",
+                    "next_date": "2022-06-01 12:22:23"
                 }
             },
             {
@@ -36,12 +36,12 @@
                 "key_1": "G",
                 "card_id": "2",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 21:14:14",
+                    "next_date": "2022-06-07 06:34:14"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 18:24:55",
+                    "next_date": "2022-05-27 01:27:37"
                 }
             },
             {
@@ -49,12 +49,12 @@
                 "key_1": "D",
                 "card_id": "3",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 07:39:52",
+                    "next_date": "2022-06-12 01:58:05"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:47:17",
+                    "next_date": "2022-05-30 07:37:04"
                 }
             },
             {
@@ -62,12 +62,12 @@
                 "key_1": "Ye",
                 "card_id": "4",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 07:39:45",
+                    "next_date": "2022-06-01 16:30:22"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:45:07",
+                    "next_date": "2022-05-30 07:22:13"
                 }
             },
             {
@@ -75,12 +75,12 @@
                 "key_1": "Z",
                 "card_id": "5",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 01:46:12",
+                    "next_date": "2022-05-29 14:34:55"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 18:24:48",
+                    "next_date": "2022-05-27 01:27:11"
                 }
             },
             {
@@ -88,12 +88,12 @@
                 "key_1": "E",
                 "card_id": "6",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 15:37:00",
+                    "next_date": "2022-07-08 05:45:59"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:46:12",
+                    "next_date": "2022-05-28 16:55:52"
                 }
             },
             {
@@ -101,12 +101,12 @@
                 "key_1": "Ə",
                 "card_id": "7",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 15:36:53",
+                    "next_date": "2022-07-08 05:49:35"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:47:09",
+                    "next_date": "2022-05-28 17:00:46"
                 }
             },
             {
@@ -114,12 +114,12 @@
                 "key_1": "Tʿ",
                 "card_id": "8",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:44:48",
+                    "next_date": "2022-06-10 20:24:58"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:45:10",
+                    "next_date": "2022-05-28 16:50:37"
                 }
             },
             {
@@ -127,12 +127,12 @@
                 "key_1": "Ž ",
                 "card_id": "9",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:44:45",
+                    "next_date": "2022-06-10 20:29:35"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:46:04",
+                    "next_date": "2022-05-28 16:55:29"
                 }
             },
             {
@@ -140,12 +140,12 @@
                 "key_1": "I",
                 "card_id": "10",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:44:47",
+                    "next_date": "2022-06-10 20:25:42"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:47:44",
+                    "next_date": "2022-05-28 20:19:04"
                 }
             },
             {
@@ -153,12 +153,12 @@
                 "key_1": "L",
                 "card_id": "11",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:38:33",
+                    "next_date": "2022-07-11 18:48:24"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:08:30",
+                    "next_date": "2022-06-14 09:17:10"
                 }
             },
             {
@@ -166,12 +166,12 @@
                 "key_1": "X",
                 "card_id": "12",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 15:37:05",
+                    "next_date": "2022-07-07 16:02:00"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:40",
+                    "next_date": "2022-06-14 09:07:19"
                 }
             },
             {
@@ -179,12 +179,12 @@
                 "key_1": "C",
                 "card_id": "13",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 15:36:51",
+                    "next_date": "2022-07-08 05:45:48"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:54",
+                    "next_date": "2022-05-28 01:21:40"
                 }
             },
             {
@@ -192,12 +192,12 @@
                 "key_1": "K",
                 "card_id": "14",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 15:36:55",
+                    "next_date": "2022-07-07 16:00:47"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:08:01",
+                    "next_date": "2022-06-14 09:15:34"
                 }
             },
             {
@@ -205,12 +205,12 @@
                 "key_1": "H",
                 "card_id": "15",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-17 23:39:10",
+                    "next_date": "2022-05-29 01:56:51"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:36",
+                    "next_date": "2022-06-14 09:12:06"
                 }
             },
             {
@@ -218,12 +218,12 @@
                 "key_1": "Dz",
                 "card_id": "16",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 15:36:58",
+                    "next_date": "2022-07-07 16:00:09"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:09:03",
+                    "next_date": "2022-06-01 17:12:25"
                 }
             },
             {
@@ -231,12 +231,12 @@
                 "key_1": "Ġ",
                 "card_id": "17",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 10:01:17",
+                    "next_date": "2022-06-11 05:04:32"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:53",
+                    "next_date": "2022-06-02 00:43:01"
                 }
             },
             {
@@ -244,12 +244,12 @@
                 "key_1": "Č",
                 "card_id": "18",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:38:31",
+                    "next_date": "2022-05-30 21:58:24"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:45",
+                    "next_date": "2022-05-28 01:21:12"
                 }
             },
             {
@@ -257,12 +257,12 @@
                 "key_1": "M",
                 "card_id": "19",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 15:36:46",
+                    "next_date": "2022-07-07 15:58:45"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:45:02",
+                    "next_date": "2022-06-01 12:15:07"
                 }
             },
             {
@@ -270,12 +270,12 @@
                 "key_1": "Y",
                 "card_id": "20",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 10:01:12",
+                    "next_date": "2022-06-11 05:05:19"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:45:36",
+                    "next_date": "2022-06-01 12:20:29"
                 }
             },
             {
@@ -283,12 +283,12 @@
                 "key_1": "N",
                 "card_id": "21",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 07:57:05",
+                    "next_date": "2022-06-10 16:44:34"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:17:18",
+                    "next_date": "2022-06-20 17:48:44"
                 }
             },
             {
@@ -296,12 +296,12 @@
                 "key_1": "Š",
                 "card_id": "22",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:04:41",
+                    "next_date": "2022-06-11 02:38:53"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:57",
+                    "next_date": "2022-06-02 00:38:42"
                 }
             },
             {
@@ -309,12 +309,12 @@
                 "key_1": "Vo",
                 "card_id": "23",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:13",
+                    "next_date": "2022-06-15 08:31:16"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:15:16",
+                    "next_date": "2022-06-20 17:37:41"
                 }
             },
             {
@@ -322,12 +322,12 @@
                 "key_1": "U",
                 "card_id": "24",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 01:46:08",
+                    "next_date": "2022-05-29 14:36:26"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 17:14:07",
+                    "next_date": "2022-06-11 15:55:42"
                 }
             },
             {
@@ -335,12 +335,12 @@
                 "key_1": "Čʿ",
                 "card_id": "25",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:05:23",
+                    "next_date": "2022-06-11 02:39:10"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:08:26",
+                    "next_date": "2022-06-02 00:38:26"
                 }
             },
             {
@@ -348,12 +348,12 @@
                 "key_1": "P",
                 "card_id": "26",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 08:51:46",
+                    "next_date": "2022-05-31 09:07:30"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:14:03",
+                    "next_date": "2022-06-20 17:38:12"
                 }
             },
             {
@@ -361,12 +361,12 @@
                 "key_1": "J̌",
                 "card_id": "27",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 02:44:42",
+                    "next_date": "2022-05-28 20:09:57"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:40:25",
+                    "next_date": "2022-05-30 22:06:15"
                 }
             },
             {
@@ -374,12 +374,12 @@
                 "key_1": "Ṙ",
                 "card_id": "28",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 08:51:50",
+                    "next_date": "2022-05-31 09:12:20"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:16:08",
+                    "next_date": "2022-06-20 17:43:31"
                 }
             },
             {
@@ -387,25 +387,25 @@
                 "key_1": "S",
                 "card_id": "29",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 08:50:26",
+                    "next_date": "2022-06-02 18:50:19"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:13:47",
+                    "next_date": "2022-06-20 17:29:38"
                 }
             },
             {
                 "key_0": "Վ",
-                "key_1": "VV",
+                "key_1": "V",
                 "card_id": "30",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 08:52:13",
+                    "next_date": "2022-05-31 09:09:16"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:39:28",
+                    "next_date": "2022-05-30 21:58:19"
                 }
             },
             {
@@ -413,12 +413,12 @@
                 "key_1": "T",
                 "card_id": "31",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 08:52:08",
+                    "next_date": "2022-05-31 09:16:23"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:08:37",
+                    "next_date": "2022-06-02 00:41:51"
                 }
             },
             {
@@ -426,12 +426,12 @@
                 "key_1": "R",
                 "card_id": "32",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 08:52:29",
+                    "next_date": "2022-05-31 09:14:24"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:08:33",
+                    "next_date": "2022-06-02 22:26:55"
                 }
             },
             {
@@ -439,12 +439,12 @@
                 "key_1": "Cʿ",
                 "card_id": "33",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-17 23:39:28",
+                    "next_date": "2022-05-29 01:56:02"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:08:07",
+                    "next_date": "2022-06-02 22:26:58"
                 }
             },
             {
@@ -452,12 +452,12 @@
                 "key_1": "W",
                 "card_id": "34",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-17 23:39:23",
+                    "next_date": "2022-05-29 01:58:56"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:43",
+                    "next_date": "2022-06-02 22:18:50"
                 }
             },
             {
@@ -465,12 +465,12 @@
                 "key_1": "Pʿ",
                 "card_id": "35",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-17 23:39:25",
+                    "next_date": "2022-05-29 01:59:20"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:49",
+                    "next_date": "2022-06-02 22:21:03"
                 }
             },
             {
@@ -478,12 +478,12 @@
                 "key_1": "Kʿ",
                 "card_id": "36",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-17 23:39:12",
+                    "next_date": "2022-05-29 01:54:13"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:33",
+                    "next_date": "2022-05-28 01:17:40"
                 }
             },
             {
@@ -491,12 +491,12 @@
                 "key_1": "O",
                 "card_id": "37",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-17 23:39:06",
+                    "next_date": "2022-05-29 01:50:21"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:47",
+                    "next_date": "2022-05-28 01:18:52"
                 }
             },
             {
@@ -504,12 +504,12 @@
                 "key_1": "F",
                 "card_id": "38",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:19",
+                    "next_date": "2022-06-27 21:21:56"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:40",
+                    "next_date": "2022-05-28 01:20:00"
                 }
             },
             {
@@ -517,12 +517,12 @@
                 "key_1": "a",
                 "card_id": "39",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:16",
+                    "next_date": "2022-06-27 21:20:21"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:29",
+                    "next_date": "2022-05-28 01:18:42"
                 }
             },
             {
@@ -530,12 +530,12 @@
                 "key_1": "b",
                 "card_id": "40",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:11",
+                    "next_date": "2022-06-27 21:19:26"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:59",
+                    "next_date": "2022-05-28 01:20:39"
                 }
             },
             {
@@ -543,12 +543,12 @@
                 "key_1": "g",
                 "card_id": "41",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:08",
+                    "next_date": "2022-06-27 21:20:33"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 11:18:49",
+                    "next_date": "2022-05-27 18:59:25"
                 }
             },
             {
@@ -556,12 +556,12 @@
                 "key_1": "d",
                 "card_id": "42",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:21",
+                    "next_date": "2022-06-27 21:17:31"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 11:18:56",
+                    "next_date": "2022-05-27 18:58:52"
                 }
             },
             {
@@ -569,12 +569,12 @@
                 "key_1": "ye",
                 "card_id": "43",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:04",
+                    "next_date": "2022-06-27 21:19:59"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 11:19:00",
+                    "next_date": "2022-05-27 19:00:50"
                 }
             },
             {
@@ -582,12 +582,12 @@
                 "key_1": "z",
                 "card_id": "44",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:23",
+                    "next_date": "2022-05-28 01:20:40"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 11:18:43",
+                    "next_date": "2022-05-27 18:58:12"
                 }
             },
             {
@@ -595,12 +595,12 @@
                 "key_1": "e",
                 "card_id": "45",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:05",
+                    "next_date": "2022-06-27 21:16:09"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 11:18:52",
+                    "next_date": "2022-05-27 18:59:26"
                 }
             },
             {
@@ -608,12 +608,12 @@
                 "key_1": "ə",
                 "card_id": "46",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:09",
+                    "next_date": "2022-06-27 21:18:39"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:15:55",
+                    "next_date": "2022-05-28 17:26:29"
                 }
             },
             {
@@ -621,12 +621,12 @@
                 "key_1": "tʿ",
                 "card_id": "47",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 06:59:14",
+                    "next_date": "2022-06-27 21:17:18"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:39:06",
+                    "next_date": "2022-05-30 21:56:46"
                 }
             },
             {
@@ -634,12 +634,12 @@
                 "key_1": "ž",
                 "card_id": "48",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:05:21",
+                    "next_date": "2022-06-11 02:35:51"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:13:39",
+                    "next_date": "2022-05-28 17:11:58"
                 }
             },
             {
@@ -647,12 +647,12 @@
                 "key_1": "i",
                 "card_id": "49",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:04:51",
+                    "next_date": "2022-06-11 02:35:32"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:13:35",
+                    "next_date": "2022-05-28 17:10:43"
                 }
             },
             {
@@ -660,12 +660,12 @@
                 "key_1": "l",
                 "card_id": "50",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:04:53",
+                    "next_date": "2022-06-11 02:38:05"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:18:40",
+                    "next_date": "2022-05-28 17:40:14"
                 }
             },
             {
@@ -673,12 +673,12 @@
                 "key_1": "x",
                 "card_id": "51",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:05:16",
+                    "next_date": "2022-06-11 02:35:41"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:18:35",
+                    "next_date": "2022-05-28 22:23:12"
                 }
             },
             {
@@ -686,51 +686,51 @@
                 "key_1": "c",
                 "card_id": "52",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 07:39:58",
+                    "next_date": "2022-06-01 16:31:14"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 16:59:24",
+                    "next_date": "2022-05-30 23:27:15"
                 }
             },
             {
                 "key_0": "կ",
-                "key_1": "Small k",
+                "key_1": "k",
                 "card_id": "53",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:05:03",
+                    "next_date": "2022-06-11 02:42:43"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:14:16",
+                    "next_date": "2022-05-28 21:58:18"
                 }
             },
             {
                 "key_0": "հ",
-                "key_1": "Small h",
+                "key_1": "h",
                 "card_id": "54",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:05:06",
+                    "next_date": "2022-06-11 02:39:31"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:14:35",
+                    "next_date": "2022-05-28 21:59:47"
                 }
             },
             {
                 "key_0": "ձ",
-                "key_1": "Small dz",
+                "key_1": "dz",
                 "card_id": "55",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:04:27",
+                    "next_date": "2022-06-11 02:36:37"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 16:59:47",
+                    "next_date": "2022-05-28 00:30:20"
                 }
             },
             {
@@ -738,12 +738,12 @@
                 "key_1": "ġ",
                 "card_id": "56",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:05:00",
+                    "next_date": "2022-06-11 02:39:16"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:40:38",
+                    "next_date": "2022-05-30 22:09:43"
                 }
             },
             {
@@ -751,255 +751,255 @@
                 "key_1": "č",
                 "card_id": "57",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:06:59",
+                    "next_date": "2022-06-02 22:29:36"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:40:16",
+                    "next_date": "2022-05-30 22:08:09"
                 }
             },
             {
                 "key_0": "մ",
-                "key_1": "Small m",
+                "key_1": "m",
                 "card_id": "58",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:04:49",
+                    "next_date": "2022-06-11 02:39:56"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-25 09:16:26",
+                    "next_date": "2022-05-28 07:42:28"
                 }
             },
             {
                 "key_0": "յ",
-                "key_1": "Small y",
+                "key_1": "y",
                 "card_id": "59",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:04:29",
+                    "next_date": "2022-06-11 02:38:22"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:41:29",
+                    "next_date": "2022-05-30 22:13:09"
                 }
             },
             {
                 "key_0": "ն",
-                "key_1": "Small n",
+                "key_1": "n",
                 "card_id": "60",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:04:55",
+                    "next_date": "2022-06-11 02:36:33"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:40:43",
+                    "next_date": "2022-05-30 22:09:49"
                 }
             },
             {
                 "key_0": "շ",
-                "key_1": "Small š",
+                "key_1": "š",
                 "card_id": "61",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:05:02",
+                    "next_date": "2022-06-11 02:38:07"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:39:11",
+                    "next_date": "2022-05-29 11:44:37"
                 }
             },
             {
                 "key_0": "ո",
-                "key_1": "Small vo",
+                "key_1": "vo",
                 "card_id": "62",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 03:04:33",
+                    "next_date": "2022-06-11 02:33:56"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:39:24",
+                    "next_date": "2022-05-29 17:30:50"
                 }
             },
             {
                 "key_0": "ու",
-                "key_1": "Small u",
+                "key_1": "u",
                 "card_id": "63",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 04:47:05",
+                    "next_date": "2022-06-06 23:13:30"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 16:59:37",
+                    "next_date": "2022-05-28 00:32:40"
                 }
             },
             {
                 "key_0": "չ",
-                "key_1": "Small čʿ",
+                "key_1": "čʿ",
                 "card_id": "64",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 11:18:37",
+                    "next_date": "2022-05-28 07:41:39"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 16:59:12",
+                    "next_date": "2022-05-28 00:27:15"
                 }
             },
             {
                 "key_0": "պ",
-                "key_1": "Small p",
+                "key_1": "p",
                 "card_id": "65",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:24",
+                    "next_date": "2022-06-02 22:31:53"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:39:17",
+                    "next_date": "2022-05-29 11:44:37"
                 }
             },
             {
                 "key_0": "ջ",
-                "key_1": "Small ǰ",
+                "key_1": "ǰ",
                 "card_id": "66",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 04:47:10",
+                    "next_date": "2022-06-06 23:15:18"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:39:03",
+                    "next_date": "2022-05-29 05:45:03"
                 }
             },
             {
                 "key_0": "ռ",
-                "key_1": "Small ṙ (rr)",
+                "key_1": "ṙ",
                 "card_id": "67",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-21 04:47:06",
+                    "next_date": "2022-06-06 23:13:51"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:39:31",
+                    "next_date": "2022-05-29 05:50:15"
                 }
             },
             {
                 "key_0": "ս",
-                "key_1": "Small S",
+                "key_1": "s",
                 "card_id": "68",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:01",
+                    "next_date": "2022-06-17 22:20:41"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:40:31",
+                    "next_date": "2022-05-29 05:55:06"
                 }
             },
             {
                 "key_0": "վ",
-                "key_1": "Small v",
+                "key_1": "v",
                 "card_id": "69",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:06:55",
+                    "next_date": "2022-06-17 22:22:56"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:41:26",
+                    "next_date": "2022-05-29 06:01:17"
                 }
             },
             {
                 "key_0": "տ",
-                "key_1": "Small t",
+                "key_1": "t",
                 "card_id": "70",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:06:53",
+                    "next_date": "2022-06-17 22:20:51"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 10:38:59",
+                    "next_date": "2022-05-29 05:45:09"
                 }
             },
             {
                 "key_0": "ր",
-                "key_1": "Small r",
+                "key_1": "r",
                 "card_id": "71",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:19",
+                    "next_date": "2022-06-17 22:21:40"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 19:28:14",
+                    "next_date": "2022-05-26 19:31:17"
                 }
             },
             {
                 "key_0": "ց",
-                "key_1": "Small cʿ",
+                "key_1": "cʿ",
                 "card_id": "72",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-23 11:07:05",
+                    "next_date": "2022-06-17 22:21:39"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 19:28:19",
+                    "next_date": "2022-05-26 19:31:46"
                 }
             },
             {
                 "key_0": "ւ",
-                "key_1": "Small w",
+                "key_1": "w",
                 "card_id": "73",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 07:40:00",
+                    "next_date": "2022-06-01 16:32:31"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 19:28:23",
+                    "next_date": "2022-05-26 19:30:28"
                 }
             },
             {
                 "key_0": "փ",
-                "key_1": "Small pʿ",
+                "key_1": "pʿ",
                 "card_id": "74",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-24 17:03:48",
+                    "next_date": "2022-06-11 14:59:47"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 19:28:06",
+                    "next_date": "2022-05-26 19:30:31"
                 }
             },
             {
                 "key_0": "ք",
-                "key_1": "Small kʿ",
+                "key_1": "kʿ",
                 "card_id": "75",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 07:39:56",
+                    "next_date": "2022-06-01 16:28:52"
                 },
                 "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-26 19:28:27",
+                    "next_date": "2022-05-26 19:32:37"
                 }
             },
             {
                 "key_0": "օ",
-                "key_1": "Small o",
+                "key_1": "o",
                 "card_id": "76",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 07:39:54",
+                    "next_date": "2022-06-01 16:31:05"
                 },
                 "key_1_data": {
                     "last_date": "",
@@ -1008,11 +1008,11 @@
             },
             {
                 "key_0": "ֆ",
-                "key_1": "Small f",
+                "key_1": "f",
                 "card_id": "77",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-20 07:39:41",
+                    "next_date": "2022-06-01 16:30:07"
                 },
                 "key_1_data": {
                     "last_date": "",
@@ -1024,8 +1024,8 @@
                 "key_1": "yev",
                 "card_id": "78",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-18 21:14:30",
+                    "next_date": "2022-06-07 06:32:48"
                 },
                 "key_1_data": {
                     "last_date": "",
@@ -1045,8 +1045,8 @@
                 "key_1": "I",
                 "card_id": "0",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-15 18:29:33",
+                    "next_date": "2022-05-23 01:11:43"
                 },
                 "key_1_data": {
                     "last_date": "",
@@ -1055,11 +1055,11 @@
             },
             {
                 "key_0": "դու",
-                "key_1": "you(singular)",
+                "key_1": "you (singular)",
                 "card_id": "1",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-15 18:29:39",
+                    "next_date": "2022-05-22 20:42:55"
                 },
                 "key_1_data": {
                     "last_date": "",
@@ -1071,8 +1071,8 @@
                 "key_1": "He\\She",
                 "card_id": "2",
                 "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
+                    "last_date": "2022-05-15 18:29:29",
+                    "next_date": "2022-05-23 01:43:00"
                 },
                 "key_1_data": {
                     "last_date": "",
@@ -1084,6 +1084,58 @@
                 "key_1": "woman",
                 "card_id": "3",
                 "key_0_data": {
+                    "last_date": "2022-05-15 18:29:36",
+                    "next_date": "2022-05-23 02:11:13"
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "մարդ",
+                "key_1": "man",
+                "card_id": "4",
+                "key_0_data": {
+                    "last_date": "2022-05-15 18:29:31",
+                    "next_date": "2022-05-22 20:39:25"
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "աղջիկ",
+                "key_1": "girl",
+                "card_id": "5",
+                "key_0_data": {
+                    "last_date": "2022-05-15 18:29:22",
+                    "next_date": "2022-05-20 01:15:33"
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "տղա",
+                "key_1": "boy",
+                "card_id": "6",
+                "key_0_data": {
+                    "last_date": "2022-05-15 18:29:26",
+                    "next_date": "2022-05-20 01:15:38"
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "տարեկան",
+                "key_1": "years old",
+                "card_id": "7",
+                "key_0_data": {
                     "last_date": "",
                     "next_date": ""
                 },
@@ -1093,9 +1145,9 @@
                 }
             },
             {
-                "key_0": "test",
-                "key_1": "test",
-                "card_id": "4",
+                "key_0": "քսանհինգ",
+                "key_1": "25",
+                "card_id": "8",
                 "key_0_data": {
                     "last_date": "",
                     "next_date": ""
@@ -1103,6 +1155,313 @@
                 "key_1_data": {
                     "last_date": "",
                     "next_date": ""
+                }
+            },
+            {
+                "key_0": "տասներկու",
+                "key_1": "12",
+                "card_id": "9",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "տասնչորս",
+                "key_1": "14",
+                "card_id": "10",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "քառասուն",
+                "key_1": "40",
+                "card_id": "11",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "անուն",
+                "key_1": "name",
+                "card_id": "12",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ազգանուն",
+                "key_1": "surname",
+                "card_id": "13",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ազատ ",
+                "key_1": "free",
+                "card_id": "14",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ասել",
+                "key_1": "to say",
+                "card_id": "15",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "տալ",
+                "key_1": "to give",
+                "card_id": "16",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "լավ",
+                "key_1": "good",
+                "card_id": "17",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "պատ",
+                "key_1": "wall",
+                "card_id": "18",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "նամակ",
+                "key_1": "letter",
+                "card_id": "19",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "դասարան",
+                "key_1": "classroom",
+                "card_id": "20",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "դաս",
+                "key_1": "lesson",
+                "card_id": "21",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ունենալ",
+                "key_1": "to have",
+                "card_id": "22",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ուրիշ",
+                "key_1": "another",
+                "card_id": "23",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ուրախ",
+                "key_1": "glad",
+                "card_id": "24",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "աշուն",
+                "key_1": "autumn",
+                "card_id": "25",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "գարուն",
+                "key_1": "spring (season)",
+                "card_id": "26",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "ուսում",
+                "key_1": "study",
+                "card_id": "27",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "անասուն",
+                "key_1": "animal",
+                "card_id": "28",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "շուն",
+                "key_1": "dog",
+                "card_id": "29",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            }
+        ]
+    },
+    "turkish": {
+        "languages": [
+            "turkish",
+            "english"
+        ],
+        "cards": [
+            {
+                "key_0": "Ben",
+                "key_1": "I, me",
+                "card_id": "0",
+                "key_0_data": {
+                    "last_date": "2022-05-23 17:18:20",
+                    "next_date": "2022-06-09 22:35:01"
+                },
+                "key_1_data": {
+                    "last_date": "2022-05-23 17:44:33",
+                    "next_date": "2022-05-23 17:47:33"
+                }
+            },
+            {
+                "key_0": "Biz",
+                "key_1": "We",
+                "card_id": "1",
+                "key_0_data": {
+                    "last_date": "2022-05-23 17:18:56",
+                    "next_date": "2022-06-09 22:38:36"
+                },
+                "key_1_data": {
+                    "last_date": "2022-05-23 17:44:31",
+                    "next_date": "2022-05-23 17:47:02"
                 }
             }
         ]
