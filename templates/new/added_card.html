@@ -1,8 +1,23 @@
+{# Needs variables:
+  deck_name  (str): name of deck
+  deck      (dict): list of dicts
+#}
 {%extends "base.html"%}
 {%block content%}
-<p>
-    You've added a card! Go back to training to learn it.
-    (Actually I just haven't made an interface for this yet.) 
-</p>
-<a href="{{url_for('train_deck', deck_name=deck_name, front=front)}}">Go back.</a>
+  <p>You've added some cards to deck "{{deck_name}}"!</p>
+  {% for card in deck.cards %}
+    <p>The card № {{loop.index}} is:</p>
+    <p>{{deck.languages.0}}: <h2>{{card.key_0}}</h2></p>
+    <p>{{deck.languages.1}}: <h2>{{card.key_1}}</h2></p>
+    <br>
+  {% endfor %}
+  <p>Go back to training to learn it.</p>
+  <form action="" method="POST">
+    <button name="new card" value="learn">
+      Add to review deck
+    </button>
+  </form>
+  <form action="/train/" method="get">
+    <button>Go back.</button>
+  </form>
 {% endblock %}

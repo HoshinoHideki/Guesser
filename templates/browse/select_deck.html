@@ -1,0 +1,30 @@
+{# Needs variables:
+  cards_per_deck (dict):  dictionary containing deck names and their card
+                          numbers.
+                          struct {deck_name:number}
+#}
+{% extends "base.html" %}
+{% block content %}
+  <p>Select deck:</p>
+  <table>
+    <thead>
+      <th>Deck name</th>
+      <th>№ of cards</th>
+    </thead>
+    <tbody>
+      {% for deck_name in cards_per_deck.keys() %}
+        <tr class="deck-row">
+          <td>
+            <a href="/browse/{{deck_name}}/">
+              {{deck_name}}
+            </a>
+          </td>
+          <td class="right-align">
+            <p>{{cards_per_deck[deck_name]}}</p>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <br>
+{% endblock %}

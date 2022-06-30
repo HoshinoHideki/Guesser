@@ -229,11 +229,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.json_editor" />
-      <item itemvalue="Python.stringify" />
-      <item itemvalue="Python.stringify (1)" />
-      <item itemvalue="Python.dicsort" />
       <item itemvalue="Python.Guesser (1)" />
+      <item itemvalue="Python.dicsort" />
+      <item itemvalue="Python.json_editor" />
+      <item itemvalue="Python.stringify (1)" />
+      <item itemvalue="Python.stringify" />
     </list>
     <recent_temporary>
       <list>

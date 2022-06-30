@@ -1,60 +1,90 @@
+{# Needs variables:
+  deck      (list): list of dicts.
+  deck_name  (str): name of deck.
+#}
+
 {% extends "base.html" %}
-
-{% block script %}
-    <script>
-        $(document).ready(function(){
-          $(".item").submit(function(a){
-            var link = $(this).closest(".item").attr("action");
-            a.preventDefault();
-            $(edit_item_container).load(link);
-          });
-          $(".add").submit(function(b){
-            var link = $(this).closest(".add").attr("action");
-            b.preventDefault();
-            $(edit_item_container).load(link);
-          });
-        });
-    </script>
-{% endblock %}
-
 {% block content %}
-    <p>Viewing deck "{{deck_name}}":</p>
-    <div class="table-container">
-        <table class="table">
-            <tr>
-                <th>ID</th>
-                <th>{{deck.languages.0}}</th>
-                <th>{{deck.languages.1}}</th>
-                <th>Action</th>
-            </tr>
-
-            {%for item in deck.cards%}
-                <tr>
-                    <td>{{item.card_id}}</td>
-                    <td>{{item.key_0}}</td>
-                    <td>{{item.key_1}}</td>
-                    <td>
-                        <form
-                            class  = "item" 
-                            action = "{{url_for(
-                                'edit_item', 
-                                deck_name=deck_name, 
-                                card_id=item.card_id)}}"
-                            method = "GET">
-                            <input
-                                type =   "submit" 
-                                value =  "Edit">
-                        </form>
-                    </td>
-                </tr>
-            {%endfor%}
-        </table>
-        <form action="{{url_for('add_item', deck_name=deck_name)}}"
-            method="GET"
-            class="add">
-                <button type="submit">Add</button>
-        </form>
-    </div>
-
-    <div id="edit_item_container"></div>    
+  <h2>Viewing deck "{{deck_name}}":</h2>
+  <div class="table-frame">
+    <table class="table"
+              id="data-table">
+      <thead>
+        <th onclick="sortItems(this)">ID▴</th>
+        <th onclick="sortItems(this)">{{deck.languages.0}}▴</th>
+        <th onclick="sortItems(this)">{{deck.languages.1}}▴</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        {% for item in deck.cards %}
+          <tr>
+            <td>{{item.card_id}}</td>
+            <td>{{item.key_0}}</td>
+            <td>{{item.key_1}}</td>
+            <td>
+                <button onclick="editItem(this)">Edit</button>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div><button onclick="addItem()">Add new</button></div>
+  <div id="editorContainer"></div>
+  <div id="itemEditor">
+    <form action="/browse/{{deck_name}}/" method="POST">
+      <table>
+        <tr>
+          <td><labeL>ID</labeL></td>
+          <td>
+            <input type="text"
+                   name="card_id"
+                   id="card_id"
+                   readonly>
+          </td>
+        </tr>
+        <tr>
+          <td><labeL>{{deck.languages.0}}</labeL></td>
+          <td>
+            <input type = "text"
+                     name = "key_0"
+                     id   = "key_0">
+          </td>
+        </tr>
+        <tr>
+          <td><labeL>{{deck.languages.1}}</labeL></td>
+          <td>
+            <input type="text"
+                   name="key_1"
+                   id="key_1">
+          </td>
+        </tr>
+      </table>
+      <input type="submit"
+             value="Edit">
+    </form>
+  </div>
+  <div id="itemAdder">
+    <form action="/add/{{deck_name}}/" method="POST">
+      <table>
+        <tr>
+          <td>{{deck.languages.0}}</td>
+          <td>
+            <input type="text" 
+                    name="key_0" 
+                    placeholder="value">
+          </td>
+        </tr>
+        <tr>
+          <td>{{deck.languages.1}}</td>
+          <td>
+            <input type="text" 
+                   name="key_1" 
+                   placeholder="value">
+          </td>
+        </tr>
+      </table>
+      <input type="submit" value="Add">
+    </form>
+  </div>
 {% endblock %}

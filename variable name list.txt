@@ -1,0 +1,33 @@
+card            (dict): Dictionary containing a single card data.
+card_id          (str): Id of a card.
+card_number      (int): number of cards
+cards_per_deck  (dict): Number of total cards per each deck.
+database        (json): Database with all decks and cards
+data            (dict): Dict with key-value pairs for updating.
+date             (str): General variable name for date manipulations.
+deck            (list): List of dictionaries containing cards and metadata.
+deck_name        (str): Name of a deck.
+deck_names      (list): List of decks in the database.
+difference  (datetime): Datetime obj representing difference between now and
+                        stored value.
+due_deck        (list): List of cards due for review.
+file             (obj): TextIOWrapper
+flashcard       (Card): Custom Card object
+front            (str): Language that is used as front of the card.
+format           (str): Date format for converting to/from object.
+id_list         (list): List of card IDs.
+input_date       (str): Date string to be modified.
+key              (str): dict key in "data" dict.
+key_string       (str): Either "key_0_data" or "key_1_data".
+method           (str): Either "update" or "reset".
+new_card        (dict): Newly created card.4
+next_date   (datetime): Objectified next date.
+next_due_date    (str): Next due date in str format.
+now         (datetime): Datetime obj representing now.
+due_number      (int) : Number of cards due
+languages       (list): List containing the language pair.
+out_card        (dict): Same as "card" variable.
+output_date      (str): Modified date string.
+source_card     (dict): Card data used to generate flashcard.
+total_cards      (int): Total number of cards.
+total_due        (int): Total number of due cards.

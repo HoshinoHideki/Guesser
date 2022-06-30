@@ -12,7 +12,12 @@ app = Flask(__name__)
 def index():
     """Starting page. Doesn't take any arguments (yet?)"""
 
-    return render_template("index.html")
+    return render_template(
+        "index.html",
+        deck_count=len(load_database()),
+        total_cards=total_cards(),
+        total_due=total_due(),
+        )
 
 
 @app.route("/browse/")
@@ -22,14 +27,19 @@ def browse():
     Context Args:
         deck_names (list): List of deck name strings.
     """
+
+    cards_per_deck = {}
+    for deck_name in list_decks():
+        cards_per_deck[deck_name] = total_cards(deck_name)
     return render_template(
-        "select_deck.html", 
+        "browse/select_deck.html", 
         select_mode = "browse",
         deck_names = list_decks(),
+        cards_per_deck = cards_per_deck,
         )
 
 
-@app.route("/browse/<deck_name>/")
+@app.route("/browse/<deck_name>/", methods=["GET", "POST"])
 def browse_deck(deck_name: str):
     """Displays a table of all entries in a selected deck.
 
@@ -41,9 +51,14 @@ def browse_deck(deck_name: str):
     Context Args:
         deck (dict): Dictionary containing deck data and information.
     """
-    return render_template("browse/deck.html", 
-                            deck_name=deck_name,
-                            deck=load_database()[deck_name])
+    if request.method == "GET":
+        return render_template("browse/deck.html", 
+                                deck_name=deck_name,
+                                deck=load_database()[deck_name])
+
+    if request.method == "POST":
+        update_card(deck_name, request.form)
+        return redirect(url_for("browse_deck", deck_name=deck_name))
 
 
 @app.route("/browse/<deck_name>/<card_id>/", methods=["GET", "POST"])
@@ -72,13 +87,13 @@ def edit_item(deck_name: str, card_id: str):
         deck_name (str): Name of deck.
     """
 
-    if request.method == "GET":
-        return render_template(
-            "browse/item.html",
-            deck_name=deck_name,
-            languages=get_languages(deck_name),
-            card=get_card(card_id, deck_name),
-            )
+    # if request.method == "GET":
+    #     return render_template(
+    #         "browse/item.html",
+    #         deck_name=deck_name,
+    #         languages=get_languages(deck_name),
+    #         card=get_card(card_id, deck_name),
+    #         )
     
     # maybe make it another function?
     if request.method == "POST":
@@ -96,10 +111,6 @@ def add_item(deck_name: str):
             languages (str): languages for headers.
     """
 
-    if request.method == "GET":
-        return render_template("browse/add_item.html", 
-                                languages=get_languages(deck_name), 
-                                deck_name=deck_name)
     if request.method == "POST":
         add_card(deck_name, request.form)
         return redirect(url_for("browse_deck", deck_name=deck_name))
@@ -112,34 +123,19 @@ def train():
     Args:
         deck_names (list): List with string names of all available decks.
     """
-    due_dict = {}
+    deck_stats = {}
     for deck_name in list_decks():
-        due_dict[deck_name] = count_due(deck_name)
-    return render_template(
-        "select_deck.html", 
-        select_mode = "train",
-        deck_names = list_decks(),
-        due_numbers = due_dict,
-        )
-
-
-@app.route("/train/<deck_name>/")
-def deck_lang_select(deck_name: str):
-    """Language selection interface.
-
-    Asks user to choose which language is represented on front cards.
-
-    Args:
-    deck_name (str): Name of the deck.
-
-    Context Args: 
-    languages (list): List of language names for the fields.  
-    """
+        deck_stats[deck_name] = {}
+        for front in get_languages(deck_name):
+            deck_stats[deck_name][front] = {}
+            deck_stats[deck_name][front]["due_number"] = \
+                count_due(deck_name, front)
+            deck_stats[deck_name][front]["next_due"] = \
+                get_next_card_due(deck_name, front)
 
     return render_template(
-        "train/choose_front.html", 
-        deck_name=deck_name, 
-        languages=get_languages(deck_name),
+        "train/choose_deck.html",
+        deck_stats=deck_stats
         )
 
 
@@ -181,12 +177,14 @@ def train_deck(deck_name: str, front: str):
                 card=card,
                 deck_name=deck_name,
                 front=front,
+                due_cards = len(due_deck["cards"])
                 )
     if request.method == "POST":
-        update_date(deck_name=deck_name, 
-                    card_id=request.form["card_id"],
-                    front=front,
-                    method=request.form["action"])
+        update_date(
+            deck_name=deck_name, 
+            card_id=request.form["card_id"],
+            front=front,
+            method=request.form["action"])
         return redirect(url_for(
             "train_deck", 
             deck_name=deck_name, 
@@ -207,7 +205,6 @@ def new_cards(deck_name: str, front: str):
     Context args:
         result (str): Either "Done" or "Empty".
     """
-    # rewrite this too?
     if request.method == "GET":
         return render_template(
             "new/cards.html", 
@@ -215,19 +212,24 @@ def new_cards(deck_name: str, front: str):
             front=front
             )
     if request.method == "POST":
+        languages = load_database()[deck_name]["languages"]
+        deck = create_learn_deck(deck_name, get_next_id(deck_name, 1))
         if request.form["new card"] == "yes":
-            # add a number of new cards parameter
-            result = create_due(deck_name, front, 5)
-            # do the logic with jinja
-            if result == "Done":
+            if deck["cards"] == []:
+                return render_template("new/oops.html", deck_name=deck_name)
+            else:
                 return render_template(
-                    "new/added_card.html", 
-                    deck_name=deck_name, 
-                    front=front)
-            elif result == "Empty":
-                return render_template("new/oops.html")
+                    "new/added_card.html",
+                    deck=deck, 
+                    deck_name=deck_name)
+        if request.form["new card"] == "learn":
+            for card_id in get_next_id(deck_name, 1):
+                set_both_due(deck_name, card_id)
+            return redirect(
+                url_for("train_deck", deck_name=deck_name, front=front))
 
 
 # Start frontend
 if __name__ == "__main__":
+    app.secret_key = "test"
     app.run(debug=True)

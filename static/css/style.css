@@ -3,10 +3,9 @@
     }
 
 .topnav a {
-    text-align:         center;
-    padding:            1px 4px;
+    padding:            0px 5px;
     font-size:          17px;
-    text-decoration:    none;
+    text-decoration:    none; /* removes underline from links */
     border:             2px solid black;
     border-radius:      5px;
     color:              black;
@@ -23,8 +22,8 @@
     color:              black;
     }
 
-.table-container {
-    height:             300px;
+.table-frame {
+    height:             30%;
     overflow:           auto;
     width:              30%;
     margin-left:        auto;
@@ -41,12 +40,22 @@
     height:             10px;
     }
 
+.deck-row:hover, .due-deck:hover {
+    background-color:cyan;
+    cursor: pointer;
+    }
+
+ .due-deck {
+    cursor: pointer;
+    background-color: cadetblue;
+ }
+
 #button {
     justify-content:    center;
     align-items:        center;
     }
 
-tbody>tr>:nth-child(1) {
+.table tbody>tr>:nth-child(1) {
     font-weight: bold;
     }
 
@@ -55,6 +64,7 @@ body {
     background-color:   AliceBlue;
     }
 
+
 table, th, td {
     border:             1px solid;
     border-collapse:    collapse;
@@ -62,3 +72,24 @@ table, th, td {
     margin-left:        auto;
     margin-right:       auto;
     }
+
+.right-align {
+    text-align:         right;
+}
+
+p { margin:             0;
+
+}
+
+ul {
+    list-style-type: square;
+}
+
+ul a:hover {
+    background-color:   Aquamarine;
+    color:              black;
+}
+
+#itemEditor, #itemAdder {
+    display:            none;
+}

@@ -1,7 +1,18 @@
-{%extends "base.html"%}
-{%block content%}
-        <h1 style="font-size:20px;">Hello and welcome to the Language Guesser!</h1>
-        <p>Tell me what would you like to do:</p>
-        <a href ="/train/">Train</a><br>
-        <a href ="/browse/">Browse</a>
-{%endblock%}
+{# Needs variables: 
+  deck_count  (int) : number of decks in the app.
+  total_cards (int) : total number of cards in decks.
+  total_due   (int) : total number of cards up for review.
+#}
+{% extends "base.html" %}
+{% block content %}
+  <h1>Hello and welcome to the Language Guesser!</h1>
+  <p>
+    This app currently has {{deck_count}} decks with a total of 
+    {{total_cards}} cards.
+  </p>
+  <p>Cards pending currently: {{total_due}}.</p>
+  <p>Tell me what would you like to do:</p>
+  <a href ="/train/">Train</a>
+  <br>
+  <a href ="/browse/">Browse</a>
+{% endblock %}

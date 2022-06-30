@@ -1,29 +1,26 @@
 TODO:
 
 deck_manager:
-    [] make a decorator?
-    [] make a func for key_string
-    [] sorting due deck
-    [] regular expressions editor?
+    [] customizable data multiplication factor.
 
 guesser.py:
-    [] rewrite the item editor so it doesn't access database again.
-    [] display the number of pending cards per deck?
 
 complex:
-    [] displaying new cards
+    [] rewrite database as a collection of decks
+        [] sqlite3
     [] object coder-decoder?
         [] code a deck class
             [] "deck_name" key in json file (recoding?)
     [] Deck\card structure object?
     [] deleting cards from deck
-    [] ijson?
     [] fancy deck descriptions
     [] wtforms?
-    []rewrite database as a collection of decks
 
 html:
-    [] show stats in deck view.
     [] js confirmation alerts
-    [] next time preview!
-    [] sortable tables (js)
+    
+
+js:
+    [] scroll to bottom
+    [] countdown timer
+    [] make sorted column bold

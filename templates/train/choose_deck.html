@@ -1,10 +1,43 @@
+{# Needs variables:
+  deck_stats (dict): dict containing data needed to render page.
+  deck_name   (str): keys of deck_stats dict.
+  front       (str): language string.
+  due_number  (int): number of cards due.
+  next_due    (str): nearest review date.
+#}
 {% extends "base.html" %}
-
 {% block content %}
-Select deck:
-<br>
-{%for deck_name in deck_names%}
-<a href="/train/{{deck_name}}/front_select/">{{deck_name}}</a>
-<br>
-{%endfor%}
+  Select deck:
+  <table>
+    {% for deck_name in deck_stats.keys() %}
+    <tr>
+      <th>{{deck_name}}</th>
+    </tr>
+    <tr>
+      <td>
+        <table style="width:100%">
+          <tr>
+            <th>Front card</th>
+            <th>Due cards</th>
+            <th width="130">Next due:</th>
+            <th>Action</th>
+          </tr>
+          {% for front in deck_stats[deck_name].keys() %}
+            <tr class="deck-row" onclick="getLink(this)">
+              <td>{{front}}</td>
+              <td>{{deck_stats[deck_name][front].due_number}}</td>
+              <td>{{deck_stats[deck_name][front].next_due}}</td>
+              <td>
+                <a href="/train/{{deck_name}}/{{front}}">Train.</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </td>   
+    </tr>
+    {% endfor %}
+</table>
+<script>
+  window.onload = makeGreen()
+</script>
 {% endblock %}
