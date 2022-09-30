@@ -3,19 +3,26 @@
   deck_name  (str): name of deck.
 #}
 
+<!--The main deck browsing and editing page.-->
+<!--Contains the table of items and the hidden editing form.-->
+
 {% extends "base.html" %}
 {% block content %}
   <h2>Viewing deck "{{deck_name}}":</h2>
   <div class="table-frame">
+    <!--table frame containing the table.-->
     <table class="table"
               id="data-table">
+    <!--The table itself.-->
       <thead>
+        <!-- Headings-->
         <th onclick="sortItems(this)">ID▴</th>
         <th onclick="sortItems(this)">{{deck.languages.0}}▴</th>
         <th onclick="sortItems(this)">{{deck.languages.1}}▴</th>
         <th>Action</th>
       </thead>
       <tbody>
+        <!--deck rows-->
         {% for item in deck.cards %}
           <tr>
             <td>{{item.card_id}}</td>
@@ -30,8 +37,10 @@
     </table>
   </div>
   <div><button onclick="addItem()">Add new</button></div>
+  <!--area where edited item will appear-->
   <div id="editorContainer"></div>
   <div id="itemEditor">
+    <!--invisible div, containing html for item editor.-->
     <form action="/browse/{{deck_name}}/" method="POST">
       <table>
         <tr>
@@ -65,6 +74,7 @@
     </form>
   </div>
   <div id="itemAdder">
+    <!--invisible div, containing html for item adder.-->
     <form action="/add/{{deck_name}}/" method="POST">
       <table>
         <tr>

@@ -1,8 +1,15 @@
 var editorContainer, itemEditor, itemAdder, reverse
 
 window.onload = function(){
+  // this assigns html elements to JS variables.
+
+  //empty div containing item editor interface.
   editorContainer = document.getElementById("editorContainer");
+
+  // div containing item editing form
   itemEditor = document.getElementById("itemEditor");
+
+  // div containing item adding form
   itemAdder = document.getElementById("itemAdder");
   reverse = false;
 };

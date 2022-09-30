@@ -2,10 +2,14 @@
   deck_name  (str): name of deck
   deck      (dict): list of dicts
 #}
+
+<!--New card preview page.-->
+
 {%extends "base.html"%}
 {%block content%}
-  <p>You've added some cards to deck "{{deck_name}}"!</p>
+  <p>Here are new cards for the deck "{{deck_name}}"!</p>
   {% for card in deck.cards %}
+  <!--Gives a list of new cards.-->
     <p>The card № {{loop.index}} is:</p>
     <p>{{deck.languages.0}}: <h2>{{card.key_0}}</h2></p>
     <p>{{deck.languages.1}}: <h2>{{card.key_1}}</h2></p>
@@ -13,11 +17,13 @@
   {% endfor %}
   <p>Go back to training to learn it.</p>
   <form action="" method="POST">
+    <!--Sets selected cards due.-->
     <button name="new card" value="learn">
       Add to review deck
     </button>
   </form>
   <form action="/train/" method="get">
+    <!--Do nothing-->
     <button>Go back.</button>
   </form>
 {% endblock %}

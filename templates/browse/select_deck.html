@@ -3,15 +3,21 @@
                           numbers.
                           struct {deck_name:number}
 #}
+
+<!--Deck selector page.-->
+
 {% extends "base.html" %}
 {% block content %}
   <p>Select deck:</p>
   <table>
+    <!--table containing the list of decks-->
     <thead>
+      <!--Headings-->
       <th>Deck name</th>
       <th>№ of cards</th>
     </thead>
     <tbody>
+      <!--deck rows-->
       {% for deck_name in cards_per_deck.keys() %}
         <tr class="deck-row">
           <td>
@@ -19,7 +25,7 @@
               {{deck_name}}
             </a>
           </td>
-          <td class="right-align">
+          <td class="number-of-cards">
             <p>{{cards_per_deck[deck_name]}}</p>
           </td>
         </tr>

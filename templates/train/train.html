@@ -5,6 +5,9 @@
   card.back  (str): Back data.
   card.id    (str): Id data (used for updating).
 #}
+
+<!--Card training page.-->
+
 {% extends "base.html" %}
 {% block content %}
   <div>
@@ -13,15 +16,22 @@
     <p>What is:</p>
     <h1>{{card.front}}</h1>
   </div>
+  <!--This button shows the hidden part of the card.-->
   <button id="check" onclick="showAnswer()">Check the answer</button>
+
+  <!--This div shows after pressing the button.-->
   <div id="answer" hidden>
     <p>The answer is:</p>
     <h1>{{card.back}}</h1>
     <br>
+    <!--Interacting interface.-->
     <form action="/train/{{deck_name}}/{{front}}" 
           method="POST">
+      <!--Hidden value: card id.-->
       <input type="hidden" name="card_id" value="{{card.id}}">
+      <!-- Updates next date.-->
       <button name="action" value="update">Good</button>
+      <!-- Resets next date.-->
       <button name="action" value="reset">Bad</button>
     </form>
   </div>

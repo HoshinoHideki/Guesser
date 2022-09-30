@@ -2,6 +2,10 @@
   deck_name (str): name of deck.
   front (str): name of front language.
 #}
+
+<!--Page that gets shown when no cards are due to review.-->
+<!--Gives an option to learn a new card.-->
+
 {%extends "base.html"%}
 {%block content%}
   <p>
@@ -12,6 +16,7 @@
     You can learn a new card from the deck.
   </p>
   <form action="" method="POST">
+    <!--Sends post request for learning a new card.-->
     <button name="new card" value="yes">
       Learn a new card
     </button>

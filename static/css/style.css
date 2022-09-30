@@ -1,71 +1,16 @@
-.topnav {
-    background-color:   AliceBlue;
-    }
-
-.topnav a {
-    padding:            0px 5px;
-    font-size:          17px;
-    text-decoration:    none; /* removes underline from links */
-    border:             2px solid black;
-    border-radius:      5px;
-    color:              black;
-    }
-
-.deck_selector {
-    text-align:         left;
-    width:              30%;
-    margin:             auto;
+p {
+    /* Removes paragraph spacing. */
+   margin:             0;
 }
 
-.topnav a:hover {
-    background-color:   Aquamarine;
-    color:              black;
-    }
-
-.table-frame {
-    height:             30%;
-    overflow:           auto;
-    width:              30%;
-    margin-left:        auto;
-    margin-right:       auto;
-
-    }
-
-.table {
-    position:           sticky;
-    width:              100%;
-    }
-
-.table form {
-    height:             10px;
-    }
-
-.deck-row:hover, .due-deck:hover {
-    background-color:cyan;
-    cursor: pointer;
-    }
-
- .due-deck {
-    cursor: pointer;
-    background-color: cadetblue;
- }
-
-#button {
-    justify-content:    center;
-    align-items:        center;
-    }
-
-.table tbody>tr>:nth-child(1) {
-    font-weight: bold;
-    }
-
 body {
+    /* Makes the whole content align to center. */
     text-align:         center;
     background-color:   AliceBlue;
     }
 
-
 table, th, td {
+    /* basic table styling */
     border:             1px solid;
     border-collapse:    collapse;
     font-size:          12;
@@ -73,23 +18,63 @@ table, th, td {
     margin-right:       auto;
     }
 
-.right-align {
+.topnav a {
+    padding:            0px 5px; 
+    font-size:          17px;
+    text-decoration:    none; /* removes underline from links */
+    border:             2px solid black;
+    border-radius:      5px;
+    color:              black;
+    }
+
+.topnav a:hover {
+    background-color:   Aquamarine; /* hover color */
+    }
+
+.table-frame {
+    /*Table takes 30% of space vertically.*/
+    height:             30%;
+    /* The rest of the table scrolls down in the frame. */
+    overflow:           auto;
+    /* Also takes 30% of space horizontally */
+    width:              30%;
+    /* Automatic centering. */
+    margin-left:        auto;
+    margin-right:       auto;
+    }
+
+.table {
+    /* Stick to the frame. */
+    position:           sticky;
+    width:              100%;
+    }
+
+.deck-row:hover, .due-deck:hover {
+    /* Hovering on a table row. */
+    background-color:   cyan;
+    cursor:             pointer;
+    }
+
+ .due-deck {
+    /* CSS for JS script, changing the BG color of due decks. */
+    cursor:             pointer;
+    background-color:   cadetblue;
+ }
+
+.table tbody>tr>:nth-child(1) {
+    /* makes ID column bold. */
+    font-weight:        bold;
+    }
+
+
+.number-of-cards {
+    /* Styling for "number of cards" column, making numbers aligned to the
+     right*/
     text-align:         right;
 }
 
-p { margin:             0;
-
-}
-
-ul {
-    list-style-type: square;
-}
-
-ul a:hover {
-    background-color:   Aquamarine;
-    color:              black;
-}
 
 #itemEditor, #itemAdder {
+    /* Hidden from view before you need them. */
     display:            none;
 }

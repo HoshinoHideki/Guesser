@@ -25,8 +25,11 @@ def load_database() -> dict:
     return database
 
 
-def save_database(database) -> json:
+def save_database(database:dict) -> json:
     """Function for saving changes if they were made.
+
+    Args:
+        database (dict): database python dict.
 
     Saves data model from memory into the file.
     """
@@ -50,6 +53,8 @@ def get_languages(deck_name:str) -> list:
 
     Args:
         deck_name (str): name of the deck.
+
+    Returns list object.
     """
 
     return load_database()[deck_name]["languages"]
@@ -59,28 +64,36 @@ def get_key_string(deck_name:str, front:str) -> str:
     """ Returns either "key_0_data" or "key_1_data".
 
     Checks the deck and returns one of the two values based on argument
-    "front" and the index of a "languages" key inside the deck. 
+    "front" and the index of a "languages" key inside the deck.
+
+    Args:
+        deck_name (str): name of the deck.
+        front     (str): Language that is used as front of the card.
     """
+
     languages = load_database()[deck_name]["languages"]
     if front == languages[0]:
         key_string = "key_0_data"
     elif front == languages[1]:
         key_string = "key_1_data"
+    
     return key_string
 
 def get_card(card_id:str, deck_name:str) -> dict:
-    """Find a dictionary with the matching id key value.
+    """Find the first dictionary with the matching card_id key value.
 
     Return empty dict if failed.
 
     Args:
         card_id (str): card's ID.
+        deck_name (str): name of the deck.
     """
     cards = load_database()[deck_name]["cards"]
     out_card = {}
     for card in cards:
         if card["card_id"] == card_id:
             out_card = card
+            break
     return out_card
 
 
@@ -97,6 +110,7 @@ def update_card(deck_name:str, data:dict) -> None:
     
     Doesn't return anything.
     """
+    
     database = load_database()
     cards = database[deck_name]["cards"]
     for card in cards:
@@ -104,6 +118,7 @@ def update_card(deck_name:str, data:dict) -> None:
             for key in data:
                 card[key] = data[key]
             save_database(database)
+            break
 
 
 def update_date(deck_name:str, card_id:str, front:str, method:str) -> None:
@@ -113,6 +128,12 @@ def update_date(deck_name:str, card_id:str, front:str, method:str) -> None:
     - checks which key data to use.
     - updates dates based on the user input 
     - saves database from memory to file
+
+    Args:
+        deck_name        (str): Name of a deck.
+        card_id          (str): Id of a card.
+        front            (str): Language that is used as front of the card.
+        method           (str): Either "update" or "reset".
     """
 
     card = get_card(card_id, deck_name)
@@ -121,15 +142,22 @@ def update_date(deck_name:str, card_id:str, front:str, method:str) -> None:
 
     now = str(datetime.now().replace(microsecond=0))
     
+    # Update: increment the next date.
     if method == "update":
         card[key_string]["next_date"] = increment_date(
             card[key_string]["last_date"])
 
-    if method == "reset":
+    # Reset: set the next date to right now.
+    elif method == "reset":
         card[key_string]["next_date"] = now
+    
+    # Set the last date to right now in any case.
     card[key_string]["last_date"] = now
 
+    # write the changes.
     update_card(deck_name, card)
+
+    # logging.
     print(f"update card id #{card['card_id']}, method {method}")
 
 
@@ -138,24 +166,54 @@ def increment_date(input_date:str) -> str:
     Takes a date, increments it by built-in algorhythm, subject for
     customization in the future.
 
+    Args:
+        input_date       (str): Date string to be modified.
+
     TODO: Custimizable multiplication factor.
     """
     now = datetime.now()
     format = DATE_FORMAT
     output_date = ""
+
+    # Set to now if the date is empty.
     if input_date == "":
         output_date = now
+
+    # Check if date is according to the format.
     elif isinstance(datetime.strptime(input_date, format),
         datetime):
         input_date = datetime.strptime(input_date, format)
         difference = now - input_date
         output_date = now + (difference * 5)
+    
+    # In case of any inconsistencies just reset the date to now.
+    else:
+        output_date = now
+    
+    # Strip microseconds.
     output_date = str(output_date.replace(microsecond=0))
+
     return output_date
 
 
-def objectify_date(date:str):
-    return datetime.strptime(date, DATE_FORMAT)
+def objectify_date(date:str) -> datetime:
+    """Makes a string into a datetime object.
+
+    Args:
+        date (str): date in a string format.
+
+    Returns:
+        datetime: object.
+    """
+
+    try:
+        date = datetime.strptime(date, DATE_FORMAT)
+
+    # In case sometihing goes wrong.
+    except:
+        return "Error"
+
+    return date
 
 
 def add_card(deck_name:str, data:dict) -> None:
@@ -163,7 +221,7 @@ def add_card(deck_name:str, data:dict) -> None:
 
     - Loads database into memory.
     - Creates a dict with pre-determined item keys.
-    - Assigns a new id to the new card (auto-incrementing the biggest one).
+    - Assigns a new id to the new card (auto-incrementing the biggest free one).
     - Assigns values sent via the web form. 
     - Adds the item to the deck in memory.
     - Saves the deck from memory to file.
@@ -172,25 +230,28 @@ def add_card(deck_name:str, data:dict) -> None:
         deck_name (str): name of the deck.
         data (dict): dict sent by web form.
     """
+
     database = load_database()
     cards = database[deck_name]["cards"]
 
     new_card = BLANK_CARD.copy()
     
-    # increment ID (make a function?)
+    # increment ID
     new_card["card_id"] = 0
     for card in cards:
         if int(card["card_id"]) >= new_card["card_id"]:
             new_card["card_id"] += 1
     new_card["card_id"] = str(new_card["card_id"]) # turn it into str
 
+    # add the data from the form to the dict.
     for key in data.keys():
         new_card[key] = data[key]
 
+    # add to the list
     cards.append(new_card)
 
+    # save changes
     save_database(database)
-
 
 def pick_card(deck:list, front:str) -> Card:
     """
@@ -206,10 +267,13 @@ def pick_card(deck:list, front:str) -> Card:
     front (str): string value telling function which value assign as the
     card's front.   
     """
-    
+    # pick a dict
     source_card = random.choice(deck.get("cards"))
+    
+    # pick a language pair
     languages = deck.get("languages")
     
+    # create empty card
     flashcard = Card("", "", "")
     flashcard.id = source_card["card_id"]  
     
@@ -232,6 +296,12 @@ def get_due(deck_name:str, front:str) -> dict:
     - gets a key string for front card data.
     - removes the cards that are not due.
     - returns the deck only with due cards.
+
+    Args:
+        deck_name (str): name of the deck.
+        front (str): name of the front language
+
+    Returns "deck" dictionary.
     """
 
     deck = load_database()[deck_name]
@@ -241,15 +311,20 @@ def get_due(deck_name:str, front:str) -> dict:
 
     for card in list(cards):
         try:
+            # leave all cards that are due to right now.
             next_date = datetime.strptime(
                 card[key_string]["next_date"], 
                 DATE_FORMAT)
             if next_date < datetime.now():
                 pass
             else:
+                # remove from the list if the date is not due yet.
                 cards.remove(card)
         except:
+            # remove from the list if objectification goes wrong.
             cards.remove(card)
+    
+    # sort by date of next review
     cards.sort(key=lambda card:card[key_string]["next_date"])
     return deck
 
@@ -285,7 +360,11 @@ def set_due(deck_name:str, front:str, card_number:int):
 def set_both_due(deck_name:str, card_id:str):
     """Resets both key data values for a given card id.
 
+    Args:
+    deck_name        (str): Name of a deck.
+    card_id          (str): Id of a card.
     """
+
     for front in get_languages(deck_name):
         update_date(deck_name, card_id, front, "reset")
 
@@ -295,10 +374,16 @@ def count_due(deck_name:str, *front:str or list) -> int:
 
     If front argument is given, counts only those cards that correspond
     to the given language.
-    """
 
+    Args:
+    deck_name        (str): Name of a deck.
+    front            (str ot list): Language that is used as front of 
+                                    the card.
+    """
+    
     due_number = 0
 
+    # takes both languages as front if no front is given
     if front == ():
         front = load_database()[deck_name]["languages"]
 
@@ -308,11 +393,15 @@ def count_due(deck_name:str, *front:str or list) -> int:
 
     return due_number
 
+
 def total_cards(*deck_names:list) -> int:
     """Counts how many cards are there in all decks.
-
     Can take specific decks as an argument.
+
+    Args:
+    deck_names      (list): List of decks in the database.
     """
+
     total_cards = 0
     if deck_names == ():
         deck_names = load_database().keys()
@@ -330,23 +419,39 @@ def total_due()-> int:
 
 
 def get_next_card_due(deck_name:str, front:str) ->str:
-    """Gets the nearest date for the chosen deck and front."""
+    """Gets the nearest date for the chosen deck and front.
+    If the nearest date is past right now, returns "Right now" 
+    
+    Args:
+        deck_name        (str): Name of a deck.
+        front            (str): name of the front language
+    """
+
     next_due_date = ""
     now = datetime.now()
     key_string = get_key_string(deck_name, front)
+
+    #skim through the deck
     for card in load_database()[deck_name]["cards"]:
+        # if next date is objectifiable
         try:
             next_date = objectify_date(card[key_string]["next_date"])
+            # if the date is earlier than right now, return "Right Now"
             if next_date < now:
                 next_due_date = "Right now"
                 break
+            # if the date is no earlier than tight now.
             if next_date > now:
+                # replace if the date is empty
                 if next_due_date == "":
                     next_due_date = next_date.replace(microsecond=0)
+                # if it's earlier then previous stored date, replace it.
                 elif next_date < next_due_date:
                     next_due_date = next_date.replace(microsecond=0)
+            # if somehow it's neither do nothing
             else:
                 pass
+        # do nothing if the data is not objectifiable.
         except:
             pass
     return str(next_due_date)
@@ -354,7 +459,13 @@ def get_next_card_due(deck_name:str, front:str) ->str:
 
 def get_next_id(deck_name:str, number:int) -> list:
     """ Finds the ids of set number of cards that were not studied yet.
+    Returns a list of strings.
+
+    Args:
+        deck_name        (str): Name of a deck.
+        number           (int): Number of cards.
     """
+
     id_list = []
     cards = load_database()[deck_name]["cards"]
     counter = 0
@@ -368,6 +479,17 @@ def get_next_id(deck_name:str, number:int) -> list:
     return id_list
 
 def create_learn_deck(deck_name:str, id_list:list) -> list:
+    """Creates a deck with only the new learning cards.
+    (For learning pages)
+    
+    Args:
+        deck_name        (str): Name of a deck.
+        id_list         (list): list of card decks
+
+    Returns:
+        deck            (list): deck with cards and metadata
+    """
+    
     deck = load_database()[deck_name]
     deck["cards"] = []
     cards = deck["cards"]
