@@ -76,10 +76,13 @@
   <div id="itemAdder">
     <!--invisible div, containing html for item adder.-->
     <form action="/add/{{deck_name}}/" method="POST">
+      <!-- Table with two rows and a submit button.-->
       <table>
         <tr>
           <td>{{deck.languages.0}}</td>
+          <!--First language name-->
           <td>
+          <!--Inputbox for the key value.-->
             <input type="text" 
                     name="key_0" 
                     placeholder="value">
@@ -87,6 +90,7 @@
         </tr>
         <tr>
           <td>{{deck.languages.1}}</td>
+          <!--Second language name-->
           <td>
             <input type="text" 
                    name="key_1" 
