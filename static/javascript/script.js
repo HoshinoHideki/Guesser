@@ -127,7 +127,7 @@ function makeGreen(){
   // to due-deck (making background color green) if there are due cards.
 
   let rows = document.querySelectorAll(".deck-row")
-  for (row in rows) {
+  for (var row = 0; row < rows.length; row++) {
       if (rows[row].cells[1].innerText != "0"){
           rows[row].className = "due-deck";
       };
@@ -142,4 +142,36 @@ function showAnswer() {
 
   checkButton.style.display = "none";
   answer.style.display = "inline";
+};
+
+function setCountDown(){
+  
+  dueCells = document.querySelectorAll(".next-due");
+  originalDueCells = [];
+
+  for (var i=0; i < dueCells.length; i++){
+    originalDueCells.push(dueCells[i].cloneNode(true))
+  };
+  
+  refreshCountDown();
+};
+
+function refreshCountDown(){
+  
+  var now = new Date().getTime();
+
+  for (var i = 0; i < originalDueCells.length; i++){
+    if (dueCells[i].innerText != "Right now") {
+      let countDownDate = new Date(originalDueCells[i].innerText).getTime();
+      let difference = countDownDate - now;
+
+      let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      let hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+      let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      dueCells[i].innerText = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+    };
+  };
 };

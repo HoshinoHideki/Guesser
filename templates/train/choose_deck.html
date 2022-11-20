@@ -39,7 +39,7 @@
                 <!-- Front language name. -->
               <td>{{deck_stats[deck_name][front].due_number}}</td>
                 <!-- Number of Due cards -->
-              <td>{{deck_stats[deck_name][front].next_due}}</td>
+              <td class="next-due">{{deck_stats[deck_name][front].next_due}}</td>
               <td>
                 <!-- Train button -->
                 <a href="/train/{{deck_name}}/{{front}}">Train.</a>
@@ -52,7 +52,8 @@
     {% endfor %}
 </table>
 <script>
-  // Changes CSS for due decks.
-  window.onload = makeGreen()
+  makeGreen(); // Changes CSS for due decks.
+  setCountDown(); // Gets countdown dates.
+  setInterval(refreshCountDown, 1000); // Refreshes countdown every second.
 </script>
 {% endblock %}
