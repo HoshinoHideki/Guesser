@@ -14,15 +14,25 @@ window.onload = function(){
   reverse = false;
 };
 
-function editItem(button){
-  
-  var data = button.closest("tr");
-  var id = data.cells[0].innerText;
-  var key_0 = data.cells[1].innerText;
-  var key_1 = data.cells[2].innerText;
 
+function editItem(button){
+  // picks data from a table row, reveals a hidden form and inserts
+  // data into it.
+  // The data is fetched from the HTML after page render,
+  // not from the database.
+
+  // stores the data from the nearest row of clicking.
+  var row = button.closest("tr");
+  
+  //Gets item ID, key_0 and key_1 from HTML.
+  var id = row.cells[0].innerText;
+  var key_0 = row.cells[1].innerText;
+  var key_1 = row.cells[2].innerText;
+
+  //Inserts Editing table into an empty Div.
   editorContainer.innerHTML = itemEditor.innerHTML;
 
+  //populates the table with the data.
   editorContainer.querySelector("#card_id").value = id;
   editorContainer.querySelector("#key_0").value = key_0;
   editorContainer.querySelector("#key_1").value = key_1;
@@ -30,60 +40,92 @@ function editItem(button){
 
 
 function addItem(){
+  // Inserts adding table into an empty div.
+
   editorContainer.innerHTML = itemAdder.innerHTML;
 };
 
 
 function getLink(row){
+  //When clicking anywhere in the row, 
+  //client goes via the hyperlink in the third row.
+
   location.href = row.cells[3].querySelector("a");
 };
 
 
 function sortItems(row){
-  var table = document.getElementById("data-table");
-  var tableData = table.cloneNode(true);
-  var indices = [];
-  var cellIndex = row.cellIndex
+  //sorts the table alphanumerically by clicked row.
 
-  function isNumber(element){
-      return !isNaN(element);
-  };
+  //assign table element to a variable
+  var tableHTML = document.getElementById("data-table");
 
+  //load data into a different variable.
+  var tableData = tableHTML.cloneNode(true);
+
+  //deletes the headers row 
   tableData.deleteRow(0);
 
-  while (table.rows.length > 1) {
-      table.deleteRow(1);
+  //create empty list of row values to sort.
+  var indices = [];
+
+  //gets index of the row we need to sort by. 
+  var cellIndex = row.cellIndex
+  
+  // clears the table on the page, leaving only headers.
+  while (tableHTML.rows.length > 1) {
+      tableHTML.deleteRow(1);
   };
 
+  // adds row contents to the list.
   for (var i=0;  i < tableData.rows.length; i++){
       var text = tableData.rows[i].cells[cellIndex].innerText;
       indices.push(text);
   };
 
-  if (indices.every(isNumber)){indices.sort(function(a, b){return a - b})}
+  // checks if it's all numbers, then sorts numerically if yes.
+  if (indices.every(isNumber)){
+    indices.sort(function(a, b){
+      return a - b}
+      )
+  }
 
+  // sorts usually if not.
   else {indices.sort()};
 
+  // reverses indices when the row header is clicked again.
   if (reverse) {indices.reverse()}
 
+  // takes value from the indices list, then scans the data-table and finds
+  // the corresponding row, then inserts row in the html-table.
   for (var i=0;  i < indices.length; i++){
       for (var j=0; j<tableData.rows.length; j++){
           if (indices[i] == tableData.rows[j].cells[cellIndex].innerText){
-              var rowdata = table.insertRow();
+              var rowdata = tableHTML.insertRow();
               rowdata.innerHTML = tableData.rows[j].innerHTML;
           };
       };
   };
 
+  // switches the reverse bool
   if (reverse == false){
       reverse = true;
   } else if (reverse == true){
       reverse = false;
   };
+};
 
+
+function isNumber(element){
+  //returns True if element is number, false if not.
+
+    return !isNaN(element);
 };
 
 function makeGreen(){
+  // selects all rows with the CSS class deck-row, then changes CSS class
+  // to due-deck (making background color green) if there are due cards.
+
   let rows = document.querySelectorAll(".deck-row")
   for (row in rows) {
       if (rows[row].cells[1].innerText != "0"){
@@ -93,8 +135,11 @@ function makeGreen(){
 };
 
 function showAnswer() {
+// hides check button, shows the answer div.
+
   answer = document.querySelector("#answer");
   checkButton = document.querySelector("#check");
+
   checkButton.style.display = "none";
   answer.style.display = "inline";
 };

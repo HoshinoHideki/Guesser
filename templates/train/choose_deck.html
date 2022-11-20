@@ -36,9 +36,12 @@
             <!--Row representing deck front. Made clickable.-->
             <tr class="deck-row" onclick="getLink(this)">
               <td>{{front}}</td>
+                <!-- Front language name. -->
               <td>{{deck_stats[deck_name][front].due_number}}</td>
+                <!-- Number of Due cards -->
               <td>{{deck_stats[deck_name][front].next_due}}</td>
               <td>
+                <!-- Train button -->
                 <a href="/train/{{deck_name}}/{{front}}">Train.</a>
               </td>
             </tr>

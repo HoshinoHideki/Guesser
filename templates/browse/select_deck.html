@@ -20,12 +20,15 @@
       <!--deck rows-->
       {% for deck_name in cards_per_deck.keys() %}
         <tr class="deck-row">
+          <!-- Single deck row. -->
           <td>
+            <!-- Deck name -->
             <a href="/browse/{{deck_name}}/">
               {{deck_name}}
             </a>
           </td>
           <td class="number-of-cards">
+            <!-- Number of cards due. -->
             <p>{{cards_per_deck[deck_name]}}</p>
           </td>
         </tr>
