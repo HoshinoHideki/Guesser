@@ -107,9 +107,21 @@ function sortItems(row){
       };
   };
 
+  // switches the reverse bool, also changes the sorting icon.
+  var lastChar = row.innerText.slice(-1) // last character of the header.
+
+  // set ascending order.
   if (reverse == false){
+      if (lastChar != "▲" && lastChar != "▼" ){
+      row.innerText += "▲";}
+      else {row.innerText = row.innerText.slice(0,-1) + "▲"};
       reverse = true;
-  } else if (reverse == true){
+  }
+  // set descending order.
+  else if (reverse == true){
+      if (lastChar != "▲" && lastChar != "▼" ){
+      row.innerText += "▼";}
+      else {row.innerText = row.innerText.slice(0,-1) + "▼"};
       reverse = false;
   };
 };
