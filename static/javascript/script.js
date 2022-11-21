@@ -159,33 +159,52 @@ function showAnswer() {
 
 
 function setCountDown(){
-  
-  dueCells = document.querySelectorAll(".next-due");
-  originalDueCells = [];
+  // Changes the static date of next due card to a dynamic countdown.
 
+  // picks up every cell with the class "next-due"
+  dueCells = document.querySelectorAll(".next-due");
+
+  // make an empty global list to store the data, then populate it from the
+  // node list.
+  // we need it to continuosly refresh the countodwn.
+  originalDueCells = [];
   for (var i=0; i < dueCells.length; i++){
     originalDueCells.push(dueCells[i].cloneNode(true))
   };
   
+  // does the actual deed.
   refreshCountDown();
 };
 
 function refreshCountDown(){
   
   var now = new Date().getTime();
-
+  
+  // cycles through the list, excluding cells that have "right now"
+  // in them.
+  // substracts now from the due date and then converts it to days\hr\m\s.
   for (var i = 0; i < originalDueCells.length; i++){
     if (dueCells[i].innerText != "Right now") {
+
       let countDownDate = new Date(originalDueCells[i].innerText).getTime();
       let difference = countDownDate - now;
 
-      let days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      let hours = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-      let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((difference % (1000 * 60)) / 1000);
-      dueCells[i].innerText = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+      let days = Math.floor(difference / 86400000);
+      let hours = Math.floor((difference % 86400000) / 3600000);
+      let minutes = Math.floor((difference % 3600000) / 60000);
+      let seconds = Math.floor((difference % 60000) / 1000);
+
+      let message = ""; // text to be displayed instead of static date.
+
+      // adds only significant time units.
+      if (days != 0){message += days + "d "};
+      if (hours != 0){message += hours + "h "};
+      if (minutes != 0){message += minutes + "m "};
+      if (seconds != 0){message += seconds + "s "};
+
+      if (seconds < 0) {message = "Right now"};
+
+      dueCells[i].innerText = message;
     };
   };
 };
