@@ -32,7 +32,7 @@ function editItem(button){
   //Inserts Editing table into an empty Div.
   editorContainer.innerHTML = itemEditor.innerHTML;
 
-  //populates the table with the data.
+  //populates the table with data.
   editorContainer.querySelector("#card_id").value = id;
   editorContainer.querySelector("#key_0").value = key_0;
   editorContainer.querySelector("#key_1").value = key_1;
@@ -56,11 +56,11 @@ function getLink(row){
 
 function sortItems(row){
   //sorts the table alphanumerically by clicked row.
-
+  
   //assign table element to a variable
   var tableHTML = document.getElementById("data-table");
 
-  //load data into a different variable.
+  //clone data into a different variable.
   var tableData = tableHTML.cloneNode(true);
 
   //deletes the headers row 
@@ -107,7 +107,6 @@ function sortItems(row){
       };
   };
 
-  // switches the reverse bool
   if (reverse == false){
       reverse = true;
   } else if (reverse == true){
@@ -122,6 +121,7 @@ function isNumber(element){
     return !isNaN(element);
 };
 
+
 function makeGreen(){
   // selects all rows with the CSS class deck-row, then changes CSS class
   // to due-deck (making background color green) if there are due cards.
@@ -134,6 +134,7 @@ function makeGreen(){
   };
 };
 
+
 function showAnswer() {
 // hides check button, shows the answer div.
 
@@ -143,6 +144,7 @@ function showAnswer() {
   checkButton.style.display = "none";
   answer.style.display = "inline";
 };
+
 
 function setCountDown(){
   
