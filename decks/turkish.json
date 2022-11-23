@@ -1,0 +1,115 @@
+{
+    "languages": [
+        "turkish",
+        "english"
+    ],
+    "cards": [
+        {
+            "key_0": "ben",
+            "key_1": [
+                "I",
+                "me"
+            ],
+            "card_id": "0",
+            "key_0_data": {
+                "last_date": "2022-11-21 17:00:28",
+                "next_date": "2022-11-21 17:00:37"
+            },
+            "key_1_data": {
+                "last_date": "2022-06-22 10:03:37",
+                "next_date": "2022-10-24 12:11:47"
+            }
+        },
+        {
+            "key_0": "biz",
+            "key_1": "we",
+            "card_id": "1",
+            "key_0_data": {
+                "last_date": "2022-11-21 16:56:03",
+                "next_date": "2025-02-20 05:08:48"
+            },
+            "key_1_data": {
+                "last_date": "2022-11-23 17:11:15",
+                "next_date": "2025-01-03 04:49:49"
+            }
+        },
+        {
+            "key_0": "sen",
+            "key_1": "you (singular)",
+            "card_id": "2",
+            "key_0_data": {
+                "last_date": "",
+                "next_date": ""
+            },
+            "key_1_data": {
+                "last_date": "",
+                "next_date": ""
+            }
+        },
+        {
+            "key_0": "siz",
+            "key_1": "you (plural)",
+            "card_id": "3",
+            "key_0_data": {
+                "last_date": "",
+                "next_date": ""
+            },
+            "key_1_data": {
+                "last_date": "",
+                "next_date": ""
+            }
+        },
+        {
+            "key_0": "o",
+            "key_1": "'he', 'she'",
+            "card_id": "4",
+            "key_0_data": {
+                "last_date": "",
+                "next_date": ""
+            },
+            "key_1_data": {
+                "last_date": "",
+                "next_date": ""
+            }
+        },
+        {
+            "key_0": "onlar",
+            "key_1": "they",
+            "card_id": "5",
+            "key_0_data": {
+                "last_date": "",
+                "next_date": ""
+            },
+            "key_1_data": {
+                "last_date": "",
+                "next_date": ""
+            }
+        },
+        {
+            "key_0": "bu",
+            "key_1": "this",
+            "card_id": "6",
+            "key_0_data": {
+                "last_date": "",
+                "next_date": ""
+            },
+            "key_1_data": {
+                "last_date": "",
+                "next_date": ""
+            }
+        },
+        {
+            "key_0": "tes",
+            "key_1": "tes",
+            "card_id": "7",
+            "key_0_data": {
+                "last_date": "",
+                "next_date": ""
+            },
+            "key_1_data": {
+                "last_date": "",
+                "next_date": ""
+            }
+        }
+    ]
+}

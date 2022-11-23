@@ -26,3 +26,4 @@ ITEM_STRUCTURE = {
     }
 }
 
+DATA_FOLDER = "decks/"
