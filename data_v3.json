@@ -1034,6 +1034,121 @@
             }
         ]
     },
+    "turkish": {
+        "languages": [
+            "turkish",
+            "english"
+        ],
+        "cards": [
+            {
+                "key_0": "ben",
+                "key_1": [
+                    "I",
+                    "me"
+                ],
+                "card_id": "0",
+                "key_0_data": {
+                    "last_date": "2022-11-21 17:00:28",
+                    "next_date": "2022-11-21 17:00:37"
+                },
+                "key_1_data": {
+                    "last_date": "2022-06-22 10:03:37",
+                    "next_date": "2022-10-24 12:11:47"
+                }
+            },
+            {
+                "key_0": "biz",
+                "key_1": "we",
+                "card_id": "1",
+                "key_0_data": {
+                    "last_date": "2022-11-21 16:56:03",
+                    "next_date": "2025-02-20 05:08:48"
+                },
+                "key_1_data": {
+                    "last_date": "2022-11-23 16:54:53",
+                    "next_date": "2025-01-03 03:11:34"
+                }
+            },
+            {
+                "key_0": "sen",
+                "key_1": "you (singular)",
+                "card_id": "2",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "siz",
+                "key_1": "you (plural)",
+                "card_id": "3",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "o",
+                "key_1": "'he', 'she'",
+                "card_id": "4",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "onlar",
+                "key_1": "they",
+                "card_id": "5",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "bu",
+                "key_1": "this",
+                "card_id": "6",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            },
+            {
+                "key_0": "tes",
+                "key_1": "tes",
+                "card_id": "7",
+                "key_0_data": {
+                    "last_date": "",
+                    "next_date": ""
+                },
+                "key_1_data": {
+                    "last_date": "",
+                    "next_date": ""
+                }
+            }
+        ]
+    },
     "vocabulary": {
         "languages": [
             "armenian",
@@ -2089,8 +2204,8 @@
                     "next_date": "2023-01-28 00:48:57"
                 },
                 "key_1_data": {
-                    "last_date": "2022-10-02 21:45:52",
-                    "next_date": "2022-11-02 17:44:38"
+                    "last_date": "2022-11-23 16:34:20",
+                    "next_date": "2022-11-23 16:34:20"
                 }
             },
             {
@@ -2167,8 +2282,8 @@
                     "next_date": "2023-08-19 14:18:27"
                 },
                 "key_1_data": {
-                    "last_date": "2022-10-19 18:31:47",
-                    "next_date": "2022-10-24 22:02:01"
+                    "last_date": "2022-11-21 20:47:56",
+                    "next_date": "2023-05-06 08:08:44"
                 }
             },
             {
@@ -2336,8 +2451,8 @@
                     "next_date": "2023-01-07 10:42:48"
                 },
                 "key_1_data": {
-                    "last_date": "2022-10-19 18:14:02",
-                    "next_date": "2022-10-24 20:15:00"
+                    "last_date": "2022-11-23 16:34:29",
+                    "next_date": "2023-05-17 08:16:45"
                 }
             },
             {
@@ -2570,8 +2685,8 @@
                     "next_date": "2023-04-21 03:28:13"
                 },
                 "key_1_data": {
-                    "last_date": "2022-10-20 16:52:17",
-                    "next_date": "2022-11-14 06:40:37"
+                    "last_date": "2022-11-21 21:03:37",
+                    "next_date": "2023-05-01 18:00:21"
                 }
             },
             {
@@ -2804,8 +2919,8 @@
                     "next_date": "2022-11-08 08:43:09"
                 },
                 "key_1_data": {
-                    "last_date": "2022-07-20 03:47:37",
-                    "next_date": "2022-10-28 03:26:15"
+                    "last_date": "2022-11-23 16:31:24",
+                    "next_date": "2024-08-17 08:10:20"
                 }
             },
             {
@@ -2895,8 +3010,8 @@
                     "next_date": "2022-11-12 05:42:44"
                 },
                 "key_1_data": {
-                    "last_date": "2022-07-20 03:08:31",
-                    "next_date": "2022-11-01 22:34:16"
+                    "last_date": "2022-11-23 16:21:35",
+                    "next_date": "2024-08-17 10:26:55"
                 }
             },
             {
@@ -3233,8 +3348,8 @@
                     "next_date": "2023-01-11 06:34:12"
                 },
                 "key_1_data": {
-                    "last_date": "2022-08-22 14:27:47",
-                    "next_date": "2022-11-10 05:10:35"
+                    "last_date": "2022-11-21 21:27:01",
+                    "next_date": "2022-11-21 21:27:01"
                 }
             },
             {
@@ -3870,8 +3985,8 @@
                     "next_date": "2023-02-15 20:17:23"
                 },
                 "key_1_data": {
-                    "last_date": "2022-10-08 21:37:29",
-                    "next_date": "2022-11-03 02:17:27"
+                    "last_date": "2022-11-21 20:47:49",
+                    "next_date": "2022-11-21 20:47:49"
                 }
             },
             {
@@ -3896,8 +4011,8 @@
                     "next_date": "2023-03-31 16:05:50"
                 },
                 "key_1_data": {
-                    "last_date": "2022-10-05 22:32:25",
-                    "next_date": "2022-10-31 05:53:50"
+                    "last_date": "2022-11-23 16:41:29",
+                    "next_date": "2023-07-25 11:26:50"
                 }
             },
             {
@@ -4000,8 +4115,8 @@
                     "next_date": "2022-11-07 20:42:00"
                 },
                 "key_1_data": {
-                    "last_date": "2022-09-30 20:57:37",
-                    "next_date": "2022-10-21 13:13:18"
+                    "last_date": "2022-11-23 16:31:10",
+                    "next_date": "2022-11-23 16:31:10"
                 }
             },
             {
@@ -4013,8 +4128,8 @@
                     "next_date": "2023-01-18 05:39:21"
                 },
                 "key_1_data": {
-                    "last_date": "2022-10-05 19:08:58",
-                    "next_date": "2022-10-30 10:09:42"
+                    "last_date": "2022-11-23 16:48:24",
+                    "next_date": "2023-07-26 05:05:34"
                 }
             },
             {
@@ -4156,8 +4271,8 @@
                     "next_date": "2023-03-28 05:30:47"
                 },
                 "key_1_data": {
-                    "last_date": "2022-10-08 20:43:34",
-                    "next_date": "2022-11-07 17:18:23"
+                    "last_date": "2022-11-21 21:37:25",
+                    "next_date": "2022-11-21 21:37:25"
                 }
             },
             {
@@ -4169,8 +4284,8 @@
                     "next_date": "2022-10-18 14:56:49"
                 },
                 "key_1_data": {
-                    "last_date": "2022-10-20 18:12:34",
-                    "next_date": "2022-10-21 00:54:54"
+                    "last_date": "2022-11-21 20:25:05",
+                    "next_date": "2022-11-21 22:47:07"
                 }
             },
             {
@@ -4273,8 +4388,8 @@
                     "next_date": "2023-03-11 05:24:23"
                 },
                 "key_1_data": {
-                    "last_date": "2022-10-08 21:07:55",
-                    "next_date": "2022-11-02 22:28:28"
+                    "last_date": "2022-11-23 16:31:13",
+                    "next_date": "2022-11-23 16:31:13"
                 }
             },
             {
@@ -4338,8 +4453,8 @@
                     "next_date": "2023-02-12 19:39:09"
                 },
                 "key_1_data": {
-                    "last_date": "2022-09-16 20:53:40",
-                    "next_date": "2022-11-11 21:46:45"
+                    "last_date": "2022-11-23 16:34:13",
+                    "next_date": "2022-11-23 16:34:13"
                 }
             },
             {
@@ -4741,8 +4856,8 @@
                     "next_date": "2022-12-07 02:28:37"
                 },
                 "key_1_data": {
-                    "last_date": "2022-11-21 19:26:54",
-                    "next_date": "2022-11-21 19:26:54"
+                    "last_date": "2022-11-21 19:56:46",
+                    "next_date": "2022-11-21 22:26:06"
                 }
             },
             {
@@ -4769,121 +4884,6 @@
                 "key_1_data": {
                     "last_date": "2022-10-16 16:34:49",
                     "next_date": "2023-02-27 11:32:18"
-                }
-            }
-        ]
-    },
-    "turkish": {
-        "languages": [
-            "turkish",
-            "english"
-        ],
-        "cards": [
-            {
-                "key_0": "ben",
-                "key_1": [
-                    "I",
-                    "me"
-                ],
-                "card_id": "0",
-                "key_0_data": {
-                    "last_date": "2022-11-21 17:00:28",
-                    "next_date": "2022-11-21 17:00:37"
-                },
-                "key_1_data": {
-                    "last_date": "2022-06-22 10:03:37",
-                    "next_date": "2022-10-24 12:11:47"
-                }
-            },
-            {
-                "key_0": "biz",
-                "key_1": "we",
-                "card_id": "1",
-                "key_0_data": {
-                    "last_date": "2022-11-21 16:56:03",
-                    "next_date": "2025-02-20 05:08:48"
-                },
-                "key_1_data": {
-                    "last_date": "2022-06-22 10:03:33",
-                    "next_date": "2022-10-24 12:11:29"
-                }
-            },
-            {
-                "key_0": "sen",
-                "key_1": "you (singular)",
-                "card_id": "2",
-                "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
-                },
-                "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
-                }
-            },
-            {
-                "key_0": "siz",
-                "key_1": "you (plural)",
-                "card_id": "3",
-                "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
-                },
-                "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
-                }
-            },
-            {
-                "key_0": "o",
-                "key_1": "'he', 'she'",
-                "card_id": "4",
-                "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
-                },
-                "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
-                }
-            },
-            {
-                "key_0": "onlar",
-                "key_1": "they",
-                "card_id": "5",
-                "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
-                },
-                "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
-                }
-            },
-            {
-                "key_0": "bu",
-                "key_1": "this",
-                "card_id": "6",
-                "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
-                },
-                "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
-                }
-            },
-            {
-                "key_0": "tes",
-                "key_1": "tes",
-                "card_id": "7",
-                "key_0_data": {
-                    "last_date": "",
-                    "next_date": ""
-                },
-                "key_1_data": {
-                    "last_date": "",
-                    "next_date": ""
                 }
             }
         ]
