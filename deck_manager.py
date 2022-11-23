@@ -1,7 +1,8 @@
 import json
 import random
+import os
 from datetime import datetime
-from config import DATABASE, BLANK_CARD, DATE_FORMAT
+from config import DATABASE, BLANK_CARD, DATE_FORMAT, DATA_FOLDER
 
 
 class Card:
@@ -19,10 +20,21 @@ def load_database() -> dict:
     
     Returns python object (dict).
     """
+    database = {}
 
-    with open(DATABASE, "r", encoding="utf-8") as file:
-        database = json.load(file)
+    # scans the data folder for decks.
+    decklist = os.listdir(DATA_FOLDER)
+    
+    for deck in decklist:
+        filepath = DATA_FOLDER + deck
+        deck_name = deck[:-5] # drops the ".json"
+        with open(filepath, "r", encoding="utf-8") as file:
+            database[deck_name] = json.load(file)
+        print("Loaded deck " + deck_name)
     return database
+
+def load_deck():
+    ...
 
 
 def save_database(database:dict) -> json:
@@ -33,9 +45,11 @@ def save_database(database:dict) -> json:
 
     Saves data model from memory into the file.
     """
-    with open(DATABASE, "w", encoding="utf-8") as file:
-                json.dump(
-                    database,           # data
+    for deck in database.keys():
+        filepath = DATA_FOLDER + deck + ".json"
+        with open(filepath, "w", encoding="utf-8") as file:
+            json.dump(
+                    database[deck],     # data
                     file,               # filename
                     ensure_ascii=False, # for readability
                     indent=4)
@@ -44,6 +58,8 @@ def save_database(database:dict) -> json:
 
 def list_decks() -> list:
     """Returns a sorted list containing strings of deck names."""
+
+    # decklist = os.listdir(DATA_FOLDER)
 
     return sorted(load_database().keys())
 
