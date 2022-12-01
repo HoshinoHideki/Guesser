@@ -4,13 +4,15 @@ deck_manager:
     [] customizable data multiplication factor.
 
 guesser.py:
+    [] rename /new/ to /learn/
+    [] rewrite item adder to /edit/deck-name.
+    [] multiple-choice quizzing
+    [] entry field.
 
 complex:
-    [] rewrite database as a collection of decks
-        [] sqlite3
+    [] sqlite3
     [] object coder-decoder?
         [] code a deck class
-            [] "deck_name" key in json file (recoding?)
     [] Deck\card structure object?
     [] deleting cards from deck
     [] fancy deck descriptions
@@ -19,7 +21,6 @@ complex:
 html:
     [] js confirmation alerts
     
-
 js:
     [] scroll to bottom
-    [] make sorted column bold
+    [] hotkeys

@@ -12,38 +12,45 @@ app = Flask(__name__)
 def index():
     """Starting page. Doesn't take any arguments (yet?)"""
 
+    database = {}
+    for deck_name in list_decks():
+        database[deck_name] = load_deck(deck_name)
+    
     return render_template(
         "index.html",
-        deck_count=len(load_database()),
-        total_cards=total_cards(),
-        total_due=total_due(),
+        deck_count=len(list_decks()),
+        total_cards=total_cards(database),
+        total_due=total_due(database),
         )
 
 
 @app.route("/browse/")
 def browse():
-    """Displays a list of decks in the app.
+    """Displays a list of decks in the app, with number of cards per deck.
 
     Context Args:
         deck_names (list): List of deck name strings.
+        cards_per_deck (dict): dict with key-value pairs.
     """
 
+    deck_names = list_decks()
     cards_per_deck = {}
-    for deck_name in list_decks():
-        cards_per_deck[deck_name] = total_cards(deck_name)
+    
+    # populates the dict
+    for deck_name in deck_names:
+        cards_per_deck[deck_name] = total_cards(load_deck(deck_name))
+
     return render_template(
         "browse/select_deck.html", 
-        select_mode = "browse",
-        deck_names = list_decks(),
+        deck_names = deck_names,
         cards_per_deck = cards_per_deck,
         )
 
 
 @app.route("/browse/<deck_name>/", methods=["GET", "POST"])
 def browse_deck(deck_name: str):
-    """Displays a table of all entries in a selected deck.
-
-    Takes only GET requests so far.
+    """GET: Displays a table of all entries in a selected deck.
+    POST: Updates or adds a card to deck via web interface.
 
     Args:
         deck_name (str): Name of deck.
@@ -51,87 +58,59 @@ def browse_deck(deck_name: str):
     Context Args:
         deck (dict): Dictionary containing deck data and information.
     """
+    
+    deck = load_deck(deck_name)
+    
     if request.method == "GET":
         return render_template("browse/deck.html", 
                                 deck_name=deck_name,
-                                deck=load_database()[deck_name])
+                                deck=deck)
 
     if request.method == "POST":
-        update_card(deck_name, request.form)
+        update_card(deck, request.form)
         return redirect(url_for("browse_deck", deck_name=deck_name))
 
 
-@app.route("/browse/<deck_name>/<card_id>/", methods=["GET", "POST"])
-def edit_item(deck_name: str, card_id: str):
-    """
-    View a single entry in deck.
-    ┌=========================┐
-    |PLEASE REWRITE THIS LATER|
-    └=========================┘
-    Right now it's not a separate view but a sub-view tied to the browse_deck
-    function.
-
-    GET: Opens an editing interface for a card selected by ID.
-    Loads language data and card data from deck.
-    Currently it only lets you edit the key value pairs.
-
-    POST: Updates a value.
-    
-    Args:
-        deck_name (str): Name of deck.
-        card_id (str): The id of a card.
-    
-    Context Args:
-        languages (list): List of strings representing the data keys.
-        card (dict): Card data to fill all the cells.
-        deck_name (str): Name of deck.
-    """
-
-    # if request.method == "GET":
-    #     return render_template(
-    #         "browse/item.html",
-    #         deck_name=deck_name,
-    #         languages=get_languages(deck_name),
-    #         card=get_card(card_id, deck_name),
-    #         )
-    
-    # maybe make it another function?
-    if request.method == "POST":
-        update_card(deck_name, request.form)
-        return redirect(url_for("browse_deck", deck_name=deck_name))
-
-
-@app.route("/add/<deck_name>/", methods=["POST", "GET"])
+@app.route("/add/<deck_name>/", methods=["POST"])
 def add_item(deck_name: str):
     """ Brings up the interface to add a new item to the selected deck.
 
         Args:
             deck_name (str): deck name string.
         Context Args:
-            languages (str): languages for headers.
+            deck (dict): Dictionary containing deck data and information.
     """
 
     if request.method == "POST":
-        add_card(deck_name, request.form)
+        deck = load_deck(deck_name)
+        add_card(deck, request.form)
         return redirect(url_for("browse_deck", deck_name=deck_name))
 
 
 @app.route("/train/")
 def train():
-    """Lists user decks available for training.
+    """Lists user decks available for training, as well giving the number
+       of due cards and setting a timer until the next due card.
 
     Args:
         deck_names (list): List with string names of all available decks.
+    
+    Context Args:
+        deck_stats (dict): Dict of data needed to generate the page.
+        deck (dict): Dictionary containing deck data and information.
     """
+
     deck_stats = {}
+
     for deck_name in list_decks():
+        deck = load_deck(deck_name)
         deck_stats[deck_name] = {}
-        for front in get_languages(deck_name):
+        for front in deck["languages"]:
             deck_stats[deck_name][front] = {}
             deck_stats[deck_name][front]["due_number"] = \
-                count_due(deck_name, front)
+                count_due(deck, front)
             deck_stats[deck_name][front]["next_due"] = \
-                get_next_card_due(deck_name, front)
+                get_next_card_due(deck, front)
 
     return render_template(
         "train/choose_deck.html",
@@ -153,49 +132,77 @@ def train_deck(deck_name: str, front: str):
         Then it shows you the right answer, and based on your response
         (button pressed), resets the card's timer values or increments it.
 
+    GET:
+        Gets a card to train. If no card is available, redirects to learning
+        a new card.
+
+    POST:
+        Updates the date and redirects to the same page.
+
     Possible modifications: multiple choice buttons. 
     Or entry field, though I'm not sure.
 
     Args:
-        deck_name (str): deck name string.
-        front (str): front card language.
+        deck_name  (str): deck name string.
+        front      (str): front card language.
     Context Args:
-        Maybe rewrite that?
-    card: card object with front and back attributes, generated by fn.
-    """    
+        deck        (dict): Dictionary containing deck data and information.
+        due_deck    (dict): Dictionary deck with non-due cards stripped.
+        card        (Card): card object, generated by fn.
+        due_cards    (int): number of cards left. 
+    """
+
+    deck = load_deck(deck_name)
+
+
     if request.method == "GET":
-        due_deck = get_due(deck_name, front)
+        due_deck = get_due(deck, front)
+
+        # redirects to adding new cards if there are no due.
         if due_deck["cards"] == []:
             return redirect(url_for(
                 "new_cards", 
                 deck_name=deck_name, 
                 front=front))
         else:
+            # picks a card and generates a quiz page.
             card = pick_card(due_deck, front=front)
+            due_cards = len(due_deck["cards"])
+            
             return render_template(
                 "train/train.html",
                 card=card,
                 deck_name=deck_name,
                 front=front,
-                due_cards = len(due_deck["cards"])
+                due_cards = due_cards,
                 )
     if request.method == "POST":
         update_date(
-            deck_name=deck_name, 
+            deck=deck, 
             card_id=request.form["card_id"],
             front=front,
             method=request.form["action"])
         return redirect(url_for(
             "train_deck", 
-            deck_name=deck_name, 
+            deck_name=deck_name,
             front=front
-            ))
+            )
+        )
 
 
 @app.route("/new/<deck_name>/<front>", methods=["POST", "GET"])
 def new_cards(deck_name: str, front: str):
     """An interface for adding new due cards to the deck.
     
+    
+    GET: Asks whether you want to learn new cards or not.
+
+    POST: Checks if there are new cards to learn in the deck and if the card
+          is already shown to user.
+          If no cards left, redirects to the "oops page".
+          If card is already shown to user and he agrees to add them to deck,
+          sets due date to right now.
+
     Subject for rewriting. 
 
     Args:
@@ -204,27 +211,34 @@ def new_cards(deck_name: str, front: str):
 
     Context args:
         result (str): Either "Done" or "Empty".
+        deck (dict): Dictionary containing deck data and information.
     """
+
+
     if request.method == "GET":
         return render_template(
             "new/cards.html", 
             deck_name=deck_name, 
             front=front
             )
+
     if request.method == "POST":
-        languages = load_database()[deck_name]["languages"]
-        deck = create_learn_deck(deck_name, get_next_id(deck_name, 1))
+        deck = load_deck(deck_name)
+        learn_deck = create_learn_deck(deck_name, get_next_id(deck_name, 1))
+
         if request.form["new card"] == "yes":
-            if deck["cards"] == []:
+            if learn_deck["cards"] == []:
                 return render_template("new/oops.html", deck_name=deck_name)
+                
             else:
                 return render_template(
                     "new/added_card.html",
                     deck=deck, 
                     deck_name=deck_name)
+
         if request.form["new card"] == "learn":
-            for card_id in get_next_id(deck_name, 1):
-                set_both_due(deck_name, card_id)
+            for card_id in get_next_id(deck, 1):
+                set_both_due(deck, card_id)
             return redirect(
                 url_for("train_deck", deck_name=deck_name, front=front))
 

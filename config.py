@@ -27,3 +27,5 @@ ITEM_STRUCTURE = {
 }
 
 DATA_FOLDER = "decks/"
+
+FACTOR = 5

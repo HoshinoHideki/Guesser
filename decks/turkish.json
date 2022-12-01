@@ -1,4 +1,5 @@
 {
+    "name": "turkish",
     "languages": [
         "turkish",
         "english"
@@ -16,8 +17,8 @@
                 "next_date": "2022-11-21 17:00:37"
             },
             "key_1_data": {
-                "last_date": "2022-06-22 10:03:37",
-                "next_date": "2022-10-24 12:11:47"
+                "last_date": "2022-11-28 05:32:44",
+                "next_date": "2022-11-28 05:32:54"
             }
         },
         {
@@ -99,9 +100,35 @@
             }
         },
         {
-            "key_0": "tes",
+            "key_0": "testt",
             "key_1": "tes",
             "card_id": "7",
+            "key_0_data": {
+                "last_date": "",
+                "next_date": ""
+            },
+            "key_1_data": {
+                "last_date": "",
+                "next_date": ""
+            }
+        },
+        {
+            "key_0": "tes",
+            "key_1": "tes",
+            "card_id": "8",
+            "key_0_data": {
+                "last_date": "",
+                "next_date": ""
+            },
+            "key_1_data": {
+                "last_date": "",
+                "next_date": ""
+            }
+        },
+        {
+            "key_0": "erkek",
+            "key_1": "man",
+            "card_id": "9",
             "key_0_data": {
                 "last_date": "",
                 "next_date": ""
