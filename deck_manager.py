@@ -6,7 +6,7 @@ from config import BLANK_CARD, DATE_FORMAT, DATA_FOLDER, FACTOR
 from copy import deepcopy
 
 
-class Card:
+class Flashcard:
     """A simple object, has "front" and "back" attributes.
     """
     # maybe I don't need it yet?
@@ -14,6 +14,68 @@ class Card:
         self.front = front
         self.back = back
         self.id = card_id
+
+
+class Deck:
+    """Deck object.
+        Contains deck metadata and a list of Card objects.
+    """
+
+    def __init__(self, deck_name:str) -> None:
+        """Deck constructor method.
+
+        Args:
+            deck_name (str): file name.
+            name (str): name of the deck. usually the same as filename. can be
+                different for various testing reasons.
+            languages (list): list of strings.
+            cards (list): Makes a list of card objects.
+        """
+
+        filepath = DATA_FOLDER + deck_name + ".json"
+        with open(filepath, "r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        self.name = data["name"]
+        self.languages = data["languages"]
+        self.cards = [Card(card) for card in data["cards"]]
+
+
+    def save(self, filename:str):
+        """Saves the deck to a json file.
+
+        Args:
+            filename (str): name of the file to which to save the deck.
+        """
+
+        filepath = DATA_FOLDER + filename + ".json"
+
+        data = {}
+        data["name"] = self.name
+        data["languages"] = self.languages
+        data["cards"] = [card.__dict__ for card in self.cards]
+
+        with open(filepath, "w", encoding="utf-8") as file:
+            json.dump(
+                        data,     # data
+                        file,               # filename
+                        ensure_ascii=False, # for readability
+                        indent=4)
+
+
+class Card:
+    """General Card object, creates a card from json data.
+    """
+    
+    
+    def __init__(self, data:dict) -> None:
+        """Card object constructor.
+
+        Args:
+            data (dict): json dict that's used to build the card.
+        """
+        for key in data.keys():
+            setattr(self, key, data[key])
 
 
 def load_deck(deck_name:str) -> dict:
@@ -273,9 +335,9 @@ def add_card(deck:dict, data:dict) -> None:
     save_deck(deck)
 
 
-def pick_card(deck:dict, front:str) -> Card:
+def pick_card(deck:dict, front:str) -> Flashcard:
     """
-    This creates a Card object from the deck.
+    This creates a Flashcard object from the deck.
 
     The function then access a list of decls languages and checks whether 
     one of its "key values" matches front value set by the user. 
@@ -288,7 +350,7 @@ def pick_card(deck:dict, front:str) -> Card:
             card's front.
 
     Returns:
-        Card: custom object.
+        Flashcard: custom object.
     """
 
 
@@ -299,7 +361,7 @@ def pick_card(deck:dict, front:str) -> Card:
     languages = deck["languages"]
     
     # create empty card
-    flashcard = Card("", "", "")
+    flashcard = Flashcard("", "", "")
     flashcard.id = source_card["card_id"]  
     
     if front == languages[0]:
@@ -539,7 +601,7 @@ def create_learn_deck(deck:dict, id_list:list) -> dict:
     Returns:
         deck            (dict): deck with cards and metadata
     """
-    
+
     learn_deck = deepcopy(deck)
     learn_deck["cards"] = []
     cards = learn_deck["cards"]
