@@ -1,7 +1,7 @@
 TODO:
 
 deck_manager:
-    [] customizable data multiplication factor.
+    [restructure classes]
 
 guesser.py:
     [] rename /new/ to /learn/
@@ -13,10 +13,12 @@ complex:
     [] sqlite3
     [] object coder-decoder?
         [] code a deck class
+        [] make front\back attributes objects.
     [] Deck\card structure object?
     [] deleting cards from deck
     [] fancy deck descriptions
     [] wtforms?
+    [] random front.
 
 html:
     [] js confirmation alerts
@@ -24,3 +26,8 @@ html:
 js:
     [] scroll to bottom
     [] hotkeys
+    [] better js integration
+    [] rewrite coundtown timer
+
+
+[] Make "no cards due" message. 
