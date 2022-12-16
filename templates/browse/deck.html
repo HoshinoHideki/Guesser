@@ -1,6 +1,5 @@
 {# Needs variables:
-  deck      (list): list of dicts.
-  deck_name  (str): name of deck.
+  deck      (Deck): deck.
 #}
 
 <!--The main deck browsing and editing page.-->
@@ -8,7 +7,7 @@
 
 {% extends "base.html" %}
 {% block content %}
-  <h2>Viewing deck "{{deck_name}}":</h2>
+  <h2>Viewing deck "{{deck.name}}":</h2>
   <div class="table-frame">
     <!--table frame containing the table.-->
     <table class="table"
@@ -25,9 +24,9 @@
         <!--deck rows-->
         {% for item in deck.cards %}
           <tr>
-            <td>{{item.card_id}}</td>
-            <td>{{item.key_0}}</td>
-            <td>{{item.key_1}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.key0}}</td>
+            <td>{{item.key1}}</td>
             <td>
                 <button onclick="editItem(this)">Edit</button>
             </td>
@@ -41,33 +40,47 @@
   <div id="editorContainer"></div>
   <div id="itemEditor">
     <!--invisible div, containing html for item editor.-->
-    <form action="/browse/{{deck_name}}/" method="POST">
+    <form action="/browse/{{deck.name}}/" method="POST">
       <table>
+
+        <tr>
+          <td>
+            <input
+              type = "hidden"
+              name = "method"
+              id = "method"
+              value = "edit">
+          </td>
+        </tr>
+
         <tr>
           <td><labeL>ID</labeL></td>
           <td>
             <input type="text"
-                   name="card_id"
-                   id="card_id"
+                   name="id"
+                   id="id"
                    readonly>
           </td>
         </tr>
+
         <tr>
           <td><labeL>{{deck.languages.0}}</labeL></td>
           <td>
             <input type = "text"
-                     name = "key_0"
-                     id   = "key_0">
+                     name = "key0"
+                     id   = "key0">
           </td>
         </tr>
+
         <tr>
           <td><labeL>{{deck.languages.1}}</labeL></td>
           <td>
             <input type="text"
-                   name="key_1"
-                   id="key_1">
+                   name="key1"
+                   id="key1">
           </td>
         </tr>
+
       </table>
       <input type="submit"
              value="Edit">
@@ -75,16 +88,27 @@
   </div>
   <div id="itemAdder">
     <!--invisible div, containing html for item adder.-->
-    <form action="/add/{{deck_name}}/" method="POST">
+    <form action="/browse/{{deck.name}}/" method="POST">
       <!-- Table with two rows and a submit button.-->
       <table>
         <tr>
+
+          <tr>
+            <td>
+              <input
+                type = "hidden"
+                name = "method"
+                id = "method"
+                value = "add">
+            </td>
+          </tr>
+
           <td>{{deck.languages.0}}</td>
           <!--First language name-->
           <td>
           <!--Inputbox for the key value.-->
             <input type="text" 
-                    name="key_0" 
+                    name="key0" 
                     placeholder="value">
           </td>
         </tr>
@@ -93,7 +117,7 @@
           <!--Second language name-->
           <td>
             <input type="text" 
-                   name="key_1" 
+                   name="key1" 
                    placeholder="value">
           </td>
         </tr>

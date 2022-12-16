@@ -8,18 +8,21 @@
 {%extends "base.html"%}
 {%block content%}
   <p>Here are new cards for the deck "{{deck_name}}"!</p>
-  {% for card in deck.cards %}
+  {% for card in deck %}
   <!--Gives a list of new cards.-->
     <p>The card № {{loop.index}} is:</p>
-    <p>{{deck.languages.0}}: <h2>{{card.key_0}}</h2></p>
-    <p>{{deck.languages.1}}: <h2>{{card.key_1}}</h2></p>
+    <p>{{languages.0}}: <h2>{{card.key0}}</h2></p>
+    <p>{{languages.1}}: <h2>{{card.key1}}</h2></p>
     <br>
   {% endfor %}
   <p>Go back to training to learn it.</p>
   <form action="" method="POST">
     <!--Sets selected cards due.-->
     <button name="new card" value="learn">
-      Add to review deck
+      Go to reviews.
+    </button>
+    <button name="new card" value="next">
+      Learn another
     </button>
   </form>
   <form action="/train/" method="get">

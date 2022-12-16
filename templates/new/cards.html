@@ -8,8 +8,10 @@
 
 {%extends "base.html"%}
 {%block content%}
+  {% if action == "confirm" %}
+  <!-- Shows a redirect message for adding new cards to the deck. -->
   <p>
-    Your deck {{deck_name}}, front {{front}} has no pending cards for now.
+    Your deck {{deck_name}}, front {{front}} has no due cards for now.
   </p>
   <br>
   <p>
@@ -17,8 +19,25 @@
   </p>
   <form action="" method="POST">
     <!--Sends post request asking for a new card.-->
-    <button name="new card" value="yes">
+    <button name="action" value="learn">
       Learn a new card
     </button>
   </form>
+
+  {% else %}
+    <!-- Show the newly learned card. -->
+    <p>Here is the new card for the deck "{{deck_name}}"!</p>
+    <p>{{languages.0}}: <h2>{{card.key0}}</h2></p>
+    <p>{{languages.1}}: <h2>{{card.key1}}</h2></p>
+      
+    <form action="" method="POST">
+      <!-- Sets selected cards due. -->
+      <button name="action" value="review">
+        Go to reviews.
+      </button>
+       <button name="action" value="learn">
+        Learn another.
+      </button>
+      </form>
+  {% endif %}
 {% endblock %}

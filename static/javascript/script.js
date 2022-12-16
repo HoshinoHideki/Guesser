@@ -33,9 +33,9 @@ function editItem(button){
   editorContainer.innerHTML = itemEditor.innerHTML;
 
   //populates the table with data.
-  editorContainer.querySelector("#card_id").value = id;
-  editorContainer.querySelector("#key_0").value = key_0;
-  editorContainer.querySelector("#key_1").value = key_1;
+  editorContainer.querySelector("#id").value = id;
+  editorContainer.querySelector("#key0").value = key_0;
+  editorContainer.querySelector("#key1").value = key_1;
 };
 
 

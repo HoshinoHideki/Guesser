@@ -1,9 +1,9 @@
 {# Needs variables:
-  due_cards  (int): Number of cards due.
-  card      (Card): Card object.
-  card.front (str): Front data.
-  card.back  (str): Back data.
-  card.id    (str): Id data (used for updating).
+  deck.count_due(front)  (int): Number of cards due.
+  flashcard        (Flashcard): Flashcard object.
+    flashcard.front      (str): Front data.
+    flashcard.back       (str): Back data.
+    flashcard.id         (str): Id data (used for updating).
 #}
 
 <!--Card training page.-->
@@ -12,9 +12,9 @@
 {% block content %}
   <div>
     <p>Training session.</p>
-    <p>Cards left due: {{due_cards}}</p>
+    <p>Cards left due: {{deck.get_due(front)|length}}</p>
     <p>What is:</p>
-    <h1>{{card.front}}</h1>
+    <h1>{{flashcard.front}}</h1>
   </div>
   <!--This button shows the hidden part of the card.-->
   <button id="check" onclick="showAnswer()">Check the answer</button>
@@ -22,17 +22,17 @@
   <!--This div shows after pressing the button.-->
   <div id="answer" hidden>
     <p>The answer is:</p>
-    <h1>{{card.back}}</h1>
+    <h1>{{flashcard.back}}</h1>
     <br>
     <!--Interacting interface.-->
     <form action="/train/{{deck_name}}/{{front}}" 
           method="POST">
       <!--Hidden value: card id.-->
-      <input type="hidden" name="card_id" value="{{card.id}}">
+      <input type="hidden" name="id" value="{{flashcard.id}}">
       <!-- Updates next date.-->
-      <button name="action" value="update">Good</button>
+      <button name="method" value="update">Good</button>
       <!-- Resets next date.-->
-      <button name="action" value="reset">Bad</button>
+      <button name="method" value="reset">Bad</button>
     </form>
   </div>
   <br>

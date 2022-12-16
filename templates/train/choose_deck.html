@@ -13,10 +13,10 @@
   Select deck:
   <table>
     <!--Table of decks.-->
-    {% for deck_name in deck_stats.keys() %}
+    {% for deck in collection.decks %}
     <tr>
       <!--Heading containing the name of the deck.-->
-      <th>{{deck_name}}</th>
+      <th>{{deck.name}}</th>
     </tr>
     <tr>
       <td>
@@ -32,17 +32,17 @@
             <!--Train button.-->
             <th>Action</th>
           </tr>
-          {% for front in deck_stats[deck_name].keys() %}
+          {% for language in deck.languages %}
             <!--Row representing deck front. Made clickable.-->
             <tr class="deck-row" onclick="getLink(this)">
-              <td>{{front}}</td>
+              <td>{{language}}</td>
                 <!-- Front language name. -->
-              <td>{{deck_stats[deck_name][front].due_number}}</td>
+              <td>{{deck.get_due(language)|length}}</td>
                 <!-- Number of Due cards -->
-              <td class="next-due">{{deck_stats[deck_name][front].next_due}}</td>
+              <td class="next-due">{{deck.get_nearest(language)}}</td>
               <td>
                 <!-- Train button -->
-                <a href="/train/{{deck_name}}/{{front}}">Train.</a>
+                <a href="/train/{{deck.name}}/{{language}}">Train.</a>
               </td>
             </tr>
           {% endfor %}

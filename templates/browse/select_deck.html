@@ -1,11 +1,8 @@
 {# Needs variables:
-  cards_per_deck (dict):  dictionary containing deck names and their card
-                          numbers.
-                          struct {deck_name:number}
+  collection: Collection object with database.
 #}
 
 <!--Deck selector page.-->
-
 {% extends "base.html" %}
 {% block content %}
   <p>Select deck:</p>
@@ -18,18 +15,18 @@
     </thead>
     <tbody>
       <!--deck rows-->
-      {% for deck_name in cards_per_deck.keys() %}
+      {% for deck in collection.decks %}
         <tr class="deck-row">
           <!-- Single deck row. -->
           <td>
             <!-- Deck name -->
-            <a href="/browse/{{deck_name}}/">
-              {{deck_name}}
+            <a href="/browse/{{deck.name}}/">
+              {{deck.name}}
             </a>
           </td>
           <td class="number-of-cards">
             <!-- Number of cards due. -->
-            <p>{{cards_per_deck[deck_name]}}</p>
+            <p>{{deck.cards|length}}</p>
           </td>
         </tr>
       {% endfor %}
