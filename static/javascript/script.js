@@ -1,210 +1,264 @@
-var editorContainer, itemEditor, itemAdder, reverse
-
-window.onload = function(){
-  // this assigns html elements to JS variables.
-
-  //empty div containing item editor interface.
-  editorContainer = document.getElementById("editorContainer");
-
-  // div containing item editing form
-  itemEditor = document.getElementById("itemEditor");
-
-  // div containing item adding form
-  itemAdder = document.getElementById("itemAdder");
-  reverse = false;
-};
-
-
-function editItem(button){
-  // picks data from a table row, reveals a hidden form and inserts
-  // data into it.
-  // The data is fetched from the HTML after page render,
-  // not from the database.
-
-  // stores the data from the nearest row of clicking.
-  var row = button.closest("tr");
-  
-  //Gets item ID, key_0 and key_1 from HTML.
-  var id = row.cells[0].innerText;
-  var key_0 = row.cells[1].innerText;
-  var key_1 = row.cells[2].innerText;
-
+/** Edit table row.
+ * reveals a hidden form, picks data from a clicked table row and inserts
+ * data into it.
+ * @param {Element} button Button pressed. Needed for extracting data from
+ * the table row.
+ */
+function editItem(button) {
   //Inserts Editing table into an empty Div.
-  editorContainer.innerHTML = itemEditor.innerHTML;
+  const [CONTAINER, EDITOR] = [
+    document.getElementById('editorContainer'),
+    document.getElementById('itemEditor'),
+  ];
+  CONTAINER.innerHTML = EDITOR.innerHTML;
 
-  //populates the table with data.
-  editorContainer.querySelector("#id").value = id;
-  editorContainer.querySelector("#key0").value = key_0;
-  editorContainer.querySelector("#key1").value = key_1;
-};
+  // stores the data of the row of the clicked button.
+  const CELLS = button.closest('tr').cells;
+  const DATA = [
+    CELLS[0].innerText,
+    CELLS[1].innerText,
+    CELLS[2].innerText,
+  ];
+  // Copies data into the form.
+  const ROWS = CONTAINER.querySelector('table').rows;
+  for (let row of ROWS) {
+    let index = row.rowIndex;
+    let input = row.querySelector('input');
+    input.value = DATA[index];
+  }
+}
 
+/** reveal adding interface
+ * Inserts adding interface into an empty div.
+ */
+function addItem() {
+  const CONTAINER = document.getElementById('editorContainer');
+  const ADDER = document.getElementById('itemAdder');
+  CONTAINER.innerHTML = ADDER.innerHTML;
+}
 
-function addItem(){
-  // Inserts adding table into an empty div.
+/** Clicking the row makes you follow the link.
+ * When clicking anywhere in the row, client goes via the hyperlink in the
+ * third column.
+ * @param {Element} click Click event. 
+ */
+function getLink(click) {
+  location.href = click.querySelector('a');
+}
 
-  editorContainer.innerHTML = itemAdder.innerHTML;
-};
+/** Sort the table by clicked row
+ * Sorts the table alphanumerically by clicked row.
+ * @param {Element} click clicked row
+ */
+function sortTable(click) {
+  /** Place sorting indicators.
+   * Places sort order indicators at the end of the row header.
+   * @param {Element} click Clicked row.
+   */
+  function placeTriangles(click) {
+    /** Place sorting order triangle mark.
+     * Places a triangle in the specified cell.
+     * 
+     * If no triangle is already present, sets a ascending order triangle and
+     * keeps the reverse bool false.
+     * 
+     * If ascending triangle is already present, sets a descending order
+     * triangle and switches the reverse bool to true.
+     * 
+     * If descending triangle is present, flips it back to ascending and also
+     * switches the reverse bool to false. 
+     * @param {Cell} cell Cell to which to add the triangle. 
+     */
+    function addTriangle(cell) {
+      const LAST_CHAR = cell.innerText.slice(-1);
+      if (LAST_CHAR ===  '▲') {
+        cell.innerText = cell.innerText.slice(0,-1) + '▼';
+        reverse = true;
+      }
+      else if (LAST_CHAR ===  '▼') {
+        cell.innerText = cell.innerText.slice(0,-1) + '▲';
+        reverse = false;
+      }
+      else {
+        cell.innerText += '▲';
+        reverse = false;
+      }
+    }
+    /** Remove sorting order triangle mark.
+     * Removes the last character of the header if it' is a sort order
+     * indicator triangle.
+     * @param {Element} cell Cell from which to remove the triangle. 
+     */
+    function removeTriangle(cell) {
+      let lastChar = cell.innerText.slice(-1)
+      if (lastChar === '▲' || lastChar === '▼') {
+        cell.innerText = cell.innerText.slice(0,-1);
+      }
+    }
+    let headersRow = click.closest('tr');
+    for (let header of headersRow.cells) {
+      if (header.cellIndex === click.cellIndex) {
+        addTriangle(header);
+      }
+      else {
+        removeTriangle(header);
+      }
+    }
+  }
+  /** Load table rows into memory.
+   * Reads the table and creates an object in memory, from which to sort and
+   * populate the sorted table.
+   * @param {Element} click Clicked row. 
+   * @return {Object} Object with sorted table rows.
+   */
+  function load_data(click) {
+    /** Sort Array.
+     * Sorts array alphanumerically by default, numerically if all the items
+     * in the the array are numbers.
+     * Reverses it if reverse bool is true.
+     * @param {Array} array array to be sorted. 
+     * @return {Array} sorted array
+     */
+    function sortArray(array) {
+      if (array.every((a) => !isNaN(a))) {
+        array.sort(function(a, b) {return a - b});
+      }
+      else {
+        array.sort();
+      }
+      if (reverse) {
+        array.reverse();
+      }
+      return array;
+    }
 
-
-function getLink(row){
-  //When clicking anywhere in the row, 
-  //client goes via the hyperlink in the third row.
-
-  location.href = row.cells[3].querySelector("a");
-};
-
-
-function sortItems(row){
-  //sorts the table alphanumerically by clicked row.
-  
-  //assign table element to a variable
-  var tableHTML = document.getElementById("data-table");
-
-  //clone data into a different variable.
-  var tableData = tableHTML.cloneNode(true);
-
-  //deletes the headers row 
-  tableData.deleteRow(0);
-
-  //create empty list of row values to sort.
-  var indices = [];
-
-  //gets index of the row we need to sort by. 
-  var cellIndex = row.cellIndex
-  
-  // clears the table on the page, leaving only headers.
-  while (tableHTML.rows.length > 1) {
-      tableHTML.deleteRow(1);
-  };
-
-  // adds row contents to the list.
-  for (var i=0;  i < tableData.rows.length; i++){
-      var text = tableData.rows[i].cells[cellIndex].innerText;
-      indices.push(text);
-  };
-
-  // checks if it's all numbers, then sorts numerically if yes.
-  if (indices.every(isNumber)){
-    indices.sort(function(a, b){
-      return a - b}
-      )
+    let data = {rows:{}, indices:{}};
+    const CELL_INDEX = click.cellIndex;
+    const TBODY = document.querySelector('tbody');
+    for (let row of TBODY.rows) {
+      let text = row.cells[CELL_INDEX].innerText;
+      while (data.rows[text]) {
+        //this will make sure duplicates are not lost.
+        let counter = 1;
+        text = text + String(counter);
+        counter += 1;
+      }
+      data.rows[text] = row.cloneNode(true);
+    }
+    data.indices = sortArray(Object.keys(data.rows));
+    return data
+  }
+  /** Place table rows in sorted order
+   * Deletes the rows from the table and then repopulates it in order of 
+   * indices array, then makes text in whatever row is getting sorted by bold.
+   * @param {Element} click Clicked row (used for making sorted row bold).
+   * @param {Object} data Table row and indexes array with the order with
+   * which to insert rows. 
+   */
+  function placeRows(click, data) {
+    const TBODY = document.querySelector('tbody');
+    while (TBODY.rows.length > 0) {
+      TBODY.deleteRow(0);
+    }
+    for (let index of data.indices) {
+      let newRow = TBODY.insertRow();
+      newRow.innerHTML = data.rows[index].innerHTML;
+      for (let cell of newRow.cells) {
+        if (cell.cellIndex === click.cellIndex) {
+          cell.style.fontWeight = 'bold';
+        }
+        else {
+          cell.style.fontWeight = 'normal';
+        }
+      }
+    }
   }
 
-  // sorts usually if not.
-  else {indices.sort()};
+  let reverse = false;
+  placeTriangles(click);
+  data = load_data(click);
+  placeRows(click, data);
+}
 
-  // reverses indices when the row header is clicked again.
-  if (reverse) {indices.reverse()}
-
-  // takes value from the indices list, then scans the data-table and finds
-  // the corresponding row, then inserts row in the html-table.
-  for (var i=0;  i < indices.length; i++){
-      for (var j=0; j<tableData.rows.length; j++){
-          if (indices[i] == tableData.rows[j].cells[cellIndex].innerText){
-              var rowdata = tableHTML.insertRow();
-              rowdata.innerHTML = tableData.rows[j].innerHTML;
-          };
-      };
-  };
-
-  // switches the reverse bool, also changes the sorting icon.
-  var lastChar = row.innerText.slice(-1) // last character of the header.
-
-  // set ascending order.
-  if (reverse == false){
-      if (lastChar != "▲" && lastChar != "▼" ){
-      row.innerText += "▲";}
-      else {row.innerText = row.innerText.slice(0,-1) + "▲"};
-      reverse = true;
+/** Make due decks green.
+ * Scans the rows and if there are due cards, changes the background color
+ * to green.
+ */
+function makeGreen() {
+  const ROWS = document.querySelectorAll('.deck-row')
+  for (let row of ROWS) {
+    if (row.cells[1].innerText !== '0') {
+      row.className = 'due-deck';
+    }
   }
-  // set descending order.
-  else if (reverse == true){
-      if (lastChar != "▲" && lastChar != "▼" ){
-      row.innerText += "▼";}
-      else {row.innerText = row.innerText.slice(0,-1) + "▼"};
-      reverse = false;
-  };
-};
+}
 
-
-function isNumber(element){
-  //returns True if element is number, false if not.
-
-    return !isNaN(element);
-};
-
-
-function makeGreen(){
-  // selects all rows with the CSS class deck-row, then changes CSS class
-  // to due-deck (making background color green) if there are due cards.
-
-  let rows = document.querySelectorAll(".deck-row")
-  for (var row = 0; row < rows.length; row++) {
-      if (rows[row].cells[1].innerText != "0"){
-          rows[row].className = "due-deck";
-      };
-  };
-};
-
-
+/** Show Answer.
+ * Hides the button, shows the answer part of the card.
+ */
 function showAnswer() {
-// hides check button, shows the answer div.
+  const ANSWER = document.querySelector('#answer');
+  const CHECK_BUTTON = document.querySelector('#check');
 
-  answer = document.querySelector("#answer");
-  checkButton = document.querySelector("#check");
+  CHECK_BUTTON.style.display = 'none';
+  ANSWER.style.display = 'inline';
+}
 
-  checkButton.style.display = "none";
-  answer.style.display = "inline";
-};
-
-
-function setCountDown(){
-  // Changes the static date of next due card to a dynamic countdown.
-
-  // picks up every cell with the class "next-due"
-  dueCells = document.querySelectorAll(".next-due");
-
-  // make an empty global list to store the data, then populate it from the
-  // node list.
-  // we need it to continuosly refresh the countodwn.
-  originalDueCells = [];
-  for (var i=0; i < dueCells.length; i++){
-    originalDueCells.push(dueCells[i].cloneNode(true))
-  };
-  
-  // does the actual deed.
-  refreshCountDown();
-};
-
-function refreshCountDown(){
-  
-  var now = new Date().getTime();
-  
-  // cycles through the list, excluding cells that have "right now"
-  // in them.
-  // substracts now from the due date and then converts it to days\hr\m\s.
-  for (var i = 0; i < originalDueCells.length; i++){
-    if (dueCells[i].innerText != "Right now") {
-
-      let countDownDate = new Date(originalDueCells[i].innerText).getTime();
+/** Set countdown.
+ * Changes the data in the "Due next" to constantly refreshing countdown.
+ */
+function setCountDown() {
+  /** Refresh the countdown.
+   * Takes the original data saved in an object, then recalculates the
+   * countdown.
+   * @param {String} data Source data which must be converted to a
+   * countdown. 
+   * @param {Element} cells Where the countdown must be placed.
+   */
+  function refreshCountDown(data, cells) {
+    /** Convert static date to countdown date.
+     * Converts the input date to a an obj, then counts how many Days, Hours,
+     * Minutes and Seconds are until this date.
+     * Reloads the page if one of the dates is zero or less.
+     * @param {String} date Date to be converted.
+     * @returns {String} Countdown string to be placed.
+     */
+    function convertToCountdown(date) {
+      let now = new Date().getTime();
+      let countDownDate = new Date(date).getTime();
       let difference = countDownDate - now;
+      let time = new Map([
+        ['d ', Math.floor(difference / 86400000)],
+        ['h ', Math.floor((difference % 86400000) / 3600000)],
+        ['m ', Math.floor((difference % 3600000) / 60000)],
+        ['s', Math.floor((difference % 60000) / 1000)],
+      ]);
+      let message = '';
+      for (let [key, value] of time.entries()) {
+        if (value != 0) {
+          message += value + key;
+        }
+      }
+      let values = Array.from(time.values());
+      if (values.every((a) => a <= 0)) {
+        document.location.reload();
+      }
+      return message;
+    }
+    for (let cell of data) {
+      if (!isNaN(Date.parse(cell.innerText))) {
+        let index = data.indexOf(cell);
+        let message = convertToCountdown(cell.innerText);
+        cells[index].innerText = message;
+      }
+    }
+  }
 
-      let days = Math.floor(difference / 86400000);
-      let hours = Math.floor((difference % 86400000) / 3600000);
-      let minutes = Math.floor((difference % 3600000) / 60000);
-      let seconds = Math.floor((difference % 60000) / 1000);
-
-      let message = ""; // text to be displayed instead of static date.
-
-      // adds only significant time units.
-      if (days != 0){message += days + "d "};
-      if (hours != 0){message += hours + "h "};
-      if (minutes != 0){message += minutes + "m "};
-      if (seconds != 0){message += seconds + "s "};
-
-      if (seconds < 0) {message = "Right now"};
-
-      dueCells[i].innerText = message;
-    };
-  };
-};
+  const CELLS = document.querySelectorAll('.next-due');
+  const DATA = [];
+  for (let cell of CELLS) {
+    DATA.push(cell.cloneNode(true));
+  }
+  refreshCountDown(DATA, CELLS);
+  setInterval(refreshCountDown, 1000, DATA, CELLS);  
+}
