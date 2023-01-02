@@ -1,18 +1,18 @@
-import json
-import os
 from datetime import datetime
-from config import BLANK_CARD, DATE_FORMAT, DATA_FOLDER, FACTOR
+from config import BLANK_CARD, DATE_FORMAT, FACTOR, DATABASE
+import sqlite3
+
+
 
 
 class Flashcard:
     """A simple object, has "front" and "back" attributes.
     """
     # maybe I don't need it yet?
-    def __init__(self, front, back, card_id):
+    def __init__(self, card_id, front, back):
+        self.id = card_id
         self.front = front
         self.back = back
-        self.id = card_id
-
 
 class Collection:
     """Whole collection of decks.
@@ -23,11 +23,19 @@ class Collection:
     """
 
     def __init__(self) -> None:
-        self.decks = [Deck(deck) for deck in os.listdir(DATA_FOLDER)]
+
+        # connect to sql database
+        with sqlite3.connect(DATABASE) as connection:
+            cursor = connection.cursor()
+            cursor.execute("select name from decks")
+            self.decks = [
+                Deck(deck_name[0]) for deck_name in cursor]
+            cursor.close()
+
         self.total_cards = 0
         self.total_due = 0
 
-        # counts useful stuff
+        # count useful stuff
         for deck in self.decks:
             self.total_cards += len(deck.cards)
             for language in deck.languages:
@@ -35,24 +43,61 @@ class Collection:
 
 
 class Card:
-    """General Card object, creates a card from json data.
+    """General Card object.
     """  
     
-    def __init__(self, data:dict, languages:list) -> None:
-        """Card object constructor.
+    def __init__(self, data:tuple, languages:list):
+        """Card constructor. Takes a tuple from the sql database and
+        a languages list.
+
+        """
+        self.id = data[0]
+        self.key0 = data[1]
+        self.key1 = data[2]
+        self.key0_last = data[3]
+        self.key0_next = data[4]
+        self.key1_last = data[5]
+        self.key1_next = data[6]
+        self.languages = languages
+
+
+    def get_data(self, front:str, type:str) -> str:
+        """Returns data according to specified type and front language.
 
         Args:
-            data (dict): json dict that's used to build the card.
+            front (str): one of the two languages
+            type (str): either "last" or "next".
+
+        Returns:
+            str: needed stat string
         """
 
-        self.id = data["card_id"]
-        self.key0 = data["key_0"]
-        self.key1 = data["key_1"]
-        self.key0_last = data["key_0_data"]["last_date"]
-        self.key0_next = data["key_0_data"]["next_date"]
-        self.key1_last = data["key_1_data"]["last_date"]
-        self.key1_next = data["key_1_data"]["next_date"]
-        self.languages = languages
+        keys = {
+            "last":{
+                self.languages[0]:self.key0_last,
+                self.languages[1]:self.key1_last,
+            },
+            "next":{
+                self.languages[0]:self.key0_next,
+                self.languages[1]:self.key1_next,
+            },
+        }
+
+        return keys[type][front]
+    
+
+    def set_data(self, front:str, type:str, data:str):
+        keys = {
+            self.languages[0]:{
+                "last":"key0_last",
+                "next":"key0_next",
+            },
+            self.languages[1]:{
+                "last":"key1_last",
+                "next":"key1_next",
+            },
+        }
+        setattr(self, keys[front][type], data)
     
 
 class Deck:
@@ -60,60 +105,69 @@ class Deck:
         Contains deck metadata and a list of Card objects.
     """
 
-    def __init__(self, deck_name:str) -> None:
-        """Deck constructor.
+    def __init__(self, deck_name:str):
+        self.name = deck_name
 
-        Args:
-            deck_name (str): file name.
-            name (str): name of the deck. usually the same as filename. can be
-                different for various testing reasons.
-            languages (list): list of strings.
-            cards (list): Makes a list of card objects.
+        # get data from db.
+        with sqlite3.connect(DATABASE) as connection:
+            cursor = connection.cursor()
+
+            # language pair
+            statement = f"""select  language_1, 
+                                    language_2 
+                            from decks 
+                            where name = '{deck_name}'
+            """
+            cursor.execute(statement)
+            self.languages = list(cursor.fetchone())
+
+            # card rows
+            statement = f"""select  id, 
+                                    key_0, 
+                                    key_1, 
+                                    key_0_last_date, 
+                                    key_0_next_date, 
+                                    key_1_last_date, 
+                                    key_1_next_date
+                            from {deck_name}
+            """
+            cursor.execute(statement)
+            self.cards = [Card(data, self.languages) for data in cursor]
+            cursor.close()
+        
+
+    def save(self):
+        """Saves the deck to database.
+
+        TODO: Maybe I don't need it anymore?
         """
-
-        filepath = DATA_FOLDER + deck_name
-        with open(filepath, "r", encoding="utf-8") as file:
-            data = json.load(file)
-
-        self.name = data["name"]
-        self.languages = data["languages"]
-        self.cards = [Card(card, self.languages) for card in data["cards"]]
-
-
-    def save(self, filename:str):
-        """Saves the deck to a json file.
-
-        Args:
-            filename (str): name of the file to which to save the deck.
-            Left for testing purposes.
-        """
-
-        filepath = DATA_FOLDER + filename + ".json"
-
-        data = {}
-        data["name"] = self.name
-        data["languages"] = self.languages
-        data["cards"] = []
+        
+        connection = sqlite3.connect(DATABASE)
+        cursor = connection.cursor()
 
         for card in self.cards:
-            outcard = {}
-            outcard["key_0"] = card.key0
-            outcard["key_1"] = card.key1
-            outcard["card_id"] = card.id
-            outcard["key_0_data"] = {}
-            outcard["key_1_data"]= {}
-            outcard["key_0_data"]["last_date"] = card.key0_last
-            outcard["key_0_data"]["next_date"] = card.key0_next
-            outcard["key_1_data"]["last_date"] = card.key1_last
-            outcard["key_1_data"]["next_date"] = card.key1_next
-            data["cards"].append(outcard)
-
-        with open(filepath, "w", encoding="utf-8") as file:
-            json.dump(
-                        data,     # data
-                        file,               # filename
-                        ensure_ascii=False, # for readability
-                        indent=4)
+            statement = f"""
+                replace into {self.name} (id, 
+                                        key_0, 
+                                        key_1, 
+                                        key_0_last_date, 
+                                        key_0_next_date,
+                                        key_1_last_date,
+                                        key_1_next_date,
+                                        deck)
+                values (?, ?, ?, ?, ?, ?, ?, ?);
+                """
+            values = (card.id, 
+                      card.key0, 
+                      card.key1,
+                      card.key0_last,
+                      card.key0_next,
+                      card.key1_last,
+                      card.key1_next,
+                      self.name)
+            cursor.execute(statement, values)
+        connection.commit()
+        cursor.close()
 
 
     def get_card(self, id:str) -> Card:
@@ -128,7 +182,7 @@ class Deck:
         """
 
         card = ""
-
+        
         for card in self.cards:
             if card.id == id:
                 return card
@@ -146,26 +200,15 @@ class Deck:
 
         self.due = []
 
-        # gives method the right attribute.
-        keys = {self.languages[0]:"key0_next", self.languages[1]:"key1_next"}
-        keynext = keys[front]
-
+        # get due cards:
         for card in self.cards:
-            # try to objectify the date.
-            try:
-                key = Key(card, front)
-                next_date = datetime.strptime(
-                    key.next,
-                    DATE_FORMAT
-                )
-                # add to deck only if its time is due
-                if next_date < datetime.now():
-                    self.due.append(card)
-            # do nothinh if onjectification fails
-            except:
-                pass
+            next_date = card.get_data(front, "next")
+            now = str(datetime.now())
+            if next_date < now and next_date != "":
+                self.due.append(card)          
         
-        self.due = sorted(self.due, key=lambda card: getattr(card, keynext))
+        # sort them by the next due date
+        self.due.sort(key=lambda card: card.get_data(front, "next"))
 
         return self.due
 
@@ -182,12 +225,13 @@ class Deck:
         card.id = self.increment_id() # create ID
 
         # this filters out key-value pairs that are not already present.
+        # TODO: maybe rewrite later?
         for key in data.keys():
             if key in card.__dict__.keys():
                 setattr(card, key, data[key])
 
         self.cards.append(card) # add card
-        self.save(self.name) # save changes
+        self.save() # save changes
 
 
     def edit_card(self, id:str, data:dict):
@@ -204,11 +248,17 @@ class Deck:
             if key in card.__dict__.keys():
                 setattr(card, key, data[key])
 
-        self.save(self.name)
+        self.save()
 
 
     def update_date(self, id:str, front:str, method:str) -> None:
-        """Updates card's date in accordance with the method given by the user.
+        """Updates card's date in accordance with the method given by the 
+        user.
+
+        Update: set next due date equal to: 
+        "current date + (time passed since the last review * factor)"
+
+        Reset: set both to right now.
 
         Args:
             id (str): card ID
@@ -218,22 +268,17 @@ class Deck:
 
         now = str(datetime.now().replace(microsecond=0)) # current time
         card = self.get_card(id)
-
-        # takes only needed paramaters for ease of use.
-        key = Key(card, front)
-        
-        # this will set next due date equal to current date + 
-        # + (time passed since the last review * factor). 
+       
         if method == "update":
-            key.next = increment_date(key.last, FACTOR)
-            key.last = now
+            last = card.get_data(front, "last")
+            card.set_data(front, "next", increment_date(last))
+            card.set_data(front, "last", now)
         
-        # this just sets everything to right now.
         elif method == "reset":
-            key.last = now
-            key.next = now
-
-        data = key.generate_data(front, self.languages)
+            card.set_data(front, "next", now)
+            card.set_data(front, "last", now)
+        
+        data = card.__dict__
         self.edit_card(id, data)
 
      
@@ -262,20 +307,20 @@ class Deck:
             Flashcard: Flashcard object.
         """
 
+        # get the earliest due card from the deck.
         source_card: Card = self.get_due(front)[0]
-                
-        flashcard = Flashcard("", "", "")
-        flashcard.id = source_card.id
         
-        if front == self.languages[0]:
-            flashcard.front = source_card.key0
-            flashcard.back = source_card.key1
-        elif front == self.languages[1]:
-                flashcard.front = source_card.key1
-                flashcard.back = source_card.key0
-        else:
-            pass
-        
+        # make a flashcard
+        flashcard = Flashcard(
+            source_card.id, 
+            source_card.key0, 
+            source_card.key1
+        )
+        # swap front and back if needed.
+        if front == self.languages[1]:
+            flashcard.front, flashcard.back = (
+                source_card.key1, source_card.key0
+            )
         return flashcard
 
 
@@ -290,27 +335,20 @@ class Deck:
         """
 
         nearest_date = ""
-        now = datetime.now()
-
-         # gives method the right attribute.
-        keys = {self.languages[0]:"key0_next", self.languages[1]:"key1_next"}
-        keynext = keys[front]
-
-        # sorts by next date
-        cards = sorted(self.cards, key=lambda card: getattr(card, keynext))
+        now = str(datetime.now())
 
         # deletes cards with empty dates
-        cards = [card for card in cards if getattr(card, keynext) != ""]
-
-        if len(cards) == 0:
+        cards = [
+            card for card in self.cards if card.get_data(front, "next") != ""
+        ]
+        # sorts cards by next date
+        cards.sort(key=lambda card: card.get_data(front, "next"))
+        
+        if len(cards) == 0 or cards[0].get_data(front, "next") < now:
             #TODO: change this to something else.
             nearest_date = "Right now"  
-
-        elif objectify_date(getattr(cards[0], keynext)) < now:
-            nearest_date = "Right now"
-        
         else:
-            nearest_date = getattr(cards[0], keynext)
+            nearest_date = cards[0].get_data(front, "next")
         
         return nearest_date
 
@@ -342,58 +380,7 @@ class Deck:
         return self.unlearned
     
 
-    def take_cards(self, id_list:list) -> list:
-        """Makes of custom list of cards, selected by id.
-        Currently serves no purpose, but might come handy later.
-
-        Args:
-            id_list (list): list of id strings.
-
-        Returns:
-            list: list of cards.
-        """
-
-        list = []
-
-        for id in id_list:
-            list.append(self.get_card(id))
-        return list
-        ...
-
-
-class Key:
-    def __init__(self, card:Card, front) -> None:
-        """Auxillary class, helps dealing with card data.
-
-        Args:
-            card (Card): card from which to take data.
-            front (_type_): which language to update.
-            languages (_type_): _description_
-        """
-
-        if front == card.languages[0]:
-            self.last = card.key0_last
-            self.next = card.key0_next
-
-        elif front == card.languages[1]:
-            self.last = card.key1_last
-            self.next = card.key1_next
-    
-    def generate_data(self, front, languages):
-        if front == languages[0]:
-            data = {
-                "key0_last":self.last,
-                "key0_next":self.next,
-                }
-        elif front == languages[1]:
-            data = {
-                "key1_last":self.last,
-                "key1_next":self.next,
-                }
-        return data
-
-
-def increment_date(input_date:str, factor:int) -> str:
+def increment_date(input_date:str) -> str:
     """
     Takes a date, increments it by built-in algorhythm, subject for
     customization in the future.
@@ -432,6 +419,7 @@ def increment_date(input_date:str, factor:int) -> str:
 
 def objectify_date(date:str) -> datetime:
     """Makes a string into a datetime object.
+    Not needed for now. TODO: delete this?
 
     Args:
         date (str): date in a string format.
@@ -448,4 +436,3 @@ def objectify_date(date:str) -> datetime:
         return "Error"
 
     return date
-

@@ -21,12 +21,6 @@ class Word:
         self.armenian = armenian
 
 
-# I am a man
-# He is a woman
-
-# Pronoun + be + noun
-
-
 pairs = {"I": "Ես",
          "You": "դու",
          "He": "նա",
