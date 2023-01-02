@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect
-from __init__ import app
+from Guesser import app
 from deck_manager import *
 
 
@@ -47,7 +47,7 @@ def browse_deck(deck_name: str):
         deck (dict): Dictionary containing deck data and information.
     """
     
-    deck = Deck(deck_name + ".json")
+    deck = Deck(deck_name)
     
     if request.method == "GET":
         return render_template("browse/deck.html", 
@@ -112,7 +112,7 @@ def train_deck(deck_name: str, front: str):
         due_cards       (int): number of cards left. 
     """
     
-    deck = Deck(deck_name + ".json")
+    deck = Deck(deck_name)
 
     if request.method == "GET":
         due_deck = deck.get_due(front)
@@ -182,7 +182,7 @@ def learn(deck_name: str, front: str):
             )
 
     if request.method == "POST":
-        deck = Deck(deck_name + ".json")
+        deck = Deck(deck_name)
 
         # learn a new card if there are any 
         if request.form["action"] == "learn":
