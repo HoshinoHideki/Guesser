@@ -15,12 +15,12 @@
     <!--The table itself.-->
       <thead>
         <!-- Headings-->
-        <th onclick="sortItems(this)">ID</th>
-        <th onclick="sortItems(this)">{{deck.languages.0}}</th>
-        <th onclick="sortItems(this)">{{deck.languages.1}}</th>
+        <th onclick="sortTable(this)">ID</th>
+        <th onclick="sortTable(this)">{{deck.languages.0}}</th>
+        <th onclick="sortTable(this)">{{deck.languages.1}}</th>
         <th>Action</th>
       </thead>
-      <tbody>
+      <tbody class="data">
         <!--deck rows-->
         {% for item in deck.cards %}
           <tr>
@@ -28,7 +28,8 @@
             <td>{{item.key0}}</td>
             <td>{{item.key1}}</td>
             <td>
-                <button onclick="editItem(this)">Edit</button>
+                <button onclick = "editItem(this)">Edit</button>
+                <button onclick = "deleteItem(this)">Delete</button>
             </td>
           </tr>
         {% endfor %}
@@ -42,17 +43,6 @@
     <!--invisible div, containing html for item editor.-->
     <form action="/browse/{{deck.name}}/" method="POST">
       <table>
-
-        <tr>
-          <td>
-            <input
-              type = "hidden"
-              name = "method"
-              id = "method"
-              value = "edit">
-          </td>
-        </tr>
-
         <tr>
           <td><labeL>ID</labeL></td>
           <td>
@@ -82,8 +72,13 @@
         </tr>
 
       </table>
-      <input type="submit"
-             value="Edit">
+      <button name="action" value="edit">Edit</button>
+      <button name="action" 
+              value="delete"
+              onclick="return confirm(
+                'Are you sure you want to delete?'
+              )">
+          Delete</button>
     </form>
   </div>
   <div id="itemAdder">
@@ -92,17 +87,6 @@
       <!-- Table with two rows and a submit button.-->
       <table>
         <tr>
-
-          <tr>
-            <td>
-              <input
-                type = "hidden"
-                name = "method"
-                id = "method"
-                value = "add">
-            </td>
-          </tr>
-
           <td>{{deck.languages.0}}</td>
           <!--First language name-->
           <td>
@@ -122,7 +106,9 @@
           </td>
         </tr>
       </table>
-      <input type="submit" value="Add">
+      <button name="action" value="add">Add</button>
     </form>
   </div>
+  <script>
+  </script>
 {% endblock %}

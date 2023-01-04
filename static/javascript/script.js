@@ -37,6 +37,25 @@ function addItem() {
   CONTAINER.innerHTML = ADDER.innerHTML;
 }
 
+/** delete a database item.
+ * Sends a POST request to web server asking to delete an entry with
+ * specified id.
+ * @param {Element} click Clicked table row. 
+ */
+function deleteItem(click) {
+  confirm("Are you sure?");
+  const ID = click.closest("tr").cells[0].innerText;
+  const FORM_DATA = new FormData();
+  FORM_DATA.append("action", "delete");
+  FORM_DATA.append("id", ID);
+  fetch("", {method:"POST", body:FORM_DATA})
+    .then(
+      response => {
+        window.location = response.url;
+      }
+    )
+}
+
 /** Clicking the row makes you follow the link.
  * When clicking anywhere in the row, client goes via the hyperlink in the
  * third column.
@@ -134,7 +153,7 @@ function sortTable(click) {
 
     let data = {rows:{}, indices:{}};
     const CELL_INDEX = click.cellIndex;
-    const TBODY = document.querySelector('tbody');
+    const TBODY = document.querySelector('.data');
     for (let row of TBODY.rows) {
       let text = row.cells[CELL_INDEX].innerText;
       while (data.rows[text]) {
@@ -156,7 +175,7 @@ function sortTable(click) {
    * which to insert rows. 
    */
   function placeRows(click, data) {
-    const TBODY = document.querySelector('tbody');
+    const TBODY = document.querySelector('.data');
     while (TBODY.rows.length > 0) {
       TBODY.deleteRow(0);
     }

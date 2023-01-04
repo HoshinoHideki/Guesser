@@ -1,33 +1,34 @@
 TODO:
-
-deck_manager:
-    [restructure classes]
-
+deck manager:
+    [] save
+    [] sqlite executions
 guesser.py:
-    [] rename /new/ to /learn/
-    [] rewrite item adder to /edit/deck-name.
     [] multiple-choice quizzing
     [] entry field.
 
 complex:
-    [] sqlite3
-    [] object coder-decoder?
-        [] code a deck class
-        [] make front\back attributes objects.
-    [] Deck\card structure object?
-    [] deleting cards from deck
     [] fancy deck descriptions
     [] wtforms?
     [] random front.
 
-html:
-    [] js confirmation alerts
-    
+html
+    [] reset buttons
+
 js:
+    [] make headers sticky
     [] scroll to bottom
     [] hotkeys
-    [] better js integration
-    [] rewrite coundtown timer
+    [] graphs
+    [] table viewer search bar.
+
+css:
+    [] design button
+
+[] Batch adding
+[] Fail/success ratio.
+[] reset all cards
+[] settings page for front-end
 
 
-[] Make "no cards due" message. 
+dynamic deck templates:
+    [] noun pluralizer

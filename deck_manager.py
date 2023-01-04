@@ -3,8 +3,6 @@ from config import BLANK_CARD, DATE_FORMAT, FACTOR, DATABASE
 import sqlite3
 
 
-
-
 class Flashcard:
     """A simple object, has "front" and "back" attributes.
     """
@@ -249,6 +247,16 @@ class Deck:
                 setattr(card, key, data[key])
 
         self.save()
+    def delete_card(self, id:str):
+        for index, card in enumerate(self.cards):
+            if card.id == id:
+                self.cards.pop(index)
+                break
+        statement = f"""
+            delete from {self.name}
+            where id = {id}
+        """
+        execute_sql(statement)
 
 
     def update_date(self, id:str, front:str, method:str) -> None:
@@ -268,7 +276,7 @@ class Deck:
 
         now = str(datetime.now().replace(microsecond=0)) # current time
         card = self.get_card(id)
-       
+
         if method == "update":
             last = card.get_data(front, "last")
             card.set_data(front, "next", increment_date(last))
@@ -281,7 +289,7 @@ class Deck:
         data = card.__dict__
         self.edit_card(id, data)
 
-     
+
     def increment_id(self) -> None:
         """Generates the next unused id.
 
@@ -343,7 +351,7 @@ class Deck:
         ]
         # sorts cards by next date
         cards.sort(key=lambda card: card.get_data(front, "next"))
-        
+
         if len(cards) == 0 or cards[0].get_data(front, "next") < now:
             #TODO: change this to something else.
             nearest_date = "Right now"  
@@ -435,4 +443,11 @@ def objectify_date(date:str) -> datetime:
     except:
         return "Error"
 
-    return date
+    return datedef execute_sql(statement, *values):
+    with sqlite3.connect(DATABASE) as connection:
+        cursor = connection.cursor()
+        cursor.execute(statement, *values)
+        connection.commit()
+        cursor.close()
+
+def sql_fetch(statement, values):

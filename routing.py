@@ -54,11 +54,12 @@ def browse_deck(deck_name: str):
                                 deck=deck)
 
     if request.method == "POST":
-        if request.form["method"] == "edit":
+        if request.form["action"] == "edit":
             deck.edit_card(request.form["id"], request.form)
-            
-        if request.form["method"] == "add":
+        if request.form["action"] == "add":
             deck.add_card(request.form)
+        if request.form["action"] == "delete":
+            deck.delete_card(id=request.form["id"])
     return redirect(url_for("browse_deck", deck_name=deck.name))
 
 
@@ -123,7 +124,7 @@ def train_deck(deck_name: str, front: str):
                 "learn", 
                 deck_name=deck_name, 
                 front=front))
-        
+
         # picks a card and generates a quiz page.
         else:
             flashcard = deck.make_flashcard(front)
