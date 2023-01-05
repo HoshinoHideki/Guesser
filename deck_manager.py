@@ -21,14 +21,10 @@ class Collection:
     """
 
     def __init__(self) -> None:
-
         # connect to sql database
-        with sqlite3.connect(DATABASE) as connection:
-            cursor = connection.cursor()
-            cursor.execute("select name from decks")
-            self.decks = [
-                Deck(deck_name[0]) for deck_name in cursor]
-            cursor.close()
+        sql_line = "select name from decks"
+        deck_names = [tuple[0] for tuple in execute_sql(sql_line)]
+        self.decks = [Deck(deck_name) for deck_name in deck_names]
 
         self.total_cards = 0
         self.total_due = 0
@@ -105,67 +101,32 @@ class Deck:
 
     def __init__(self, deck_name:str):
         self.name = deck_name
+        statements = {
+            "languages":    f"""select  language_1, 
+                                        language_2 
+                                from    decks 
+                                where   name = '{deck_name}'
+                            """,
 
-        # get data from db.
-        with sqlite3.connect(DATABASE) as connection:
-            cursor = connection.cursor()
+            "description":  f"""select  description
+                                from    decks
+                                where   name = '{deck_name}'
+                            """,
 
-            # language pair
-            statement = f"""select  language_1, 
-                                    language_2 
-                            from decks 
-                            where name = '{deck_name}'
-            """
-            cursor.execute(statement)
-            self.languages = list(cursor.fetchone())
-
-            # card rows
-            statement = f"""select  id, 
-                                    key_0, 
-                                    key_1, 
-                                    key_0_last_date, 
-                                    key_0_next_date, 
-                                    key_1_last_date, 
-                                    key_1_next_date
-                            from {deck_name}
-            """
-            cursor.execute(statement)
-            self.cards = [Card(data, self.languages) for data in cursor]
-            cursor.close()
-        
-
-    def save(self):
-        """Saves the deck to database.
-
-        TODO: Maybe I don't need it anymore?
-        """
-        
-        connection = sqlite3.connect(DATABASE)
-        cursor = connection.cursor()
-
-        for card in self.cards:
-            statement = f"""
-                replace into {self.name} (id, 
+            "cards":        f"""select  id, 
                                         key_0, 
                                         key_1, 
                                         key_0_last_date, 
-                                        key_0_next_date,
-                                        key_1_last_date,
-                                        key_1_next_date,
-                                        deck)
-                values (?, ?, ?, ?, ?, ?, ?, ?);
-                """
-            values = (card.id, 
-                      card.key0, 
-                      card.key1,
-                      card.key0_last,
-                      card.key0_next,
-                      card.key1_last,
-                      card.key1_next,
-                      self.name)
-            cursor.execute(statement, values)
-        connection.commit()
-        cursor.close()
+                                        key_0_next_date, 
+                                        key_1_last_date, 
+                                        key_1_next_date
+                                from    {deck_name}
+                            """,
+        }
+        self.languages = list(execute_sql(statements["languages"])[0])
+        self.description = execute_sql(statements["description"])[0][0]
+        cards = execute_sql(statements["cards"])
+        self.cards = [Card(data, self.languages) for data in cards]
 
 
     def get_card(self, id:str) -> Card:
@@ -227,9 +188,25 @@ class Deck:
         for key in data.keys():
             if key in card.__dict__.keys():
                 setattr(card, key, data[key])
-
-        self.cards.append(card) # add card
-        self.save() # save changes
+        statement = f"""insert into {self.name} (id,
+                                                 key_0,
+                                                 key_1,
+                                                 key_0_last_date, 
+                                                 key_0_next_date,
+                                                 key_1_last_date,
+                                                 key_1_next_date,
+                                                 deck)
+                        values (?, ?, ?, ?, ?, ?, ?, ?);
+        """
+        values = (card.id,
+                  card.key0, 
+                  card.key1,
+                  card.key0_last,
+                  card.key0_next,
+                  card.key1_last,
+                  card.key1_next,
+                  self.name)
+        execute_sql(statement, values)
 
 
     def edit_card(self, id:str, data:dict):
@@ -246,7 +223,19 @@ class Deck:
             if key in card.__dict__.keys():
                 setattr(card, key, data[key])
 
-        self.save()
+        # update the database now
+        statement = f"""update {self.name}
+                        set key_0 = "{card.key0}",
+                            key_1 = "{card.key1}",
+                            key_0_last_date = "{card.key0_last}",
+                            key_0_next_date = "{card.key0_next}",
+                            key_1_last_date = "{card.key1_last}",
+                            key_1_next_date = "{card.key1_next}"
+                            where id = "{card.id}"
+        """
+        execute_sql(statement)
+
+
     def delete_card(self, id:str):
         for index, card in enumerate(self.cards):
             if card.id == id:
@@ -443,11 +432,20 @@ def objectify_date(date:str) -> datetime:
     except:
         return "Error"
 
-    return datedef execute_sql(statement, *values):
+    return date
+
+
+def execute_sql(statement:str, *values:tuple):
+    """Makes an SQL query that doesn't need any results.
+
+    Args:
+        statement (str): _description_
+    """
     with sqlite3.connect(DATABASE) as connection:
         cursor = connection.cursor()
         cursor.execute(statement, *values)
+        result = cursor.fetchall()
         connection.commit()
         cursor.close()
+    return result
 
-def sql_fetch(statement, values):
