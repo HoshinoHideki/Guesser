@@ -92,7 +92,7 @@ class Card:
             },
         }
         setattr(self, keys[front][type], data)
-    
+
 
 class Deck:
     """Deck object.
@@ -141,7 +141,6 @@ class Deck:
         """
 
         card = ""
-        
         for card in self.cards:
             if card.id == id:
                 return card
@@ -158,17 +157,14 @@ class Deck:
         """
 
         self.due = []
-
         # get due cards:
         for card in self.cards:
             next_date = card.get_data(front, "next")
             now = str(datetime.now())
             if next_date < now and next_date != "":
                 self.due.append(card)          
-        
         # sort them by the next due date
         self.due.sort(key=lambda card: card.get_data(front, "next"))
-
         return self.due
 
 
@@ -179,7 +175,6 @@ class Deck:
             data (dict): takes a dictionary from the web form.
         """
 
-        
         card = Card(BLANK_CARD, languages=self.languages) # make a blank
         card.id = self.increment_id() # create ID
 
@@ -218,11 +213,9 @@ class Deck:
         """
 
         card = self.get_card(id)
-
         for key in data.keys():
             if key in card.__dict__.keys():
                 setattr(card, key, data[key])
-
         # update the database now
         statement = f"""update {self.name}
                         set key_0 = "{card.key0}",
@@ -270,11 +263,11 @@ class Deck:
             last = card.get_data(front, "last")
             card.set_data(front, "next", increment_date(last))
             card.set_data(front, "last", now)
-        
+
         elif method == "reset":
             card.set_data(front, "next", now)
             card.set_data(front, "last", now)
-        
+
         data = card.__dict__
         self.edit_card(id, data)
 
@@ -306,7 +299,6 @@ class Deck:
 
         # get the earliest due card from the deck.
         source_card: Card = self.get_due(front)[0]
-        
         # make a flashcard
         flashcard = Flashcard(
             source_card.id, 
@@ -346,7 +338,7 @@ class Deck:
             nearest_date = "Right now"  
         else:
             nearest_date = cards[0].get_data(front, "next")
-        
+
         return nearest_date
 
 
@@ -375,7 +367,7 @@ class Deck:
                 self.unlearned.append(card)
 
         return self.unlearned
-    
+
 
 def increment_date(input_date:str) -> str:
     """
@@ -385,32 +377,27 @@ def increment_date(input_date:str) -> str:
     Args:
         input_date       (str): Date string to be modified.
         factor           (int): Number by which multiplicate dates.
-    
+
     Returns:
         multiplicated date.
     """
 
     now = datetime.now()
     output_date = ""
-
     # Set to now if the date is empty.
     if input_date == "":
         output_date = now
-
     # Check if date is according to the format.
     elif isinstance(datetime.strptime(input_date, DATE_FORMAT),
         datetime):
         input_date = datetime.strptime(input_date, DATE_FORMAT)
         difference = now - input_date
         output_date = now + (difference * FACTOR)
-    
     # In case of any inconsistencies just reset the date to now.
     else:
         output_date = now
-    
     # Strip microseconds.
     output_date = str(output_date.replace(microsecond=0))
-
     return output_date
 
 
@@ -441,6 +428,7 @@ def execute_sql(statement:str, *values:tuple):
     Args:
         statement (str): _description_
     """
+
     with sqlite3.connect(DATABASE) as connection:
         cursor = connection.cursor()
         cursor.execute(statement, *values)
