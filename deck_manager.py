@@ -401,27 +401,6 @@ def increment_date(input_date:str) -> str:
     return output_date
 
 
-def objectify_date(date:str) -> datetime:
-    """Makes a string into a datetime object.
-    Not needed for now. TODO: delete this?
-
-    Args:
-        date (str): date in a string format.
-
-    Returns:
-        datetime: object.
-    """
-
-    try:
-        date = datetime.strptime(date, DATE_FORMAT)
-
-    # In case anything goes wrong.
-    except:
-        return "Error"
-
-    return date
-
-
 def execute_sql(statement:str, *values:tuple):
     """Makes an SQL query that doesn't need any results.
 
