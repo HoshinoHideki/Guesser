@@ -8,6 +8,15 @@
 {% extends "base.html" %}
 {% block content %}
   <h2>Viewing deck "{{deck.name}}":</h2>
+  <table width="30%">
+    <tr>
+      <td class="description">Description:</td>
+      <td width=70%>{{deck.description}}</td>
+      <td>
+        <button onclick="editDescription()">Edit?</button>
+      </td>
+    </tr>
+  </table>
   <div class="table-frame">
     <!--table frame containing the table.-->
     <table class="table"
