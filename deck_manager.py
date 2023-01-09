@@ -12,6 +12,7 @@ class Flashcard:
         self.front = front
         self.back = back
 
+
 class Collection:
     """Whole collection of decks.
     Needed mostly for stats and summaries.
@@ -39,7 +40,7 @@ class Collection:
 class Card:
     """General Card object.
     """  
-    
+
     def __init__(self, data:tuple, languages:list):
         """Card constructor. Takes a tuple from the sql database and
         a languages list.
@@ -78,7 +79,7 @@ class Card:
         }
 
         return keys[type][front]
-    
+
 
     def set_data(self, front:str, type:str, data:str):
         keys = {
