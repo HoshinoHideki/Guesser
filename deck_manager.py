@@ -53,6 +53,7 @@ class Card:
         self.key0_next = data[4]
         self.key1_last = data[5]
         self.key1_next = data[6]
+        self.deck = data[7]
         self.languages = languages
 
 
@@ -120,12 +121,14 @@ class Deck:
                                         key_0_last_date, 
                                         key_0_next_date, 
                                         key_1_last_date, 
-                                        key_1_next_date
-                                from    {deck_name}
+                                        key_1_next_date,
+                                        deck
+                                from    cards
+                                where   deck = '{deck_name}'
                             """,
         }
-        self.languages = list(execute_sql(statements["languages"])[0])
-        self.description = execute_sql(statements["description"])[0][0]
+        self.languages = list(execute_sql(statements["languages"]))
+        self.description = execute_sql(statements["description"])
         cards = execute_sql(statements["cards"])
         self.cards = [Card(data, self.languages) for data in cards]
 
@@ -143,7 +146,7 @@ class Deck:
 
         card = ""
         for card in self.cards:
-            if card.id == id:
+            if card.id == int(id):
                 return card
 
 
@@ -184,7 +187,7 @@ class Deck:
         for key in data.keys():
             if key in card.__dict__.keys():
                 setattr(card, key, data[key])
-        statement = f"""insert into {self.name} (id,
+        statement = f"""insert into cards (
                                                  key_0,
                                                  key_1,
                                                  key_0_last_date, 
@@ -192,9 +195,9 @@ class Deck:
                                                  key_1_last_date,
                                                  key_1_next_date,
                                                  deck)
-                        values (?, ?, ?, ?, ?, ?, ?, ?);
+                        values (?, ?, ?, ?, ?, ?, ?);
         """
-        values = (card.id,
+        values = (
                   card.key0, 
                   card.key1,
                   card.key0_last,
@@ -218,7 +221,7 @@ class Deck:
             if key in card.__dict__.keys():
                 setattr(card, key, data[key])
         # update the database now
-        statement = f"""update {self.name}
+        statement = f"""update cards
                         set key_0 = "{card.key0}",
                             key_1 = "{card.key1}",
                             key_0_last_date = "{card.key0_last}",
@@ -226,7 +229,7 @@ class Deck:
                             key_1_last_date = "{card.key1_last}",
                             key_1_next_date = "{card.key1_next}"
                             where id = "{card.id}"
-        """
+                    """
         execute_sql(statement)
 
 
@@ -236,7 +239,7 @@ class Deck:
                 self.cards.pop(index)
                 break
         statement = f"""
-            delete from {self.name}
+            delete from cards
             where id = {id}
         """
         execute_sql(statement)
@@ -336,7 +339,9 @@ class Deck:
 
         if len(cards) == 0 or cards[0].get_data(front, "next") < now:
             #TODO: change this to something else.
-            nearest_date = "Right now"  
+            nearest_date = "Right now"
+            # nearest_date = cards[0].get_data(front, "next")
+            ...
         else:
             nearest_date = cards[0].get_data(front, "next")
 
@@ -361,8 +366,8 @@ class Deck:
         Returns:
             list: _description_
         """
-        self.unlearned = []
 
+        self.unlearned = []
         for card in self.cards:
             if card.key0_last == "" or card.key1_last == "":
                 self.unlearned.append(card)
@@ -412,8 +417,15 @@ def execute_sql(statement:str, *values:tuple):
     with sqlite3.connect(DATABASE) as connection:
         cursor = connection.cursor()
         cursor.execute(statement, *values)
-        result = cursor.fetchall()
+        rows = cursor.fetchall()
         connection.commit()
         cursor.close()
+    if len(rows) == 1:
+        rows = rows[0]
+    if len(rows) == 1:
+        rows = rows[0]
+    return rows
+
+
     return result
 
