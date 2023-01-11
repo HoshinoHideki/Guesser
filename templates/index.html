@@ -1,7 +1,7 @@
 {# Needs variables: 
-  number_of_decks  (int) : number of decks in the app.
-  collection.total_cards (int): total number of cards in decks.
-  collection.total_due   (int) : total number of cards up for review.
+  number_of_decks (int):  number of decks in the app.
+  total_cards     (int):  total number of cards in decks.
+  total_due       (int):  total number of cards up for review.
 #}
 
 <!--The index page, listing what you can do.-->
@@ -14,7 +14,20 @@
   </p>
   <p>Cards pending currently: {{total_due}}.</p>
   <p>Tell me what would you like to do:</p>
-  <a href ="/train/">Train</a>
-  <br>
-  <a href ="/browse/">Browse</a>
+  <table>
+    <tr>
+      <td>
+        <button onclick="window.location.href='/train/'">
+          Train in remembering the cards in your decks.
+        </button>
+      </td>
+    </tr>
+  <tr>
+    <td>
+      <button onclick="window.location.href='/browse/'" style="width:100%">
+        Browse and edit existing decks.
+      </button>
+    </td>
+  </tr>
+  </table>
 {% endblock %}

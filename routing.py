@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect
 from Guesser import app
 from deck_manager import *
-
+import sql_queries
 
 @app.route("/")
 @app.route("/index/")
@@ -10,12 +10,12 @@ def index():
     in total and how many of them are due.
     """
 
-    collection = Collection() 
+    index = sql_queries.index_info()
     return render_template(
         "index.html",
-        number_of_decks = len(collection.decks),
-        total_cards = collection.total_cards,
-        total_due=collection.total_due,
+        number_of_decks = index["total_decks"],
+        total_cards = index["total_cards"],
+        total_due= index["total_due"],
         )
 
 
