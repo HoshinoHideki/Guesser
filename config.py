@@ -7,7 +7,7 @@ class config:
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # empty template for creating a new card
-BLANK_CARD = ("", "", "", "", "", "", "")
+BLANK_CARD = ("", "", "", "", "", "", "", "")
 
 # time multiplication factor
 FACTOR = 5
