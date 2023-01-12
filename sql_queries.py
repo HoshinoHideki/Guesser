@@ -33,7 +33,7 @@ def request(statement:str, *values:tuple) ->list or dict:
     return dicts
 
 
-def index_info():
+def index_info() -> dict:
     """
     Crunches some numbers for the index page:
         total_decks: number of decks
@@ -43,20 +43,65 @@ def index_info():
     """
 
     query = f"""
-SELECT  COUNT(distinct deck)
-            AS  total_decks,
-        COUNT(id) 
-            AS  total_cards,
-        SUM(CASE    WHEN    key_0_next_date < datetime('now', 'localtime')
-                    AND     key_1_next_date < datetime('now', 'localtime')
-                    THEN    2
-                    WHEN    key_0_next_date < datetime('now', 'localtime')
-                    OR      key_1_next_date < datetime('now', 'localtime') 
-                    THEN    1
-                    ELSE 0
-                    END)
-            AS total_due
+        SELECT  COUNT(distinct deck)
+                    AS  total_decks,
+                COUNT(id)
+                    AS  total_cards,
+                SUM(CASE
+                        WHEN    key_0_next_date = ""
+                        OR      key_0_next_date = ""
+                        THEN    0
+                        WHEN    key_0_next_date < datetime('now', 'localtime')
+                        AND     key_1_next_date < datetime('now', 'localtime')
+                        THEN    2
+                        WHEN    key_0_next_date < datetime('now', 'localtime')
+                        OR      key_1_next_date < datetime('now', 'localtime')
+                        AND     key_1_next_date != ""
+                        THEN    1
+                        ELSE 0
+                        END)
+                    AS total_due
         FROM cards
 """
+    result = request(query)
+    return result
+
+
+def browse_decks():
+    query = """
+        SELECT  decks.name,
+                decks.description,
+                SUM(CASE    WHEN    deck = name
+                            THEN    1 
+                            ELSE    0
+                            END
+                    ) as cards
+        FROM    cards,
+                decks
+        GROUP   BY name;
+    """
+    result = request(query)
+    return result
+
+
+def get_languages(deck_name:str) -> list:
+    query = f"""SELECT  language_1,
+                        language_2
+                FROM    decks
+                WHERE   name = '{deck_name}'
+            """
+    result = request(query)
+    languages = [result["language_1"], result["language_2"]]
+    return languages
+
+def init_deck(deck_name:str) -> dict: 
+    query = f"""
+        SELECT  name,
+                language_1,
+                language_2,
+                description
+        FROM    decks
+        WHERE   name = '{deck_name}'
+    """
     result = request(query)
     return result

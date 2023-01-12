@@ -1,32 +1,50 @@
 {# Needs variables:
-  collection: Collection object with database.
+  decks (list): list of deck dictionaries.
+    deck (dict): data representing a single deck.
+      keys:
+        name: (str)         deck name.
+        description (str):  Longer deck description.
+        cards (int):        Number of cards in the deck.
 #}
 
 <!--Deck selector page.-->
 {% extends "base.html" %}
 {% block content %}
   <p>Select deck:</p>
+
   <table>
     <!--table containing the list of decks-->
     <thead>
       <!--Headings-->
       <th>Deck name</th>
+      <th>Description</th>
       <th>№ of cards</th>
     </thead>
+
     <tbody>
       <!--deck rows-->
-      {% for deck in collection.decks %}
-        <tr class="deck-row">
-          <!-- Single deck row. -->
+
+      {% for deck in decks %}
+        <tr class="deck-row" onclick="getLink(this)">
           <td>
+
             <!-- Deck name -->
             <a href="/browse/{{deck.name}}/">
               {{deck.name}}
             </a>
+
+          </td>
+          <td>
+
+            <!-- Text Description -->
+            {{deck.description}}
+
           </td>
           <td class="number-of-cards">
+
             <!-- Number of cards due. -->
-            <p>{{deck.cards|length}}</p>
+            <p>{{deck.cards}}</p>
+
           </td>
         </tr>
       {% endfor %}

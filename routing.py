@@ -24,14 +24,14 @@ def browse():
     """Displays a list of decks in the app, with number of cards per deck.
 
     Context Args:
-        collection: Collection object.
+        deck_info: Deck information object.
+        Structure:
     """
 
-    collection = Collection()
-
+    decks = sql_queries.browse_decks()
     return render_template(
-        "browse/select_deck.html", 
-        collection = collection,
+        "browse/select_deck.html",
+        decks = decks,
         )
 
 
