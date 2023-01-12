@@ -42,13 +42,13 @@ def browse_deck(deck_name: str):
 
     Args:
         deck_name (str): Name of deck.
-    
+
     Context Args:
         deck (dict): Dictionary containing deck data and information.
     """
-    
+
     deck = Deck(deck_name)
-    
+
     if request.method == "GET":
         return render_template("browse/deck.html", 
                                 deck=deck)
