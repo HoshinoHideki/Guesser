@@ -13,30 +13,6 @@ class Flashcard:
         self.back = back
 
 
-class Collection:
-    """Whole collection of decks.
-    Needed mostly for stats and summaries.
-
-    Returns:
-        Collection: collection of stuff.
-    """
-
-    def __init__(self) -> None:
-        # connect to sql database
-        sql_line = "select name from decks"
-        deck_names = [tuple[0] for tuple in execute_sql(sql_line)]
-        self.decks = [Deck(deck_name) for deck_name in deck_names]
-
-        self.total_cards = 0
-        self.total_due = 0
-
-        # count useful stuff
-        for deck in self.decks:
-            self.total_cards += len(deck.cards)
-            for language in deck.languages:
-                self.total_due += len(deck.get_due(language))
-
-
 class Card:
     """General Card object.
     """  
