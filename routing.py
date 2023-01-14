@@ -72,11 +72,11 @@ def train():
         collection: Collection object.
     """
 
-    collection = Collection()
+    stats = train_data()
 
     return render_template(
         "train/choose_deck.html",
-        collection=collection,
+        stats=stats,
         )
 
 

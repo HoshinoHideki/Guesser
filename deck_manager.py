@@ -1,6 +1,7 @@
 from datetime import datetime
 from config import BLANK_CARD, DATE_FORMAT, FACTOR, DATABASE
 import sqlite3
+import sql_queries
 
 
 class Flashcard:
@@ -15,21 +16,22 @@ class Flashcard:
 
 class Card:
     """General Card object.
-    """  
+    """
 
-    def __init__(self, data:tuple, languages:list):
+    def __init__(self, data:dict, languages:list):
         """Card constructor. Takes a tuple from the sql database and
         a languages list.
 
         """
-        self.id = data[0]
-        self.key0 = data[1]
-        self.key1 = data[2]
-        self.key0_last = data[3]
-        self.key0_next = data[4]
-        self.key1_last = data[5]
-        self.key1_next = data[6]
-        self.deck = data[7]
+        if isinstance(data, dict):
+            self.id = data["id"]
+            self.key0 = data["key_0"]
+            self.key1 = data["key_1"]
+            self.key0_last = data["key_0_last_date"]
+            self.key1_last = data["key_1_last_date"]
+            self.key0_next = data["key_0_next_date"]
+            self.key1_next = data["key_1_next_date"]
+            self.deck = data["deck"]
         self.languages = languages
 
 
@@ -78,35 +80,12 @@ class Deck:
     """
 
     def __init__(self, deck_name:str):
+        deck_data = sql_queries.init_deck(deck_name)
+        card_data = sql_queries.init_cards(deck_name)
         self.name = deck_name
-        statements = {
-            "languages":    f"""select  language_1, 
-                                        language_2 
-                                from    decks 
-                                where   name = '{deck_name}'
-                            """,
-
-            "description":  f"""select  description
-                                from    decks
-                                where   name = '{deck_name}'
-                            """,
-
-            "cards":        f"""select  id, 
-                                        key_0, 
-                                        key_1, 
-                                        key_0_last_date, 
-                                        key_0_next_date, 
-                                        key_1_last_date, 
-                                        key_1_next_date,
-                                        deck
-                                from    cards
-                                where   deck = '{deck_name}'
-                            """,
-        }
-        self.languages = list(execute_sql(statements["languages"]))
-        self.description = execute_sql(statements["description"])
-        cards = execute_sql(statements["cards"])
-        self.cards = [Card(data, self.languages) for data in cards]
+        self.languages = [deck_data["language_1"], deck_data["language_2"]]
+        self.description = deck_data["description"]
+        self.cards = [Card(card, self.languages) for card in card_data]
 
 
     def get_card(self, id:str) -> Card:
@@ -124,6 +103,8 @@ class Deck:
         for card in self.cards:
             if card.id == int(id):
                 return card
+        card = Card(sql_queries.get_card(id), languages=self.languages)
+        return card
 
 
     def get_due(self, front:str) -> list:
@@ -196,17 +177,8 @@ class Deck:
         for key in data.keys():
             if key in card.__dict__.keys():
                 setattr(card, key, data[key])
-        # update the database now
-        statement = f"""update cards
-                        set key_0 = "{card.key0}",
-                            key_1 = "{card.key1}",
-                            key_0_last_date = "{card.key0_last}",
-                            key_0_next_date = "{card.key0_next}",
-                            key_1_last_date = "{card.key1_last}",
-                            key_1_next_date = "{card.key1_next}"
-                            where id = "{card.id}"
-                    """
-        execute_sql(statement)
+
+        sql_queries.edit_card(card.__dict__)
 
 
     def delete_card(self, id:str):
