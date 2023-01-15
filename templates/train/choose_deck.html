@@ -13,15 +13,16 @@
   Select deck:
   <table>
     <!--Table of decks.-->
-    {% for deck in collection.decks %}
+    {% for deck in stats %}
     <tr>
       <!--Heading containing the name of the deck.-->
       <th>{{deck.name}}</th>
+      <tr><td>{{deck.description}}</td></tr>
     </tr>
     <tr>
       <td>
         <!--Table inside table, listing two front languages.-->
-        <table style="width:100%">
+        <table>
           <tr>
             <!--Name of front-->
             <th>Front card</th>
@@ -32,17 +33,23 @@
             <!--Train button.-->
             <th>Action</th>
           </tr>
-          {% for language in deck.languages %}
+          {# for language in deck.languages #}
+          {% for language in deck.cards %}
             <!--Row representing deck front. Made clickable.-->
             <tr class="deck-row" onclick="getLink(this)">
-              <td>{{language}}</td>
+              <td>
+                {#language#}
+                {{language.language}}
+              </td>
                 <!-- Front language name. -->
-              <td>{{deck.get_due(language)|length}}</td>
+              <td>{#deck.get_due(language)|length#}
+                {{language.due_cards}}
+              </td>
                 <!-- Number of Due cards -->
-              <td class="next-due">{{deck.get_nearest(language)}}</td>
+              <td class="next-due">{#deck.get_nearest(language)#}{{language.next_due}}</td>
               <td>
                 <!-- Train button -->
-                <a href="/train/{{deck.name}}/{{language}}">Train.</a>
+                <a href="/train/{{deck.name}}/{{language.language}}">Train.</a>
               </td>
             </tr>
           {% endfor %}
@@ -54,6 +61,5 @@
 <script>
   makeGreen(); // Changes CSS for due decks.
   setCountDown(); // Gets countdown dates.
-  setInterval(refreshCountDown, 1000); // Refreshes countdown every second.
 </script>
 {% endblock %}

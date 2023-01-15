@@ -200,5 +200,6 @@ def add_card(data:dict):
         data["key0_next"],
         data["key1_last"],
         data["key1_next"],
-
+        data["deck"]
     )
+    request(query, values)

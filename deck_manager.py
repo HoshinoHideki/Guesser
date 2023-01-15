@@ -144,25 +144,9 @@ class Deck:
         for key in data.keys():
             if key in card.__dict__.keys():
                 setattr(card, key, data[key])
-        statement = f"""insert into cards (
-                                                 key_0,
-                                                 key_1,
-                                                 key_0_last_date, 
-                                                 key_0_next_date,
-                                                 key_1_last_date,
-                                                 key_1_next_date,
-                                                 deck)
-                        values (?, ?, ?, ?, ?, ?, ?);
-        """
-        values = (
-                  card.key0, 
-                  card.key1,
-                  card.key0_last,
-                  card.key0_next,
-                  card.key1_last,
-                  card.key1_next,
-                  self.name)
-        execute_sql(statement, values)
+        data = card.__dict__
+        data["deck"] = self.name  #add deck name.
+        sql_queries.add_card(data)
 
 
     def edit_card(self, id:str, data:dict):
