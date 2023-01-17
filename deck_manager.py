@@ -1,6 +1,5 @@
 from datetime import datetime
 from config import BLANK_CARD, DATE_FORMAT, FACTOR, DATABASE
-import sqlite3
 import sql_queries
 
 
@@ -99,10 +98,6 @@ class Deck:
             Empty string if didn't find.
         """
 
-        card = ""
-        for card in self.cards:
-            if card.id == int(id):
-                return card
         card = Card(sql_queries.get_card(id), languages=self.languages)
         return card
 
@@ -339,24 +334,6 @@ def increment_date(input_date:str) -> str:
     return output_date
 
 
-def execute_sql(statement:str, *values:tuple):
-    """Makes an SQL query that doesn't need any results.
-
-    Args:
-        statement (str): _description_
-    """
-
-    with sqlite3.connect(DATABASE) as connection:
-        cursor = connection.cursor()
-        cursor.execute(statement, *values)
-        rows = cursor.fetchall()
-        connection.commit()
-        cursor.close()
-    if len(rows) == 1:
-        rows = rows[0]
-    if len(rows) == 1:
-        rows = rows[0]
-    return rows
 
 
     return result
