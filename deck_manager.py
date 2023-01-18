@@ -102,28 +102,6 @@ class Deck:
         return card
 
 
-    def get_due(self, front:str) -> list:
-        """Makes a list of due cards.
-
-        Args:
-            front (str): front language by which to search
-
-        Returns:
-            list: List of due cards.
-        """
-
-        self.due = []
-        # get due cards:
-        for card in self.cards:
-            next_date = card.get_data(front, "next")
-            now = str(datetime.now())
-            if next_date < now and next_date != "":
-                self.due.append(card)          
-        # sort them by the next due date
-        self.due.sort(key=lambda card: card.get_data(front, "next"))
-        return self.due
-
-
     def add_card(self, data:dict):
         """Adds a new card to the deck.
 
