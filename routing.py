@@ -1,25 +1,37 @@
-from flask import Flask, render_template, request, url_for, redirect
-from Guesser import app
-from deck_manager import *
+"""
+Routes collection.
+
+/index/:                starting page.
+/browse/:               browse decks.
+/browse/<deck_name>/:   browse a specific deck.
+/train/:                choose a deck to train.
+
+"""
+
+from flask import render_template, request, url_for, redirect, Blueprint
+import deck_manager
 import sql_queries
 
-@app.route("/")
-@app.route("/index/")
+bp = Blueprint("index", __name__, url_prefix="/")
+
+
+@bp.route("/")
+@bp.route("/index/")
 def index():
     """Starting page. Tells you how many decks there are, how many cards
     in total and how many of them are due.
     """
 
-    index = sql_queries.index_info()
+    index_info = sql_queries.index_info()
     return render_template(
         "index.html",
-        number_of_decks = index["total_decks"],
-        total_cards = index["total_cards"],
-        total_due= index["total_due"],
+        number_of_decks = index_info["total_decks"],
+        total_cards = index_info["total_cards"],
+        total_due= index_info["total_due"],
         )
 
 
-@app.route("/browse/")
+@bp.route("/browse/")
 def browse():
     """Displays a list of decks in the app, with number of cards per deck.
 
@@ -35,7 +47,7 @@ def browse():
         )
 
 
-@app.route("/browse/<deck_name>/", methods=["GET", "POST"])
+@bp.route("/browse/<deck_name>/", methods=["GET", "POST"])
 def browse_deck(deck_name: str):
     """GET: Displays a table of all entries in a selected deck.
     POST: Updates or adds a card to deck via web interface.
@@ -47,10 +59,10 @@ def browse_deck(deck_name: str):
         deck (dict): Dictionary containing deck data and information.
     """
 
-    deck = Deck(deck_name)
+    deck = deck_manager.Deck(deck_name)
 
     if request.method == "GET":
-        return render_template("browse/deck.html", 
+        return render_template("browse/deck.html",
                                 deck=deck)
 
     if request.method == "POST":
@@ -63,7 +75,7 @@ def browse_deck(deck_name: str):
     return redirect(url_for("browse_deck", deck_name=deck.name))
 
 
-@app.route("/train/")
+@bp.route("/train/")
 def train():
     """Lists user decks available for training, as well giving the number
        of due cards and setting a timer until the next due card.
@@ -72,17 +84,16 @@ def train():
         collection: Collection object.
     """
 
-    stats = train_data()
-
+    stats = sql_queries.train_data()
     return render_template(
         "train/choose_deck.html",
         stats=stats,
         )
 
 
-@app.route("/train/<deck_name>/<front>", methods=["GET", "POST"])
+@bp.route("/train/<deck_name>/<front>", methods=["GET", "POST"])
 def train_deck(deck_name: str, front: str):
-    """Actual training interface. 
+    """Actual training interface.
 
     Course of actions:
         1. Get the due cards. If no due cards are up: redirects to new card
@@ -113,10 +124,8 @@ def train_deck(deck_name: str, front: str):
         due_cards       (int): number of cards left. 
     """
 
-    deck = Deck(deck_name)
-
     if request.method == "GET":
-        due_deck = deck.get_due(front)
+        due_deck = deck_manager.get_due(deck_name, front)
 
         # redirects to adding new cards if there are no due.
         if len(due_deck) == 0:
@@ -127,19 +136,20 @@ def train_deck(deck_name: str, front: str):
 
         # picks a card and generates a quiz page.
         else:
-            flashcard = deck.make_flashcard(front)
+            flashcard = deck_manager.make_flashcard(deck_name, front)
             number_of_cards = len(due_deck)
             return render_template(
                 "train/train.html",
                 flashcard=flashcard,
-                deck_name=deck_name,
-                front=front,
-                deck=deck,
+                number_of_cards = number_of_cards,
                 )
-    
+
     if request.method == "POST":
-        flashcard = deck.get_card(request.form["id"])
-        deck.update_date(request.form["id"], front, request.form["method"])
+        deck_manager.update_date(
+            request.form["id"],
+            front,
+            request.form["method"],
+        )
         return redirect(url_for(
             "train_deck", 
             deck_name=deck_name,
@@ -148,7 +158,7 @@ def train_deck(deck_name: str, front: str):
         )
 
 
-@app.route("/learn/<deck_name>/<front>", methods=["POST", "GET"])
+@bp.route("/learn/<deck_name>/<front>", methods=["POST", "GET"])
 def learn(deck_name: str, front: str):
     """An interface for adding new due cards to the deck.
     
@@ -172,37 +182,43 @@ def learn(deck_name: str, front: str):
         deck (dict): Dictionary containing deck data and information.
     """
 
-    
+
     # Runs a confirmation message if accessed via ordinary GET request.
     if request.method == "GET":
         return render_template(
             "new/cards.html", 
             deck_name=deck_name,
             front=front,
-            action = "confirm",
-            )
+            action="confirm",
+        )
 
     if request.method == "POST":
-        deck = Deck(deck_name)
-
-        # learn a new card if there are any 
-        if request.form["action"] == "learn":
-            learn_deck = deck.get_unlearned()
-
-            # prompt to add new cards if no unlearned cards.
-            if len(learn_deck) == 0:
-                return render_template("new/oops.html", deck_name=deck_name)
-
-            else:
-                card = learn_deck[0]
-                deck.set_due(learn_deck[0].id)
+        deck = deck_manager.Deck(deck_name)
+        card = deck_manager.get_unlearned(deck_name)
+        match request.form["action"]:
+            case "learn":
                 return render_template(
                         "new/cards.html",
                         card=card, 
                         deck_name=deck_name,
                         languages=deck.languages
                         )
-
-        if request.form["action"] == "review":
-            return redirect(
-                url_for("train_deck", deck_name=deck_name, front=front))
+            case "review":
+                sql_queries.set_due(card.id)
+                return redirect(
+                    url_for(
+                        "train_deck",
+                        deck_name=deck_name,
+                        front=front,
+                    )
+                )
+            case "update":
+                sql_queries.set_due(card.id)
+                return render_template(
+                        "new/cards.html",
+                        card=card, 
+                        deck_name=deck_name,
+                        languages=deck.languages
+                        )
+            case "abort":
+                return redirect(url_for("train"))
