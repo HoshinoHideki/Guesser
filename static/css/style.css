@@ -16,6 +16,7 @@ table, th, td {
     font-size:          12;
     margin-left:        auto;
     margin-right:       auto;
+    font-size: 13px;
     }
 
 .topnav a {
@@ -78,3 +79,6 @@ table, th, td {
     /* Hidden from view before you need them. */
     display:            none;
 }
+
+.sorted-column {
+    font-weight:        bold;}

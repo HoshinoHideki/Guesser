@@ -33,7 +33,7 @@
         <!--deck rows-->
         {% for item in deck.cards %}
           <tr>
-            <td>{{item.id}}</td>
+            <td>{{item.id_}}</td>
             <td>{{item.key0}}</td>
             <td>{{item.key1}}</td>
             <td>
@@ -56,8 +56,8 @@
           <td><labeL>ID</labeL></td>
           <td>
             <input type="text"
-                   name="id"
-                   id="id"
+                   name="id_"
+                   id="id_"
                    readonly>
           </td>
         </tr>

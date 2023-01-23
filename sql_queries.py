@@ -41,7 +41,7 @@ def index_info() -> dict:
             (one card with both fronts due counts as two)
     """
 
-    query = f"""
+    query = """
         SELECT  COUNT(distinct deck)
                     AS  total_decks,
                 COUNT(id)
@@ -66,7 +66,7 @@ def index_info() -> dict:
     return result
 
 
-def browse_decks():
+def browse_decks() -> dict:
     """ Generate deck-descritpion-numberofcards dict.
     """
 
@@ -149,7 +149,7 @@ def init_cards(deck_name:str) -> list:
     return result
 
 
-def get_card(id:int) -> dict:
+def get_card(card_id:int) -> dict:
     """Gets the card data from db for later inititalization.
 
     Args:
@@ -159,12 +159,12 @@ def get_card(id:int) -> dict:
         dict: card data.
     """
 
-    query = f"select * from cards where id ='{id}'"
+    query = f"select * from cards where id ='{card_id}'"
     result = request(query)
     return result
 
 
-def edit_card(data:dict):
+def edit_card(data:dict) -> None:
     """ Change card data.
 
     Args:
@@ -178,12 +178,20 @@ def edit_card(data:dict):
                         key_0_next_date = "{data["key0_next"]}",
                         key_1_last_date = "{data["key1_last"]}",
                         key_1_next_date = "{data["key1_next"]}"
-                WHERE   id = '{data["id"]}'
+                WHERE   id = '{data["id_"]}'
     """
     request(query)
 
-def add_card(data:dict):
-    query = f"""INSERT INTO CARDS(  key_0,
+
+def add_card(data:dict, deck_name:str) -> None:
+    """ Add a new card to deck.
+
+    Args:
+        data(dict): key-value pairs.
+        deck_name(str): name of the deck.
+    """
+
+    query = """INSERT INTO CARDS(  key_0,
                                     key_1,
                                     key_0_last_date,
                                     key_0_next_date,
@@ -200,6 +208,95 @@ def add_card(data:dict):
         data["key0_next"],
         data["key1_last"],
         data["key1_next"],
-        data["deck"]
+        deck_name
     )
     request(query, values)
+
+
+def delete_card(id_:int) -> None:
+    """ Delete card form db.
+    """
+    query = f"""DELETE FROM cards
+                WHERE id = {id_}
+    """
+    request(query)
+
+
+def train_data() -> list:
+    query = """SELECT   decks.name,
+                        decks.description,
+                        decks.language_1,
+                        SUM(CASE
+                                WHEN    cards.key_0_next_date < 
+                                            datetime('now', 'localtime')
+                                AND     cards.key_0_next_date != ""
+                                AND     cards.deck = name
+                                THEN    1
+                                ELSE    0
+                            END) AS language_1_due_cards,
+                        MIN(cards.key_0_next_date)
+                            FILTER(
+                                WHERE   cards.deck = name)
+                            AS language_1_next_due,
+                        decks.language_2,
+                        SUM(CASE
+                                WHEN    cards.key_1_next_date < 
+                                            datetime('now', 'localtime')
+                                AND     cards.key_0_next_date != ""
+                                AND NOT ""
+                                AND     cards.deck = name
+                                THEN    1
+                                ELSE    0
+                            END) AS language_2_due_cards,
+                        MIN(cards.key_1_next_date)
+                            FILTER(
+                                WHERE   cards.deck = name)
+                            AS language_2_next_due
+                FROM        cards,
+                            decks
+                GROUP BY    decks.name
+    """
+    result = request(query)
+    return result
+
+def get_due(deck_name:str, front:str) -> list:
+    languages = get_languages(deck_name)
+    keys = {
+        languages[0]:"key_0_next_date",
+        languages[1]:"key_1_next_date",
+
+    }
+    key = keys[front]
+    query = f"""SELECT   *
+                FROM     cards
+                WHERE   {key} < datetime('now', 'localtime')
+                AND     {key} != ""
+                AND     deck = '{deck_name}'
+                ORDER BY {key}
+    """
+    result = request(query)
+    if isinstance(result, dict):
+        result = [result]
+    return result
+
+def get_unlearned(deck_name:str) -> dict or None:
+    query = f"""SELECT  *
+                FROM    cards
+                WHERE   key_0_last_date = ""
+                AND     deck = '{deck_name}'
+                OR      key_1_last_date = ""
+                AND     deck = '{deck_name}'
+                LIMIT   1
+    """
+    result = request(query)
+    return result
+
+def set_due(id_:int) -> None:
+    query = f"""UPDATE  CARDS
+                SET     key_0_last_date = datetime('now', 'localtime'),
+                        key_0_next_date = datetime('now', 'localtime'),
+                        key_1_last_date = datetime('now', 'localtime'),
+                        key_1_next_date = datetime('now', 'localtime')
+                WHERE   id = {id_}
+    """
+    request(query)

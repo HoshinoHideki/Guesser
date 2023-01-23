@@ -3,7 +3,7 @@
   flashcard        (Flashcard): Flashcard object.
     flashcard.front      (str): Front data.
     flashcard.back       (str): Back data.
-    flashcard.id         (str): Id data (used for updating).
+    flashcard.id_        (str): Id data (used for updating).
 #}
 
 <!--Card training page.-->
@@ -12,7 +12,7 @@
 {% block content %}
   <div>
     <p>Training session.</p>
-    <p>Cards left due: {{deck.get_due(front)|length}}</p>
+    <p>Cards left due: {{number_of_cards}}</p>
     <p>What is:</p>
     <h1>{{flashcard.front}}</h1>
   </div>
@@ -25,10 +25,10 @@
     <h1>{{flashcard.back}}</h1>
     <br>
     <!--Interacting interface.-->
-    <form action="/train/{{deck_name}}/{{front}}" 
+    <form action="" 
           method="POST">
       <!--Hidden value: card id.-->
-      <input type="hidden" name="id" value="{{flashcard.id}}">
+      <input type="hidden" name="id_" value="{{flashcard.id_}}">
       <!-- Updates next date.-->
       <button name="method" value="update">Good</button>
       <!-- Resets next date.-->

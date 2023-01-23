@@ -1,7 +1,14 @@
 TODO:
+    [] format SQL Code everywhere
+    [] fix JS code for timers
+    [] card attributes
+    [] Card class Keys:
+    [] rewrite Flashcard class to take Card as input.
+
 deck manager:
-    [] save
-    [] sqlite executions
+    [] flashcard self-switch
+    [] rewrite card attributes
+
 guesser.py:
     [] multiple-choice quizzing
     [] entry field.

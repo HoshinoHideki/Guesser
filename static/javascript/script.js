@@ -56,6 +56,10 @@ function deleteItem(click) {
     )
 }
 
+function editDescritpion() {
+  
+}
+
 /** Clicking the row makes you follow the link.
  * When clicking anywhere in the row, client goes via the hyperlink in the
  * third column.
@@ -257,18 +261,24 @@ function setCountDown() {
         if (value != 0) {
           message += value + key;
         }
+        if (value < 0) {
+          message = "Right Now";
+          break
+        }
       }
       let values = Array.from(time.values());
-      if (values.every((a) => a <= 0)) {
+      if (values.every((a) => a == 0)) {
         document.location.reload();
       }
       return message;
     }
-    for (let cell of data) {
-      if (!isNaN(Date.parse(cell.innerText))) {
-        let index = data.indexOf(cell);
-        let message = convertToCountdown(cell.innerText);
-        cells[index].innerText = message;
+    for (let cell = 0; cell<data.length; cell++) {
+      if (data[cell].length == 0) {
+        cells[cell].innerText = "New cards";
+      }
+      else if (!isNaN(Date.parse(data[cell]))) {
+        let message = convertToCountdown(data[cell]);
+        cells[cell].innerText = message;
       }
     }
   }
@@ -276,7 +286,7 @@ function setCountDown() {
   const CELLS = document.querySelectorAll('.next-due');
   const DATA = [];
   for (let cell of CELLS) {
-    DATA.push(cell.cloneNode(true));
+    DATA.push(cell.innerText);
   }
   refreshCountDown(DATA, CELLS);
   setInterval(refreshCountDown, 1000, DATA, CELLS);  

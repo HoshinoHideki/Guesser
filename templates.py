@@ -1,4 +1,4 @@
-import random
+import random, re
 
 
 class Card:
@@ -50,7 +50,7 @@ def make_sentence():
             be = "is"
 
     noun = str(random.choice(noun))
-    line_english = f"{pronoun} {be} a {noun}."
+    line_english = "{pronoun} {be} a {noun}."
     pronoun = pairs[pronoun]
     be = pairs[be]
     noun = pairs[noun]
@@ -58,3 +58,18 @@ def make_sentence():
 
     print("English Line: " + line_english)
     print("Armenian Line:" + line_armenian)
+
+class Phrase:
+    def __init__(self):
+        self.english = "Eat {noun food}"
+        self.turkish = "{noun food} ye."
+
+    def return_tag(self, phrase):
+        tag = re.findall("(?:{)(.*)(?:})", phrase)
+        return tag
+
+p = Phrase()
+tag = p.return_tag(p.english)
+
+for string in tag:
+    print(string.split())

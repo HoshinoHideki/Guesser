@@ -8,7 +8,7 @@ DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # empty template for creating a new card
 BLANK_CARD = {
-    "id":"",
+    "id_":"",
     "key_0":"",
     "key_1":"",
     "key_0_last_date":"",

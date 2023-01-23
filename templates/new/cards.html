@@ -8,7 +8,9 @@
 
 {%extends "base.html"%}
 {%block content%}
+
   {% if action == "confirm" %}
+  
   <!-- Shows a redirect message for adding new cards to the deck. -->
   <p>
     Your deck {{deck_name}}, front {{front}} has no due cards for now.
@@ -23,8 +25,15 @@
       Learn a new card
     </button>
   </form>
-
   {% else %}
+
+    {% if card == ""%}
+      <p>
+        Oops! Looks like there are no new cards in your deck. Consider adding more.
+      </p>
+      <a href="/browse/{{deck_name}}">Browse deck.</a>
+    
+    {% else %}
     <!-- Show the newly learned card. -->
     <p>Here is the new card for the deck "{{deck_name}}"!</p>
     <p>{{languages.0}}: <h2>{{card.key0}}</h2></p>
@@ -35,9 +44,11 @@
       <button name="action" value="review">
         Go to reviews.
       </button>
-       <button name="action" value="learn">
+       <button name="action" value="update">
         Learn another.
       </button>
+      <button name="action" value="abort">Cancel</button>
       </form>
+      {% endif %}
   {% endif %}
 {% endblock %}

@@ -1,9 +1,14 @@
-{# Needs variables:
-  deck_stats (dict): dict containing data needed to render page.
-  deck_name   (str): keys of deck_stats dict.
-  front       (str): language string.
-  due_number  (int): number of cards due.
-  next_due    (str): nearest review date.
+{# Uses variables:
+  stats                    (list): list containing data needed to render page
+  deck                     (dict): Elements in the list
+  deck.name                 (str): Deck name
+  deck.description          (str): Language string
+  deck.language_1           (str): First language
+  deck.language_2           (str): Second language
+  deck.language_1_due_cards (int): Number of cards due
+  deck.language_2_due_cards (int): Number of cards due
+  deck.language_1_next_due  (str): Nearest due date
+  deck.language_2_next_due  (str): Nearest due date
 #}
 
 <!--Prompts user to choose which deck to train.-->
@@ -24,42 +29,48 @@
         <!--Table inside table, listing two front languages.-->
         <table>
           <tr>
-            <!--Name of front-->
             <th>Front card</th>
-            <!--Number of due cards-->
             <th>Due cards</th>
-            <!--Next due date. Fixed width because it can be "Right Now"-->
             <th width="130">Next due:</th>
             <!--Train button.-->
             <th>Action</th>
           </tr>
-          {# for language in deck.languages #}
-          {% for language in deck.cards %}
             <!--Row representing deck front. Made clickable.-->
             <tr class="deck-row" onclick="getLink(this)">
+
+              <!-- Front language name. -->
+              <td>{{deck.language_1}}</td>
+
+              <!-- Number of Due cards -->
+              <td>{{deck.language_1_due_cards}}</td>
+
+              <!-- Next due card time -->
+              <td class="next-due">{{deck.language_1_next_due}}</td>
+
+              <!-- Train button -->
               <td>
-                {#language#}
-                {{language.language}}
-              </td>
-                <!-- Front language name. -->
-              <td>{#deck.get_due(language)|length#}
-                {{language.due_cards}}
-              </td>
-                <!-- Number of Due cards -->
-              <td class="next-due">{#deck.get_nearest(language)#}{{language.next_due}}</td>
-              <td>
-                <!-- Train button -->
-                <a href="/train/{{deck.name}}/{{language.language}}">Train.</a>
+                <a href="/train/{{deck.name}}/{{deck.language_1}}">Train.</a>
               </td>
             </tr>
-          {% endfor %}
+
+            <tr class="deck-row" onclick="getLink(this)">
+              <td>{{deck.language_2}}</td>
+              <!-- Front language name. -->
+              <td>{{deck.language_2_due_cards}}</td>
+                <!-- Number of Due cards -->
+              <td class="next-due">{{deck.language_2_next_due}}</td>
+              <td>
+                <!-- Train button -->
+                <a href="/train/{{deck.name}}/{{deck.language_2}}">Train.</a>
+              </td>
+            </tr>
         </table>
-      </td>   
+      </td>
     </tr>
     {% endfor %}
 </table>
 <script>
   makeGreen(); // Changes CSS for due decks.
-  setCountDown(); // Gets countdown dates.
+  setCountDown(); // Gets countdown dates and starts countdown script.
 </script>
 {% endblock %}
